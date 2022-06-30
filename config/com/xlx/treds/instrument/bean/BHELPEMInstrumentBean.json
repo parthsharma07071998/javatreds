@@ -1,0 +1,48 @@
+{
+"name" : "bhelpeminstrument",
+"tableName" : "BhelPemInstrument",
+"columnPrefix" : "BPI",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "inId",
+			"label": "Instrument Id",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[	
+								{"text":"InstrumentCounter", "value":"I"},
+								{"text":"Obligations", "value":"O"}
+							]
+		},		
+		{
+			"name":"createTime",
+			"label":"Create Time",
+			"dataType":"DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"sentTime",
+			"label":"Sent Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"entityCode",
+			"label":"Entity Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		}
+	]
+}

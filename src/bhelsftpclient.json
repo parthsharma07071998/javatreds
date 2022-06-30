@@ -1,0 +1,19 @@
+{
+	"frequency" : 60
+    ,"srcPath" : "D://app//treds//connectsettings//bhelpem//ready//"
+    ,"success" : "D://treds//connectsettings//bhelpem//success//"
+    ,"destPath" : "/data/BHEL-PEM/bhelincoming/"
+    ,"inSrcPath" : "/data/BHEL-PEM/bheloutgoing/"
+    ,"inSuccess" : "D://treds//connectsettings//bhelpem//in//success//"
+    ,"inDestPath" : "D://treds//connectsettings//bhelpem//in//ready//"
+    ,"extensions" : ""
+    ,"type" : "BLACK"
+    ,"host" : {
+            "user" : "bhelpem"
+            ,"password" : ""
+            ,"key" : "D://treds//connectsettings//bhelpem//bhelpem.ppk"
+            ,"ip":"152.67.6.1"
+            ,"port":22
+    }
+
+}

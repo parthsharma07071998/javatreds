@@ -1,0 +1,38 @@
+{
+"name" : "GEMInvoiceResend",
+"tableName" : "geminvoiceresend",
+"columnPrefix" : "GEM",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"giId",
+			"label":"Gem Invoice Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Success","value":"S"},{"text":"Failed","value":"F"}]
+		},
+		{
+			"name":"createDateTime",
+			"label":"Create Date Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name": "responseData",
+			"label": "Response Data",
+			"dataType": "STRING",
+			"maxLength": 1500
+		}
+	],
+	"fieldGroups": {
+	}	
+}

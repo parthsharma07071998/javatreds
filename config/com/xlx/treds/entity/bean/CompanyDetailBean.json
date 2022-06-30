@@ -1,0 +1,644 @@
+{
+"name" : "company",
+"tableName" : "CompanyDetails",
+"columnPrefix" : "CD",
+"desc" : "Companies : The detailed information about the Company/Entity.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"conversions": ["toUpper"],
+			"wildCard":"CONTAINS",
+			"desc":"Seller/Buyer/Financier Code"
+		},
+		{
+			"name": "companyName",
+			"label": "Name of Applicant Entity",
+			"dataType": "STRING",
+			"minLength": 3,
+			"maxLength": 100,
+			"notNull": true,
+			"pattern":"^([a-zA-Z])|(\\w{1}.*[a-zA-Z\\.()])",
+			"patternMessage":"Name should start with character or number and should have atleast one character",
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "type",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE"
+		},
+		{
+			"name": "supplierFlag",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"nonJson": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "purchaserFlag",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"nonJson": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "financierFlag",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"nonJson": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "constitution",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CONSTITUTION"
+		},
+		{
+			"name": "financierCategory",
+			"label": "Financier Category",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"FINCATEGORY"
+		},
+		{
+			"name": "companyDesc",
+			"label": "Brief Description of Activity",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "cinNo",
+			"label": "CIN No",
+			"dataType":"STRING",
+			"maxLength": 21,
+			"pattern":"^((L|U)\\d{5}[A-Z]{2}\\d{4}(PLC|PTC|GOI|FLC|SGC|FTC|GAP|GAT|NPL|ULL|ULT|OPC)\\d{6})|([A-Z]{3}-\\d{4})$",
+			"patternMessage":"1 char (L Listed - U UnListed) + 5 digit industry code + 2 char state code + 4 digit year of incorporation + PLC or PTC or GOI for public or private + 6 digit registration no. e.g. L43501MH2008PTC239873"
+		},
+		{
+			"name": "regWebsite",
+			"label": "Website",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"cor",
+			"label":"Correspondence",
+			"ref": "com/xlx/treds/config/AddressGST.json"
+		},
+		{
+			"name":"cor",
+			"label":"Correspondence Contact Name",
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"name":"cor",
+			"label":"Correspondence Contact Details",
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"name": "finCertificateNo",
+			"label": "RBI Registration Certificate Number",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "finCertificateIssueDate",
+			"label": "Issue Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "dateOfIncorporation",
+			"label": "Date of Incorporation",
+			"dataType": "DATE",
+			"notNull": false
+		},
+		{
+			"name": "existenceYears",
+			"label": "Years in Business",
+			"dataType": "STRING",
+			"dataSetType":"REFCODE",
+			"dataSetValues":"YEARSINBUSINESS"
+		},
+		{
+			"name": "annualMsmePurchase",
+			"label": "Annual MSME Purchases (lakhs)",
+			"dataType": "DECIMAL",
+			"integerLength": 15,
+			"decimalLength": 2
+		},
+		{
+			"name": "msmeStatus",
+			"label": "MSME Status",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"MSMESTATUS"
+		},
+		{
+			"name": "msmeRegType",
+			"label": "MSME Registration Type",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"MSME_REG_TYPE"
+		},
+		{
+			"name": "msmeRegNo",
+			"label": "MSME Registration No",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "msmeRegDate",
+			"label": "Registration Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "caName",
+			"label": "Name of CA Firm",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "caMemNo",
+			"label": "Membership No of CA Firm",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "invtDateCPM",
+			"label": "Date of Invt in Core Plant and Machinvery as per CA Certificate",
+			"dataType": "DATE"
+		},
+		{
+			"name": "invtCPM",
+			"label": "Invt in Core Plant and Machinvery (lakhs)",
+			"dataType": "DECIMAL",
+			"integerLength": 15,
+			"decimalLength": 2
+		},
+		{
+			"name": "caCertDate",
+			"label": "Date of CA Certificate",
+			"dataType": "DATE"
+		},
+		{
+			"name":"customer1",
+			"label":"Customer",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"desc":"Customer 1"
+		},
+		{
+			"name":"customer2",
+			"label":"Customer",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"desc":"Customer 2"
+		},
+		{
+			"name":"customer3",
+			"label":"Customer",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"desc":"Customer 3"
+		},
+		{
+			"name":"customer4",
+			"label":"Customer",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"desc":"Customer 4"
+		},
+		{
+			"name":"customer5",
+			"label":"Customer",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"desc":"Customer 5"
+		},
+		{
+			"name":"customer1City",
+			"label":"Customer City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"customer2City",
+			"label":"Customer City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"customer3City",
+			"label":"Customer City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"customer4City",
+			"label":"Customer City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"customer5City",
+			"label":"Customer City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"turnOver1",
+			"label":"Turn Over",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"turnOver2",
+			"label":"Turn Over",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"turnOver3",
+			"label":"Turn Over",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"turnOver4",
+			"label":"Turn Over",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"turnOver5",
+			"label":"Turn Over",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"yearsInRelation1",
+			"label":"Years In Relation",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"yearsInRelation2",
+			"label":"Years In Relation",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"yearsInRelation3",
+			"label":"Years In Relation",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"yearsInRelation4",
+			"label":"Years In Relation",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"yearsInRelation5",
+			"label":"Years In Relation",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"industry",
+			"label": "Industry",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"company/industry"
+		},
+		{
+			"name":"subSegment",
+			"label": "Sub-segment",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"sector",
+			"label": "Sector",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"SECTOR"
+		},
+		{
+			"name": "exportOrientation",
+			"label": "Export Orientation",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"EXPORTORIENTATION"
+		},
+		{
+			"name":"currency",
+			"label": "Currency",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "vat",
+			"label": "VAT",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "cst",
+			"label": "CST No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "lbt",
+			"label": "LBT No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "stRegNo",
+			"label": "Service Tax Registration No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_ST"
+		},
+		{
+			"name": "stExempted",
+			"label": "Service Exempted from Service Tax",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "exciseRegNo",
+			"label": "Excise Registration No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "tan",
+			"label": "TAN",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "invtPnM",
+			"label": "Invt. Plant & Machine. (lakhs)",
+			"dataType": "DECIMAL",
+			"integerLength": 15,
+			"decimalLength": 2
+		},
+		{
+			"name": "salesTo",
+			"label": "Sales Turnover (lakhs)",
+			"dataType": "DECIMAL",
+			"integerLength": 15,
+			"decimalLength": 2
+		},
+		{
+			"name": "salesYear",
+			"label": "Financial Year",
+			"dataType": "STRING",
+			"maxLength": 7,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"FINANCIALYEAR"
+		},
+		{
+			"name": "approvalStatus",
+			"label": "Approval Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CompanyApprovalStatus",
+			"desc":"Draft/Approved/Submitted/Rejected/Returned"
+		},
+        {
+			"name": "registrationNo",
+			"label": "Registration No",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "refId",
+			"label": "Ref Id",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "cashDiscountPercent",
+			"label": "Cash Discount %",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name": "enableLocationwiseSettlement",
+			"label": "Enable Locationwise Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"companyFlag",
+			"label":"Comapany Flag",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Buyer", "value":"B"},{"text":"Seller", "value":"S"},{"text":"Financier", "value":"F"}],
+			"desc":"Company Flag."
+		},
+		{
+			"name": "udin",
+			"label": "Udin No",
+			"dataType": "STRING",
+			"maxLength": 18,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_UDIN"
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1
+		},
+		{
+			"name": "documentsUrl",
+			"label":"Document Url",
+			"dataType":"STRING",
+			"maxLength":500
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name": "loginId",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "creatorLoginId",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "contacts",
+			"label": "Contacts",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyContactBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "locations",
+			"label": "Locations",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyLocationBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "bankDetails",
+			"label": "Bank Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyBankDetailBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "documents",
+			"label": "Documents",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyKYCDocumentBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "shareIndividuals",
+			"label": "Modification Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyShareIndividualBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "shareEntities",
+			"label": "Modification Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.entity.bean.CompanyShareEntityBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name":"tab",
+			"dataType":"INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		}
+	],
+"fieldGroups" : {
+		"financier": ["existenceYears","financierCategory"],
+		"purchaser": ["sector","existenceYears","annualMsmePurchase","exportOrientation","currency","salesTo","salesYear"],
+		"supplier": ["sector","existenceYears","msmeStatus","caName","caMemNo","caCertDate","exportOrientation","currency","salesTo","salesYear","invtDateCPM","invtCPM"],
+		"purchaserManuf": ["sector","existenceYears","annualMsmePurchase","exportOrientation","currency","salesTo","salesYear","gstn"],
+		"supplierManuf": ["sector","existenceYears","msmeStatus","caName","caMemNo","caCertDate","exportOrientation","currency","salesTo","salesYear","invtDateCPM","invtCPM","gstn"],
+		"purchaserServ": ["sector","existenceYears","annualMsmePurchase","exportOrientation","currency","salesTo","salesYear","gstn"],
+		"supplierServ": ["sector","existenceYears","msmeStatus","caName","caMemNo","caCertDate","exportOrientation","currency","salesTo","salesYear","invtDateCPM","invtCPM","gstn"],
+		"approvalStatus":["approvalStatus","registrationNo"],
+		"corAddDetails" :["corLine1", "corLine2", "corLine3", "corCountry", "corState", "corDistrict", "corCity", "corZipCode", "corEmail", "corTelephone", "corMobile", "corFax", "corSalutation", "corFirstName", "corMiddleName", "corLastName","gstn"],
+		"incomingRequestOnBoarding": ["companyName","companyFlag","constitution","pan","creatorIdentity"],
+		"outgoingRequestOnBoarding":["code","companyName","companyFlag","constitution","pan"],
+		"insertOnBoarding" :["id","code","companyName","constitution","pan","recordCreator","recordCreateTime","recordVersion","supplierFlag","purchaserFlag","financierFlag","creatorIdentity"],
+		"updateCompany" : ["code","companyName","companyDesc","nationality","documentCat","cst","financierCategory","finCertificateNo","finCertificateIssueDate","dateOfIncorporation","cinNo","registrationNo","existenceYears","industry","subSegment","sector","exportOrientation","corLine1","corLine2","corLine3","corZipCode","corCity","corDistrict","corState","corCountry","corSalutation","corFirstName","corMiddleName","corLastName","corEmail","corTelephone","corMobile","corFax","msmeStatus","msmeRegType","msmeRegNo","msmeRegDate","caName","caMemNo","caCertDate","invtCPM","annualMsmePurchase","salesTo","salesYear","customer1","customer1City","turnOver1","yearsInRelation1","customer2","customer2City","turnOver2","yearsInRelation2","customer3","customer3City","turnOver3","yearsInRelation3","customer4","customer4City","turnOver4","yearsInRelation4","customer5","customer5City","turnOver5","yearsInRelation5","udin","regWebsite","contacts","locations","bankDetails","documents","shareIndividuals","shareEntities","currency","documentsUrl"],
+		"updateCompanyDB" : ["code","companyName","companyDesc","nationality","documentCat","cst","financierCategory","finCertificateNo","finCertificateIssueDate","dateOfIncorporation","cinNo","registrationNo","existenceYears","industry","subSegment","sector","exportOrientation","corLine1","corLine2","corLine3","corZipCode","corCity","corDistrict","corState","corCountry","corSalutation","corFirstName","corMiddleName","corLastName","corEmail","corTelephone","corMobile","corFax","msmeStatus","msmeRegType","msmeRegNo","msmeRegDate","caName","caMemNo","caCertDate","invtCPM","annualMsmePurchase","salesTo","salesYear","customer1","customer1City","turnOver1","yearsInRelation1","customer2","customer2City","turnOver2","yearsInRelation2","customer3","customer3City","turnOver3","yearsInRelation3","customer4","customer4City","turnOver4","yearsInRelation4","customer5","customer5City","turnOver5","yearsInRelation5","udin","regWebsite","contacts","locations","bankDetails","documents","shareIndividuals","shareEntities","approvalStatus","currency","documentsUrl"],
+		"update": ["id","code","companyName","type","supplierFlag","purchaserFlag","financierFlag","constitution","financierCategory","companyDesc","cinNo","corLine1","corLine2","corLine3","corCountry","corState","corDistrict","corCity","corZipCode","corEmail" ,"corTelephone","corMobile","corFax","corSalutation","corFirstName","corMiddleName","corLastName","gstn","pan","nationality","documentCat","cst","tan","currency","invtPnM","finCertificateNo","finCertificateIssueDate","dateOfIncorporation","registrationNo","existenceYears","exciseRegNo","industry","subSegment","sector","exportOrientation","msmeStatus","msmeRegType","msmeRegNo","msmeRegDate","caName","caMemNo","caCertDate","invtCPM","invtDateCPM","annualMsmePurchase","salesTo","salesYear","approvalStatus","customer1","customer1City","turnOver1","yearsInRelation1","customer2","customer2City","turnOver2","yearsInRelation2","customer3","customer3City","turnOver3","yearsInRelation3","customer4","customer4City","turnOver4","yearsInRelation4","customer5","customer5City","turnOver5","yearsInRelation5","udin","regWebsite","vat","lbt","refId","stRegNo","stExempted","enableLocationwiseSettlement","cashDiscountPercent","shareEntities","shareIndividuals","documents","bankDetails","locations","contacts","creatorLoginId","loginId","companyFlag","recordUpdator","recordUpdateTime","recordVersion","documentsUrl"],
+		"updateCompanyName": ["companyName"],
+		"startModification": ["approvalStatus"]
+	}
+
+}

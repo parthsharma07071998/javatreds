@@ -1,0 +1,22 @@
+{
+"name" : "factunitwatch",
+"tableName" : "FactoringUnitWatch",
+"columnPrefix" : "FUW",
+"desc" : "Factoring unit watch : The table matains the factoring units added by financier to his watch window accross logins.",
+"fields" : [
+		{
+			"name": "fuId",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal id of the factoring unit added to the watch window."
+		},
+		{
+			"name": "auId",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal id of the logged-in-user of the entity(Financier)."
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+"subject":"Change in rating",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam</b><br>
+<br>
+New ratings for the following Buyers were detected
+<table border='1px'>
+		<tr>
+			<th> Buyer Code</th>
+		</tr>
+		{{#buyers}}
+		<tr>
+			<td>
+				{{.}}
+			</td>
+		</tr>
+	{{/buyers}}
+</table>
+Please note that the entry is created based on information received from the Buyer and validated from the website of rating agency.
+You can check the same in the Buyer Seller profile screen.
+Regards 
+RXIL Credit team  
+<br>
+{{{footer}}}
+",
+}

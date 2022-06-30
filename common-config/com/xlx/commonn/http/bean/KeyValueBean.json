@@ -1,0 +1,22 @@
+{
+"name": "keyvalue",
+"tableName": "KeyValue",
+"columnPrefix": "KV",
+"desc": "Key Value Bean",
+"fields" : [
+		{
+			"name": "name",
+			"label": "Name",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name":"value",
+			"label":"Value",
+			"dataType":"STRING",
+			"nonDatabase":true
+		}
+	],
+"fieldGroups": {
+    }
+}

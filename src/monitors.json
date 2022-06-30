@@ -1,0 +1,161 @@
+{
+	"monitors":[
+		{
+			"code":"eodAndSessionMonitor",
+			"name":"EOD And Session Check",
+			"description":"Entities who's at least one user is online",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.EodAndSessionCheckMonitor", 
+			"templateName":"eodAndSessionMonitor",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"holidayCheck",
+			"name":"Holiday Check Monitor",
+			"description":"HolidayCheck",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.HolidayCheckMonitor", 
+			"templateName":"holidayCheck",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "b"
+		},
+		{
+			"code":"instrumentMonitor",
+			"name":"Instrument Details",
+			"description":"Instrument Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.InstrumentMonitor", 
+			"templateName":"instrumentMonitor",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"payFileMonitor",
+			"name":"Payment File Status",
+			"description":"Payfile Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.PayFileMonitor", 
+			"templateName":"payFileMonitor",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"onlineEntityMonitor",
+			"name":"Online Entity Monitor",
+			"description":"Count of Entities which are online",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.OnlineEntityMonitor", 
+			"templateName":"onlineEntityMonitor",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"ioclConnectivityCheck",
+			"name":"Iocl Connectivity Check",
+			"description":"Maximum Time Stamp",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.IoclConnectivityCheck", 
+			"templateName":"ioclConnectivityCheck",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"monetagoConnectivityCheck",
+			"name":"Monetago Connectivity Check",
+			"description":"Monetago Connectivity Check",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.MonetagoConnectivityCheck", 
+			"templateName":"monetagoConnectivityCheck",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"registrationDetails",
+			"name":"Registration Details",
+			"description":"Registration Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.RegistrationDetails", 
+			"templateName":"registrationDetails",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"billDetails",
+			"name":"Bill Details",
+			"description":"Bill Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.BillDetails", 
+			"templateName":"billDetails",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"registeredEntities",
+			"name":"Registered Details",
+			"description":"Registered Entity Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.RegistredEntities", 
+			"templateName":"registeredEntities",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"purchaserFuReport",
+			"name":"Purchaser Factoring Details",
+			"description":"Purchaser Factoring Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.PurchaserFuReportMonitor", 
+			"templateName":"purchaserFuReport",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"supplierFuReport",
+			"name":"Supplier Factoring Details",
+			"description":"Supplier Factoring Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.SupplierFuReportMonitor", 
+			"templateName":"supplierFuReport",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		},
+		{
+			"code":"financierFuReport",
+			"name":"Financier Factoring Details",
+			"description":"Financier Factoring Details",
+			"frequency":60,
+			"startDateTime":"01-04-2019",
+			"dataHandler":"com.xlx.treds.monitor.bean.FinancierFuReportMonitor", 
+			"templateName":"financierFuReport",
+			"group":"firstgroup",
+			"secure" : true,
+			"secKey" : "a"
+		}
+	]
+}
+

@@ -1,0 +1,81 @@
+{
+"name" : "caprate",
+"tableName" : "PurchaserSupplierCapRate",
+"columnPrefix" : "PSL",
+"desc" : "Buyer Seller Cap Rate : The table stores cap rates defined by the buyer for self and by the Seller for all Buyers.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true,
+			"desc":"Internal unique identifier of the record."
+		},
+		{
+			"name":"entityCode",
+			"label":"Buyer/Seller Code",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/pursup"
+
+		},
+		{
+			"name":"counterEntityCode",
+			"label":"Buyer Code",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name":"fromHaircut",
+			"label":"From Haircut",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"toHaircut",
+			"label":"To Haircut",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"fromUsance",
+			"label":"From Usance",
+			"dataType":"INTEGER",
+			"minValue": 1
+		},
+		{
+			"name":"toUsance",
+			"label":"To Usance",
+			"dataType":"INTEGER",
+			"minValue": 1
+		},
+		{
+			"name":"capRate",
+			"label":"Cap Rate %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"entityName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"counterEntityName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups": {
+    }
+}

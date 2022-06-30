@@ -1,0 +1,26 @@
+select fuid
+,  (CASE WHEN FUSTATUS ='LEG3' THEN 'Leg 3 Generated'
+WHEN FUSTATUS ='EXP' THEN 'Expired'
+WHEN FUSTATUS ='WTHDRN' THEN 'Withdrawn'
+WHEN FUSTATUS ='FACT' THEN 'Factored'
+WHEN FUSTATUS ='L1SET' THEN 'Leg 1 Settled'
+WHEN FUSTATUS ='L1FAIL' THEN 'Leg 1 Failed'
+WHEN FUSTATUS ='L2SET' THEN 'Leg 2 Settled'
+WHEN FUSTATUS ='L2FAIL' THEN 'Leg 2 Failed'
+ELSE '' END) AS "FU Status"
+ ,(CASE WHEN BDSTATUS ='ACT' THEN 'Active'
+WHEN BDSTATUS ='DEL' THEN 'Deleted'
+WHEN BDSTATUS ='DLO' THEN 'Deleted By Owner'
+WHEN BDSTATUS ='APT' THEN 'Accepted'
+WHEN BDSTATUS ='REJ' THEN 'Auto Accept Failed'
+WHEN BDSTATUS ='EXP' THEN 'EXPIRED'
+WHEN BDSTATUS ='NAT' THEN 'Not Accepted'
+ELSE '' END) AS "Bid Status"
+, FURECORDCREATETIME fucreatedatetime
+, FUACCEPTDATETIME 
+from FactoringUnits
+LEFT OUTER JOIN Bids ON ( BDFUId = FUId  )
+WHERE FuRecordversion > 0 
+and bdid is not null
+and BDFINANCIERENTITY = 'ST0000034' 
+order by fuid

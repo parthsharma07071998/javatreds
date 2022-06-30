@@ -1,0 +1,22 @@
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Authorsized Person' AS EntityType
+, (TRIM(CCSALUTATION) || ' ' || TRIM(CCFIRSTNAME) || ' ' || TRIM(CCMIDDLENAME) || ' ' || TRIM(CCLASTNAME)) AS PersonName
+, CCTelephone AS Telphone
+, CCMobile AS Mobile
+, CCEMAIL AS Email
+FROM COMPANYDETAILS, COMPANYCONTACTS
+WHERE CDRECORDVERSION > 0
+AND CCRECORDVERSION > 0
+AND CDID = CCCDID
+AND CCAUTHPER = 'Y'
+and CCAUTHPERAUTHDATE is null

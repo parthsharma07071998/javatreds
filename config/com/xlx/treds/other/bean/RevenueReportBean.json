@@ -1,0 +1,250 @@
+{
+"name" : "revenuereport",
+"columnPrefix" : "FU",
+"fields" : [
+		{
+			"name":"id",
+			"label":"Factoring Unit Id.",
+			"dataType":"STRING"
+		},
+		{
+			"name":"txnDate",
+			"label":"Transaction Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"settleDate",
+			"label":"Settlement Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"dueDate",
+			"label":"Due Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"purchaserName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"purchaserGstn",
+			"label":"GSTN of Buyer",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"supplierName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"supplierGstn",
+			"label":"GSTN of Seller",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"chargeEntityType",
+			"label":"Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"tenor",
+			"label":"Tenor",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"amount",
+			"label":"Factored Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"revenueType",
+			"label":"Revenue Type",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"rate",
+			"label":"Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name":"charges",
+			"label":"Charges",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"cgst",
+			"label":"CGST",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"sgst",
+			"label":"SGST",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"igst",
+			"label":"IGST",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"generated",
+			"label":"Inv Generated",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"invNo",
+			"label":"Inv No",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"entityGstSummary",
+			"dataType":"STRING",
+			"maxLength":1000,
+			"nonJson":true
+		},
+		{
+			"name":"costBearingEntity",
+			"label":"Cost Bearing Entity",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"toDate",
+			"label":"To Txn Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Txn Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"finName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"cbGenerated",
+			"label":"Inv Generated",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"cbInvNo",
+			"label":"Inv No",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"finGenerated",
+			"label":"Inv Generated",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"finInvNo",
+			"label":"Inv No",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"financier",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"purchaser",
+			"label":"Purchaser",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"supplier",
+			"label":"Supplier",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"period1ChargeBearer",
+			"label":"Period 1 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1ChargePercent",
+			"label":"Period 1 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2ChargeBearer",
+			"label":"Period 2 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2ChargePercent",
+			"label":"Period 2 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3ChargeBearer",
+			"label":"Period 3 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3ChargePercent",
+			"label":"Period 3 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		}
+	],
+	"fieldGroups": {
+	}	
+}

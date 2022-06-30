@@ -1,0 +1,534 @@
+{
+"name" : "appentity",
+"tableName" : "AppEntities",
+"columnPrefix" : "AE",
+"desc" : "App Entity",
+"fields" : [
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType":"PRIMARY",
+			"notNull": true,
+			"conversions": ["toUpper"],
+			"wildCard":"CONTAINS",
+			"desc":"Seller/Buyer/Financier Code"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "name",
+			"label": "Name",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"notNull": true,
+			"wildCard":"CONTAINS"
+		},
+		{
+			"name": "type",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE",
+			"desc":"Seller/Buyer/Financier/Aggregator"
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AppEntityStatus",
+			"desc":"Active/Suspended/Disabled"
+		},
+		{
+			"name": "msmeStatus",
+			"label": "MSME Status",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"MSMESTATUS"
+		},
+		{
+			"name": "promoterCategory",
+			"label": "Seller Category",
+			"dataType":"STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"PROMOTERCATEGORY"
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "blockedFinanciers",
+			"label": "Blocked Financiers",
+			"nonJson":true,
+			"jsonField":"blockedFinancierList",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "blockedFinancierList",
+			"label": "Blocked Financiers",
+			"nonDatabase":true,
+			"dataType": "STRING",
+			"allowMultiple":true,
+			"maxLength": 10
+		},
+		{
+			"name": "acceptedAgreementVersion",
+			"label": "Accepted Agreement Version",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "ips",
+			"label": "IPs",
+			"dataType":"STRING",
+			"maxLength": 200,
+			"nonJson":true
+		},
+		{
+			"name": "ipList",
+			"label": "IPs",
+			"dataType":"STRING",
+			"maxLength": 15,
+			"nonDatabase":true,
+			"allowMultiple": true,
+			"maxItems":10,
+			"pattern": "PATTERN_IP"
+		},
+		{
+			"name": "salesCategory",
+			"label": "Sales Category",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory"
+		},
+		{
+			"name":"twoFaType",
+			"label":"Two FA Type",
+			"dataType":"STRING",
+			"maxLength":10,
+			"nonDatabase":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.bean.IAppUserBean.TwoFAType"
+		},
+		{
+			"name":"twoFaTypeDesc",
+			"label":"Two FA Type",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name":"settings",
+			"dataType":"STRING",
+			"maxLength":500,
+			"nonJson":true
+		},
+		{
+			"name": "requiredAgreementVersion",
+			"label": "Required Agreement Version",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "allowObliSplitting",
+			"label": "Allow Obligation Splitting",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "aggPurchaser",
+			"label": "Aggregator Purchaser",
+			"nonJson":true,
+			"nonDatabase":true,
+			"jsonField":"purchaserList",
+			"dataType": "STRING"
+		},
+		{
+			"name": "purchaserList",
+			"label":"Purchaser List",
+			"dataType": "STRING",
+			"nonDatabase":true,
+			"allowMultiple":true,
+			"maxLength": 50,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name": "instLevel",
+			"label": "Instrument Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "instCntrLevel",
+			"label": "Instrument Counter Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "bidLevel",
+			"label": "Bid Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "platformLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "buyerLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "buyerSellerLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "userLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name":"checkerLevelSetting",
+			"dataType":"STRING",
+			"maxLength":200,
+			"nonJson":true
+		},
+		{
+			"name":"preferences",
+			"dataType":"OBJECT",
+			"dbLength":1000,
+			"objectClass":"com.xlx.treds.entity.bean.AppEntityPreferenceBean" 
+		},
+		{
+			"name":"rating",
+			"label":"Rating",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_VALUE"
+		},
+		{
+			"name":"financierCount",
+			"label":"Financier Count",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"creditReport",
+			"label":"Credit Report",
+			"dataType":"STRING",
+			"maxLength":50
+		},
+		{
+			"name": "regExpiryDate",
+			"label": "Registration Expiry Date",
+			"dataType": "DATE",
+			"desc":"Registration Expiry Date"
+		},
+		{
+			"name": "extendedRegExpiryDate",
+			"label": "Extended Registration Expiry Date",
+			"dataType": "DATE",
+			"desc":"Registration Expiry Date"
+		},
+		{
+			"name": "effectiveRegExpiryDate",
+			"label": "Effective Expiry Date",
+			"dataType": "DATE",
+			"nonDatabase": true,
+			"desc":"Effective Registration Expiry Date"
+		},
+		{
+			"name": "aggregatorInfo",
+			"label": "Aggregator Info",
+			"dataType": "STRING",
+			"maxLength":500
+		},
+		{
+			"name": "aggCompanyGSTN",
+			"label": "Reg. GST No.",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_GST",
+			"desc":"GST No.",
+			"nonDatabase": true
+		},
+		{
+			"name": "aggContactPerson",
+			"label": "Contact Person",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name": "aggContactMobile",
+			"label": "Contact Mobile Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_MOBILE",
+			"nonDatabase": true
+		},
+		{
+			"name": "aggContactEmail",
+			"label": "Contact Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"pattern": "PATTERN_EMAIL",
+			"nonDatabase": true
+		},
+		{
+			"name": "rmUserId",
+			"label": "RM User Id",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "user/all?adm=Y"
+		},
+		{
+			"name": "rmUserLogin",
+			"label": "RM User Login",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rmUserName",
+			"label": "RM User Name",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rsmUserId",
+			"label": "RSM User Id",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "user/all?adm=Y"
+		},
+		{
+			"name": "rsmUserLogin",
+			"label": "RM User Login",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rsmUserName",
+			"label": "RSM User Name",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rmLocation",
+			"label": "RM Location",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/rmloc"
+		},
+		{
+			"name": "rmLocationDesc",
+			"label": "RM Location Desc",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rsmLocation",
+			"label": "RSM Location",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/rmloc"
+		},
+		{
+			"name": "rsmLocationDesc",
+			"label": "RSM Location Desc",
+			"nonDatabase":true,
+			"dataType":"STRING"
+		},
+		{
+			"name": "rmSettings",
+			"label": "RM Settings",
+			"dataType": "STRING",
+			"maxLength":500
+		},
+		{
+			"name":"businessSource",
+			"label":"Business Source",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Direct", "value":"D"},{"text":"Referred", "value":"R"}]
+		},
+		{
+			"name": "refererCode",
+			"label": "Referer Code",
+			"nonDatabase":true,
+			"dataType": "STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+  			"dataSetValues":"appentity/aggregator"
+		},
+		{
+			"name": "transFeeType",
+			"label": "Trans Fee Type",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"maxLength": 1
+		},
+		{
+			"name": "regFeeType",
+			"label": "Reg Fee Type",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"maxLength": 1
+		},
+		{
+			"name": "annFeeType",
+			"label": "Ann Fee Type",
+			"nonDatabase":true,
+			"dataType":"STRING",
+			"maxLength": 1
+		},
+		{
+			"name": "transFeePerc",
+			"label": "Trans Fee",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name": "regFeePerc",
+			"label": "Reg Fee",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name": "annFeePerc",
+			"label": "Ann Fee",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name": "transFeeAmt",
+			"label": "Trans Fee Absolute",
+			"nonDatabase":true,
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "regFeeAmt",
+			"label": "Reg Fee Absolute",
+			"nonDatabase":true,
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "annFeeAmt",
+			"label": "Ann Fee Absolute",
+			"nonDatabase":true,
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "cfId",
+			"label": "Custom Fields Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "enableLocationwiseSettlement",
+			"label": "Enable Locationwise Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"updateBlockedFinanciers":["code","blockedFinancierList","blockedFinanciers","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateClickWrap":["code","acceptedAgreementVersion","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateIpList":["code","ips","ipList","recordUpdator","recordUpdateTime","recordVersion"],
+		"update2FaSettings":["code","settings","twoFaType","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateReqVer":["code","requiredAgreementVersion","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateSplitSettings":["code","allowObliSplitting","recordUpdator","recordUpdateTime","recordVersion"],
+		"insertPurchaserAggregator":["code","cdId","purchaserList","type","name","status","aggregatorInfo","aggCompanyGSTN","aggContactPerson","aggContactMobile","aggContactEmail","recordCreator","recordCreateTime","recordVersion"],
+		"updatePurchaserAggregator":["code","purchaserList","name","status","aggregatorInfo","aggCompanyGSTN","aggContactPerson","aggContactMobile","aggContactEmail","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateCheckerLimits":["code","checkerLevelSetting","recordUpdator","recordUpdateTime","recordVersion"],
+		"updatePreferences":["code","preferences","enableLocationwiseSettlement","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateAppEntityName":["name"],
+		"updateCreditReport":["creditReport"],
+		"updateRegExpiry":["regExpiryDate","extendedRegExpiryDate"],
+		"refererDetails":["code","aggCompanyGSTN","aggContactPerson","aggContactMobile","aggContactEmail"],
+		"copyRm":["rmUserId","rsmUserId","regFeeType","transFeeType","annFeeType","regFeePerc","transFeePerc","annFeePerc","regFeeAmt","transFeeAmt","annFeeAmt","refererCode","businessSource"],
+		"updateRm":["rmUserId","rsmUserId","rmSettings"],
+		"updateCustomFields":["cfId"]
+	}
+}

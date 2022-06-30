@@ -1,0 +1,84 @@
+{
+	"name": "changeininvoicecreator",
+	"columnPrefix": "in",
+	"fields": [
+		{
+			"name": "purchaser",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "purName",
+			"label": "Purchaser Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "supName",
+			"label": "Supplier Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "purchaserCount",
+			"label":"Purchaser Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "supplierCount",
+			"label":"Supplier Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "totalCount",
+			"label":"Total Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"purchaserPercent",
+			"label":"Purchaser Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"supplierPercent",
+			"label":"Supplier Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name": "threshold",
+			"label":"Threshold",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01,
+			"maxinValue": 100,
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

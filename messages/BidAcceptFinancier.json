@@ -1,0 +1,31 @@
+{
+"subject":"TReDS - Bid Accepted - Factoring Unit ID No.{{id}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Your following bid is accepted on TReDS.<br>
+<br>
+<table>
+<tr><td><b>Factoring Unit ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Instrument ID</b></td><td>{{inId}}</td></tr>
+<tr><td><b>Invoice No.</b></td><td>{{instNumber}}</td></tr>
+{{#instCount}}<tr><td><b>Instrument Count</b></td><td>{{instCount}}</td></tr>{{/instCount}}
+<tr><td><b>Factoring Unit Amount</b></td><td>&#8377; {{amount}}</td></tr>
+<tr><td><b>Seller</b></td><td>{{supName}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Financier Name</b></td><td>{{finName}}</td></tr>
+<tr><td><b>Bid Date & Time</b></td><td>{{bdTimestamp}}</td></tr>
+<tr><td><b>Bid Rate</b></td><td>{{acceptedRate}}</td></tr>
+<tr><td><b>Bid Haircut</b></td><td>{{acceptedHaircut}}</td></tr>
+<tr><td><b>Bid Accepted Date Time</b></td><td>{{acceptDateTime}}</td></tr>
+<tr><td><b>Expected Outflow Amount</b></td><td>&#8377; {{leg1ObAmount}}</td></tr>
+<tr><td><b>Expected Debit Date</b></td><td>{{leg1ObDate}}</td></tr>
+</table>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

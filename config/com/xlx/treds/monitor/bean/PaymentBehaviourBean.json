@@ -1,0 +1,56 @@
+{
+	"name": "paymentbehaviour",
+	"columnPrefix": "ob",
+	"fields": [
+		{
+			"name": "entity",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "name",
+			"label": "Purchaser Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"amount",
+			"label":"Obligation Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"total",
+			"label":"Success Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"percent",
+			"label":"Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

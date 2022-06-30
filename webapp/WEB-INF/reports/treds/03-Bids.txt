@@ -1,0 +1,12 @@
+select BDFUID As "Factoring Unit", BDFINANCIERENTITY As Financier, AULoginId As "Financier Login ID", AUEmail As "Email1", AUAltEmail As "Email2", BDRATE As "Bid Rate", BDHAIRCUT As HairCut, BDVALIDTILL as "Valid Till",(CASE WHEN BDSTATUS ='ACT' THEN 'Active'
+WHEN BDSTATUS ='DEL' THEN 'Deleted'
+WHEN BDSTATUS ='DLO' THEN 'Deleted By Owner'
+WHEN BDSTATUS ='APT' THEN 'Accepted'
+WHEN BDSTATUS ='REJ' THEN 'Auto Accept Failed'
+WHEN BDSTATUS ='EXP' THEN 'EXPIRED'
+WHEN BDSTATUS ='NAT' THEN 'Not Accepted'
+ELSE '' END) AS Status, BDSTATUSREMARKS As Remarks, BDID as "Bid ID", BDTIMESTAMP as "Timestamp", BDBIDTYPE as "Bid Type",  BDCOSTLEG
+as "Cost Leg" from bids
+left outer Join AppUsers
+On  AUId = BDFINANCIERAUID
+order by bdfuid

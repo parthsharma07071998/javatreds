@@ -1,0 +1,119 @@
+
+{
+"name" : "instrumentCreationKeys",
+"tableName" : "InstrumentCreationKeys",
+"columnPrefix" : "ICK",
+"fields" : [
+		{
+			"name":"refType",
+			"label":"Ref Type",
+			"dataType":"STRING",
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"SRV", "value":"SRV"},{"text":"DTS", "value":"DTS"}],
+			"maxLength": 3,
+			"notNull": true
+		},
+		{
+			"name":"refDate",
+			"label":"Ref Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"refNo",
+			"label":"Ref No",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"poNumber",
+			"label":"PO Number",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"siNumber",
+			"label":"SI Number",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"purchaserCode",
+			"label":"Purchaser Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"internalVendorRefNo",
+			"label":"Internal Vendor Ref No",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"supplierCode",
+			"label":"Supplier Code",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"supplierGstn",
+			"label":"Supplier Gstn",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"inId",
+			"label":"InId",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"instStatus",
+			"label":"Instrument Status",
+			"dataType":"STRING",
+			"nonDatabase" : true,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.instrument.bean.InstrumentBean.Status"
+		},
+		{
+			"name":"key",
+			"label":"Instrument Creation Key",
+			"dataType":"STRING",
+			"nonDatabase" : true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups" : {
+		"instStatusUsedList":["inId","key","instStatus"]
+		,"instStatusUnUsedList":["key"]
+	}
+}

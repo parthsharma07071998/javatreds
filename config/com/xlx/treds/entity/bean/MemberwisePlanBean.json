@@ -1,0 +1,107 @@
+{
+	"name": "memberwisePlan",
+	"tableName": "MemberwisePlans",
+	"columnPrefix": "MP",
+	"desc": "Memberwise Plan",
+	"fields": [{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType": "PRIMARY",
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name": "type",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE"
+		},
+		{
+			"name": "effectiveStartDate",
+			"label": "Effective From ",
+			"dataType": "DATE",
+			"fieldType": "PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "effectiveEndDate",
+			"label": "Effective To",
+			"dataType": "DATE"
+		},
+		{
+			"name": "acpId",
+			"label": "Auction Charge Plan Id",
+			"dataType": "INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "auctionchargeplans/all",
+			"notNull": true
+		},
+		{
+			"name": "acpName",
+			"label": "Auction Charge Plan Name",
+			"dataType": "STRING",
+			"nonDatabase": true			
+		},
+		{
+			"name": "cdName",
+			"label": "Company Name",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "type",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE",
+			"desc":"Buyer/Financier"
+		},
+				{
+			"name": "financierBearShare",
+			"label": "Financier Share",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "financierShare",
+			"label": "Financier Share",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"defaultValue":0
+		},
+		{
+			"name": "recordCreator",
+			"fieldType": "CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType": "CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType": "UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType": "UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType": "RECORDVERSION"
+		}
+	]
+}

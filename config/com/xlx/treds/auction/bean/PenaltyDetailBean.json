@@ -1,0 +1,20 @@
+{
+"name" : "penaltydetail",
+"fields" : [
+	{
+		"name":"uptoDays",
+		"label":"Upto Days",
+		"dataType":"INTEGER",
+		"notNull":true
+	},
+	{
+		"name":"rate",
+		"label":"Penalty Rate %",
+		"dataType":"DECIMAL",
+		"integerLength":3,
+		"decimalLength":2,
+		"minValue":0,
+		"notNull":true
+	}
+]
+}

@@ -1,0 +1,30 @@
+{
+"name" : "registrationFiles",
+"tableName" : "RegistrationFiles",
+"base": "com/xlx/treds/other/bean/UploadFileBean.json",
+"columnPrefix" : "RF",
+"fields" : [
+		{
+			"name": "constitution",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CONSTITUTION",
+			"nonDatabase": true
+		},
+		{
+			"name": "entityType",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE",
+			"desc":"Seller/Buyer/Financier",
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups": {
+	}	
+}

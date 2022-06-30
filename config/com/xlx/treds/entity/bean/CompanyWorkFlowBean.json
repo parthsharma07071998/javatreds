@@ -1,0 +1,50 @@
+{
+"name" : "companyworkflow",
+"tableName" : "CompanyWorkFlow",
+"columnPrefix" : "CWF",
+"desc" : "Company Work Flow : The status at the diffrent stages while registering the entity.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "approvalStatus",
+			"label": "Approval Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CompanyApprovalStatus",
+			"desc":"Status of the Registering Entity. Draft/Submitted/Approved/Returned/Rejected"
+		},
+		{
+			"name": "reason",
+			"label": "Reason",
+			"dataType": "STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"label": "Time stamp",
+			"dataType": "DATETIME",
+			"notNull": true
+		}
+	],
+	"fieldGroups": {
+        "insert": [
+            "cdId",
+            "approvalStatus",
+            "reason"
+        ]
+    }
+}

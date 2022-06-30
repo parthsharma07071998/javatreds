@@ -1,0 +1,21 @@
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Administrator' AS EntityType
+, (TRIM(AUSALUTATION) || ' ' || TRIM(AUFIRSTNAME) || ' ' || TRIM(AUMIDDLENAME) || ' ' || TRIM(AULASTNAME)) AS PersonName
+, AUTelephone AS Telphone
+, AUMobile AS Mobile
+, AUEMAIL AS Email
+FROM COMPANYDETAILS, APPUSERS
+WHERE CDRECORDVERSION > 0
+AND AURECORDVERSION > 0
+AND CDCODE = AUDOMAIN
+ORDER BY CDCODE

@@ -1,0 +1,122 @@
+        <style>
+        #divMsgs .row {
+        	margin:2px !important;
+        }
+        #divMsgs .row:nth-of-type(odd) {
+        	background-color: rgba(245,245,245,0.5);
+        }
+        .drag-element .drag-thumb {
+        	cursor: move;
+        }
+        .drag-container {
+        	min-height:300px;
+        }
+        #divSPSum a {
+        	font-size:22px;
+        	color:white;
+        	padding:0px;
+        	font-weight:bold;
+        }
+        #divSPSum .small-box-footer {
+        	min-height:68px;
+        	font-size:20px;
+        }
+        .ViewDetails{float: right;font-size: 14px;margin-top: -2px;}
+        
+        //this has been commented in the custom.css
+.table tr > td:first-child,
+.table tr > td:last-child,
+.table tr > th:first-child,
+.table tr > th:last-child{padding:12px 0;}
+.table > tbody > tr > td{font-size:12px;font-weight:300;color:#666;word-break: initial;}
+.table > thead > tr > td, .table > thead > tr > th{text-transform:uppercase;color:#333;font-weight:300;font-size:15px;vertical-align:top;word-break: initial;}
+.table tr:last-child > td{border:none;}
+.table > thead > tr > td:after, .table > thead > tr > th:after{display:none;}
+.table>caption+thead>tr:first-child>th,
+.table>colgroup+thead>tr:first-child>th,
+.table>thead:first-child>tr:first-child>th,
+.table>caption+thead>tr:first-child>td,
+.table>colgroup+thead>tr:first-child>td,
+.table>thead:first-child>tr:first-child>td{border-bottom:2px dotted #c1c1c1;}
+        
+        
+/* Media Queries */
+.rwd-table td:before {display: none;}
+.chart-item-bg .nav.nav-tabs{ max-width:420px; margin:0 auto;}
+.chart-item-bg  .nav.nav-tabs li a{text-align:center; background:#eaeaea;height: 58px;line-height: 42px; color:#979898;font-size: 15px; border:none;border-left:1px solid #fff; padding:0 20px; line-height:58px;}
+.chart-item-bg .nav.nav-tabs > li.active > a, .chart-item-bg .nav.nav-tabs > li:hover > a {color:#000; background:#fff}
+.chart-item-bg .nav.nav-tabs > li.active > a::after, .chart-item-bg .nav.nav-tabs > li:hover > a::after{ display:none;}
+.chart-item-bg  .tab-pane-content{ min-height:300px;}.title-select > div{ float:left; width:182px;}.page-container .main-content .page-title .title-env .title{font-size:20px;font-weight:500;}.title-select > div select{background:none;font-size: 14px;font-weight: 500;color: #000}
+.title-select h1 {float: left;width: 93px;line-height: 35px;}
+.wrapper {position:relative;margin:0 auto;overflow:hidden;padding:0px;height1:54px;}
+.list {position:absolute;left:0px;top:0px;min-width:3000px;margin-left:0;margin-top:0px;}
+.list li{display:table-cell;position:relative;text-align:center;cursor:grab;cursor:-webkit-grab;color:#efefef;vertical-align:middle;}
+.scroller {text-align:center;cursor:pointer;display:none;padding:12px 7px;padding-top:11px;white-space:no-wrap;vertical-align:middle;
+background-color:#fff;}
+.scroller-right{float:right;}
+.scroller-left {float:left;}
+/*************/
+.calendar-row { padding-top:10px; padding-bottom:10px; font-size:15px; color:#333333;}
+.calendar-row label{ display:block; padding:0 10px;}
+.calendar-row label span{ color:#0e62c7;padding-left: 50px;
+    text-align: left;
+    display: block;
+    float: right;
+    width: 156px;}
+
+.chart-item-bg .row > div{ text-align:center; font-size:15px; color:#000; text-transform:capitalize;}
+.chart-item-bg{margin:0;}
+.chart_block{min-height:260px}
+.highcharts-container path{stroke-width: 2!important;}
+.chart-item-bg  text{ font-size:15px!important; font-weight:500!important; font-family:Roboto!important; text-align:center;}
+.chart-item-bg .highcharts-data-labels text{ font-size:14px!important; font-weight:500!important; font-family:Roboto!important;}
+.chart-item-bg .highcharts-data-labels text > tspan{ text-align:center; color:#333!important; margin:2px 0!important; font-weight:300!important;}
+.chart-item-color{font-size:14px;} 
+.chart-item-color span{ padding:0 0 0 24px; margin:0 0 0 10px; position:relative;}
+.chart-item-color span:before{ content:''; display:block; width:16px; height:12px; background:#86c653; position:absolute; left:0; top:4px;}
+
+@media (max-width: 480px) {
+    .rwd-table{margin:5px 0;}
+    .rwd-table th {display: none;}
+    .rwd-table td {display: block;}
+    .rwd-table.table > thead > tr > td,
+    .rwd-table.table > tbody > tr > td,
+    .rwd-table.table > tfoot > tr > td,
+    .rwd-table.table > thead > tr > th,
+    .rwd-table.table > tbody > tr > th,
+    .rwd-table.table > tfoot > tr > th{padding:0 10px 5px 10px;}
+    .rwd-table td{border-bottom:0 !important;}
+    .rwd-table tr{border-bottom:1px solid #eee;}
+    .rwd-table tr:last-child{border:none;}
+    .rwd-table td:before {content: attr(data-th);color:#212121;font-size:15px;font-weight:400;width:50%;display: inline-block;}
+    .rwd-table.table > tbody > tr > td:first-child{padding-top:10px;}
+    .rwd-table.table > tbody > tr > td:last-child{padding-bottom:10px;}
+    .rwd-table.table > tbody > tr:nth-child(even) {background: #f9f9f9}
+    .rwd-table.table > tbody > tr:nth-child(odd) {background: #FFF}
+	.time-remaining > div:first-child{ margin-bottom:15px;}
+	.chart-item-bg  > div{ overflow-x:scroll!important}
+	.chart-item-bg  > div .highcharts-container{width:480px!important;}
+	.chart-item-bg  > div .highcharts-container svg{ width:100%;}
+	.chart-item-color {
+    font-size: 14px;
+    float: left!important;
+    margin-top: 8px;
+    margin-left: -7px;
+}
+
+.table-responsive{border:0;margin-bottom:0px;}
+.panel .panel-body.no_padding{padding-top:0;}
+
+@media screen and (max-width: 767px){
+    .table-responsive>.table>thead>tr>th, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>tbody>tr>td, .table-responsive>.table>tfoot>tr>td {
+        white-space: initial;
+    }
+	.title_right_info {
+    font-size: 14px;
+    padding-left:0;
+   padding-top: 10px;
+}
+
+@media screen and (min-width:768px){.calendar-row > div:first-child{ border-right:1px dotted #c1c1c1;}.form-horizontal .control-label{ padding-right:0;}.dropdown-popup .row > div:first-child{border-right:1px solid #ebebeb;}.multiple-comment li.col-sm-8{border-left:1px solid #ddd;}}
+        
+        </style>

@@ -1,0 +1,31 @@
+{
+"name" : "sysparam",
+"tableName" : "SystemParameters",
+"columnPrefix" : "SP",
+"desc" : "System Parameters : Stores the Current Auction date and is update during the EOD process.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "date",
+			"label": "Auction Date",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

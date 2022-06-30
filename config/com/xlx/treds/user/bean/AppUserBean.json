@@ -1,0 +1,505 @@
+{
+"name" : "user",
+"tableName" : "AppUsers",
+"columnPrefix" : "AU",
+"desc" : "User : Logged in user of the entity which is used for loggin in to the system and for 2 Factored Authentication details storage.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "domain",
+			"label": "Member Code",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/all"
+		},
+		{
+			"name": "loginId",
+			"label": "Login Id",
+			"dataType":"STRING",
+			"notNull":true,
+			"minLength": 5,
+			"maxLength": 30,
+			"pattern": "PATTERN_ALPHANUMERIC",
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "password1",
+			"label": "Password",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 100
+		},
+		{
+			"name": "passwordUpdatedAt1",
+			"label": "Password Updated At",
+			"dataType":"DATETIME"
+		},
+		{
+			"name": "forcePasswordChange",
+			"label": "Force Change Password",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "resetPassword",
+			"label": "Reset Password",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"nonDatabase": true,
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"Status"
+		},
+		{
+			"name": "reason",
+			"label": "Reason",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name": "failedLoginCount",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "type",
+			"label": "Type",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Admin", "value":1},{"text":"User", "value":2},{"text":"RegisteringUser", "value":3}]
+		},
+		{
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"name": "telephone",
+			"label": "Telephone",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_PHONE"
+		},
+		{
+			"name": "mobile",
+			"label": "Mobile",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull":true,
+			"pattern": "PATTERN_MOBILE"
+		},
+		{
+			"name": "email",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull":true,
+			"pattern": "PATTERN_EMAIL"
+		},
+		{
+			"name": "altEmail",
+			"label": "Alternate Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"pattern": "PATTERN_EMAIL"
+		},
+		{
+			"name": "enable2FA",
+			"label": "Enable 2FA",
+			"desc": "Enable 2 factor authentication",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "securitySettings",
+			"dataType":"STRING",
+			"maxLength": 250,
+			"nonJson": true
+		},
+		{
+			"name": "otherSettings",
+			"dataType":"STRING",
+			"maxLength": 250,
+			"nonJson": true
+		},
+		{
+			"name": "enableAPI",
+			"label": "Enable API Login",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "secretQuestions",
+			"label": "Questions For 2FA",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"SECURITY_QUESTION",
+			"allowMultiple": true,
+			"minItems":3,
+			"nonDatabase": true
+		},
+		{
+			"name": "secretAnswers",
+			"label": "Answers For 2FA",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"allowMultiple": true,
+			"minItems":3,
+			"nonDatabase": true
+		},
+		{
+			"name": "secretText",
+			"label": "Verification Text",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "secretImage",
+			"label": "Verification Image",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "otpEmail",
+			"label": "Email Id for OTP",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"pattern": "PATTERN_EMAIL",
+			"nonDatabase": true,
+			"databaseField":"email"
+		},
+		{
+			"name": "otpMobile",
+			"label": "Mobile Number for OTP",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"pattern": "PATTERN_MOBILE",
+			"nonDatabase": true,
+			"databaseField":"mobile"
+		},
+		{
+			"name": "rsaTokenKey",
+			"label": "RSA Token Key",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"nonDatabase": true
+		},
+		{
+			"name": "rmIdList",
+			"label": "Roles",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"user/roles"
+		},
+		{
+			"name": "rmIds",
+			"dataType":"STRING",
+			"maxLength": 1000,
+			"nonJson": true
+		},
+		{
+			"name": "rmListDesc",
+			"label": "Roles Assigned",
+			"dataType":"STRING",
+			"maxLength": 200,
+			"nonDatabase": true
+		},
+		{
+			"name": "fullOwnership",
+			"label": "Full Owner",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "ownerAuId",
+			"label": "Instrument Owner",
+			"desc":"User who factors the instruments introduced by this user",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"user/checkers"
+		},
+		{
+			"name": "ips",
+			"label": "IPs",
+			"dataType":"STRING",
+			"maxLength": 200,
+			"nonJson":true,
+			"jsonField":"ipList"
+		},
+		{
+			"name": "ipList",
+			"label": "IPs",
+			"dataType":"STRING",
+			"maxLength": 15,
+			"nonDatabase":true,
+			"databaseField":"ips",
+			"allowMultiple": true,
+			"maxItems":10,
+			"pattern": "PATTERN_IP"
+		},	
+		{
+			"name": "locationIdList",
+			"label": "Locations",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"companylocation/all"
+		},
+		{
+			"name": "userLimits",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"name":"minUserLimit",
+			"label":"Min User Limit",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase":true
+		},
+		{
+			"name":"maxUserLimit",
+			"label":"Max User Limit",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name": "checkersInstrument",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "checkersPlatformLimit",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "checkersBuyerLimit",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "checkersBuyerSellerLimit",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "checkersUserLimit",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "locationIds",
+			"dataType":"STRING",
+			"maxLength": 1000,
+			"nonJson": true
+		},
+		{
+			"name": "checkersBid",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "checkersInstrumentCounter",
+			"label": "Checkers",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "companyName",
+			"label": "Name of Applicant Entity",
+			"dataType": "STRING",
+			"minLength": 3,
+			"maxLength": 100,
+			"notNull": true,
+			"pattern":"^(([a-zA-Z])|(\\w{1}.*[a-zA-Z\\.()]))",
+			"patternMessage":"Name should start with character or number and should have atleast one character",
+			"wildCard": "CONTAINS",
+			"nonDatabase":true
+		},
+		{
+			"name": "entityType",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"nonDatabase":true
+		},
+		{
+			"name": "constitution",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase":true
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN",
+			"notNull": true,
+			"nonDatabase":true
+		},
+		{
+			"name": "instLevel",
+			"label": "Instrument Level",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"nonDatabase":true,
+			"dataSetValues":"user/getentitylimit/instLevel"
+			
+		},
+		{
+			"name": "instCntrLevel",
+			"label": "Instrument Counter Level",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"nonDatabase":true,
+			"dataSetValues":"user/getentitylimit/instCntrLevel"
+		},
+		{
+			"name": "bidLevel",
+			"label": "Bid Level",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"nonDatabase":true,
+			"dataSetValues":"user/getentitylimit/bidLevel"
+		},
+		{
+			"name": "platformLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "buyerLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "buyerSellerLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name": "userLimitLevel",
+			"label": "Limit Level",
+			"nonDatabase":true,
+			"dataType": "INTEGER",
+			"maxValue":10,
+			"minValue":0
+		},
+		{
+			"name":"checkerLevelSetting",
+			"dataType":"STRING",
+			"maxLength":200,
+			"nonJson":true
+		},
+		{
+			"name": "rmLocation",
+			"label": "RM Location",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RMLOCATION"
+		}
+	],
+"fieldGroups": {
+         "insert": [
+			"domain", "loginId", "forcePasswordChange", "status", "reason", "type", "salutation", "firstName", "middleName", "lastName", "telephone", "mobile", "email", "altEmail", "enable2FA", "rmIdList", "checkersInstrument", "locationIdList" ,"checkersPlatformLimit", "checkersBuyerLimit", "checkersBuyerSellerLimit", "checkersUserLimit", "checkersBid", "ownerAuId", "ipList", "fullOwnership","userLimits","maxUserLimit","minUserLimit","instLevel","bidLevel","limitLevel","instCntrLevel","checkerLevelSetting","checkersInstrumentCounter","platformLimitLevel","buyerLimitLevel","buyerSellerLimitLevel","userLimitLevel","rmLocation"
+        ],
+        "security": [
+            "id","enable2FA","secretQuestions","secretAnswers","secretText","secretImage","securitySettings","otpEmail","otpMobile","recordVersion"
+        ],
+		"update" : [
+			"id", "password1", "passwordUpdatedAt1", "forcePasswordChange", "resetPassword", "status", "reason", "type", "salutation", "firstName", "middleName", "lastName", "telephone", "mobile", "email", "altEmail", "rmIdList", "rmIds", "recordVersion", "checkersInstrument", "checkersPlatformLimit", "checkersBuyerLimit", "checkersBuyerSellerLimit", "checkersUserLimit","locationIds","locationIdList", "checkersBid", "ownerAuId", "ipList", "fullOwnership", "userLimits","maxUserLimit","minUserLimit","instLevel","bidLevel","limitLevel","instCntrLevel","checkerLevelSetting","checkersInstrumentCounter","platformLimitLevel","buyerLimitLevel","buyerSellerLimitLevel","userLimitLevel","rmLocation"
+		],
+		"password": [
+            "id","password1", "passwordUpdatedAt1", "forcePasswordChange","recordVersion"
+        ],
+        "status": [
+            "id","status", "reason","recordVersion"
+        ],
+        "updateenableapi":[
+        	"id","enableAPI", "recordVersion"
+        ],
+	"forlov" : [
+		"id", "loginId" , "instLevel","bidLevel","limitLevel","instCntrLevel"
+	],
+	"validateUpdate" : [
+		"id", "domain", "password1", "passwordUpdatedAt1", "forcePasswordChange", "resetPassword", "status", "reason", "type", "salutation", "firstName", "middleName", "lastName", "telephone", "mobile", "email", "altEmail", "rmIdList", "rmIds", "recordVersion", "checkersInstrument", "checkersPlatformLimit", "checkersBuyerLimit", "checkersBuyerSellerLimit", "checkersUserLimit","locationIds","locationIdList", "checkersBid", "ownerAuId", "ipList", "fullOwnership", "userLimits","maxUserLimit","minUserLimit","instLevel","bidLevel","limitLevel","instCntrLevel","checkerLevelSetting","checkersInstrumentCounter","rmLocation"
+	]		
+    }
+}

@@ -1,0 +1,88 @@
+{
+	"name": "LoginSession",
+	"tableName" : "loginsessions",
+	"columnPrefix" : "LS",
+	"desc" : "Login Session",
+	"fields": [
+		{
+			"name": "id",
+			"dataType":"INTEGER",
+			"fieldType":"PRIMARY"
+		},
+		{
+			"name": "auId",
+			"dataType":"INTEGER",
+			"notNull":true,
+		},
+		{
+			"name":"mode",
+			"dataType": "INTEGER",
+		},
+		{
+			"name": "status",
+			"dataType":"STRING",
+			"maxLength":1,
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Success", "value":"S"},{"text":"Failed", "value":"F"},{"text":"PasswordExpired", "value":"P"},{"text":"Closed", "value":"C"}],
+		},
+		{
+			"name":"sessionKey",
+			"dataType": "STRING",
+			"maxLength" : 50,
+		},
+		{
+			"name":"restrictedToGroup",
+			"dataType": "STRING",
+			"maxLength" : 30,
+		},
+		{
+			"name":"reason",
+			"dataType": "STRING",
+			"maxLength" : 100,
+		},
+		{
+			"name":"details",
+			"dataType": "STRING",
+			"maxLength" : 100,
+		},
+		{
+			"name": "recordCreateTime",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"dataType": "DATETIME"
+		},
+		{
+			"name": "requestIp",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "domain",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "loginId",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},		
+		{
+			"name": "filterFromDate",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},		
+		{
+			"name": "filterToDate",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}		
+	]
+}

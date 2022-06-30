@@ -1,0 +1,41 @@
+{
+"name" : "notialrt",
+"tableName" : "NotiAlrts",
+"columnPrefix" : "NA",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{	
+			"name": "type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 11,
+			"dataSetType": "STATIC",
+			"dataSetValues":[
+				{"text":"Instrument Invoice", "value":"ALRTINSTINV"}
+				,{"text":"Instrument Amount", "value":"ALRTINSTAMT"}
+				,{"text":"Instrument PO Number", "value":"ALRTINSTPO"}
+				,{"text":"Purchaser Supplier Link", "value":"ALRTPSLNK"}
+				]
+		},		
+		{
+			"name":"key",
+			"label":"Key",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"alertDesc",
+			"label":"Alert Description",
+			"dataType":"STRING",
+			"maxLength": 4000
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		}
+	]
+}

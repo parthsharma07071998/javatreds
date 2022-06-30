@@ -1,0 +1,62 @@
+{
+"name" : "ciGroupDetailBean",
+"tableName" : "CIGroupDetail",
+"columnPrefix" : "CIGDetail",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "invoiceNumber",
+			"label":"Invoice Number",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"invoiceDate",
+			"label":"Invoice Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "documentNumber",
+			"label":"Document Number",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "deductionReason",
+			"label":"Deduction Reason",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"dedudctedAmount",
+			"label":"Dedudcted Aamount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "other",
+			"label":"Other",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+	}
+}

@@ -1,0 +1,21 @@
+{
+"subject":"RXIL-TReDS - Auction Completed ({{sysDate}})",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Auction for the following Factoring Unit(s) has/have been completed on TReDS.  
+<br>
+<br>
+Factoring Unit ID,  Factoring Unit Amount,  Invoice No.,  Invoice Count,   Invoice Date,      Seller,     Buyer,   Financier Name,   Auction Completion date, Expected Net Payment,   Expected Settlement Date  (T+1 or T+2)     
+<br>
+{{fuId}}, {{fuAmount}} ,  {{invoiceNo}},  {{instCount}},  {{invoiceDate}}, {{supName}}  ,  {{purName}} , {{finName}} , {{bidAcceptedDate}}, {{netPayment}}, {{settlementDate}}  
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,14 @@
+{
+"subject":"Change in rating",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam</b><br>
+<br>
+Thank you for choosing RXIL TReDS platform. This is a reminder that your account is up for renewal on {{renewDate}}. Kindly pay the annual fee to continue with your membership with RXIL.
+<br>
+{{{footer}}}
+",,
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

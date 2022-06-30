@@ -1,0 +1,22 @@
+{
+"name" : "outSetSplit",
+"tableName" : "OutsideSettlementSplit",
+"columnPrefix" : "OSL",
+"desc" : "Outside Settlement Splits",
+"fields" : [
+		{
+			"name": "id",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"list",
+			"label":"Split List",
+			"dataType": "STRING",
+			"maxLength":9999,
+			"notNull": true
+		}		
+	],
+	"fieldGroups": {
+    }
+}

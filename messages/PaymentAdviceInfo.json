@@ -1,0 +1,21 @@
+{
+"subject": "Payment Advice",
+"body":"
+{{{header}}}
+
+To
+<p>{{vendorName}}</p>
+<p>{{vendorAddress}}</p
+<p>{{vendorCode}}</p>
+<p>Bank Reference No : {{bankReferenceNo}}</p>
+<p>Customer Ref No : {{customerReferenceNo}}</p>
+<p>Factoring unit id : {{factoringUnitId}}</p>
+<p>Obligation Id : {{obligationSplitsId}}</p>
+<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,16 @@
+{
+"subject":"RXIL TREDS: Financier settlement MIS report files.",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Please find attached the financier-wise MIS report files attached.
+<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

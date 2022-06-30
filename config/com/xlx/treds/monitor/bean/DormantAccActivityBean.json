@@ -1,0 +1,54 @@
+{
+	"name": "dormantaccountactivity",
+	"columnPrefix": "tm",
+	"listFields":["entity","companyName","bankName","accountNo","ifsc","beginDate","endDate","diffrence"],
+	"fields": [
+		{
+			"name": "entity",
+			"label": "Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "companyName",
+			"label": "Company Name",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "ifsc",
+			"label": "IFSC CODE",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "bankName",
+			"label": "Bank Name",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "accountNo",
+			"label": "Account NO",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"beginDate",
+			"label":"Begin Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"endDate",
+			"label":"End Date",
+			"dataType":"DATE"
+		},
+		{
+			"name": "diffrence",
+			"label":"Day Diffrence",
+			"dataType":"INTEGER"
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

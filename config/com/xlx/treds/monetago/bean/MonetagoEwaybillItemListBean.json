@@ -1,0 +1,89 @@
+{
+	"name": "monetagoewaybillitemlist",
+	"tableName": "MonetagoEwaybillItemList",
+	"columnPrefix": "MII",
+	"desc": "Invoice Info",
+	"fields": [{
+			"name": "itemNo",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "productId",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "productName",
+			"dataType": "STRING",
+			"label": ""
+		},
+		{
+			"name": "productDesc",
+			"label": "",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "hsnCode",
+			"label": "",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "quantity",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "qtyUnit",
+			"label": "",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "cgstRate",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "sgstRate",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "igstRate",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "cessRate",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "cessNonAdvol",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "taxableAmount",
+			"label": "",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		}
+	]
+
+}

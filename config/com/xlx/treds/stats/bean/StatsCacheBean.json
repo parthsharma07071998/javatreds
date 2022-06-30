@@ -1,0 +1,40 @@
+{
+"name" : "statscachebean",
+"tableName" : "StatsCache",
+"columnPrefix" : "SC",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{	
+			"name": "type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 7,
+			"dataSetType": "STATIC",
+			"dataSetValues":[
+								{"text":"Instrument Invoice", "value":"INSTINV"}
+								,{"text":"Purchaser Supplier Link", "value":"PSLINK"}
+							]
+		},		
+		{
+			"name":"key",
+			"label":"Key",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"value",
+			"label":"Value",
+			"dataType":"STRING",
+			"maxLength": 4000
+		},
+		{
+			"name":"expiry",
+			"label":"Expiry",
+			"dataType":"DATETIME"
+		}
+	]
+}

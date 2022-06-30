@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Letter of Extension</title>
+</head>
+<body>
+<div>
+<p>Date : {{date}}</p>
+<p>To,</p>
+<p>{{purName}}</p>
+<p>{{purAdd}}</p>
+<br/>
+<br/>
+Dear <b>Sir/Madam,</b><br/>
+
+<center><b><u>Notice of Extension of due date</u></b></center>
+<br/>
+<p>Please take this notice of extension of due date of  the following factoring unit(s) which are due and</p>
+<p>payable by you to the {{finName}}, the Original Factored due date of which </p>
+<p>have been extended upon your request and after Financier approval/ acceptance. The factoring</p>
+<p>units are assigned in the name of the Financier vide the Notice of Assignment which was already</p>
+<p>served to you on successful completion of financing on the TREDS Platform of RXIL in terms of the</p>
+<p>Master Agreement entered into by you with RXIL as detailed below:</p><br/>
+<p>This Notice of Extension is in relation to the Factoring Unit(s) and Amount thereof:</p><br/>
+<table border='1px'>
+	<tr>
+		<th> Factoring unit id </th>
+		<th> Financed date </th>
+		<th> Original Factored amount (Rs) </th>
+		<th> Original Due date </th>
+		<th> Extended Tenor </th>
+		<th> New Due date </th>
+		<th> Revised obligation amount (Rs) </th>
+	</tr>
+	<tr>
+		<td> {{id}} </td>
+		<td> {{createDate}} </td>
+		<td> {{amount}} </td>
+		<td> {{oldDate}} </td>
+		<td> {{tenor}} </td>
+		<td> {{newDate}} </td>
+		<td> {{amount}} </td>
+	</tr>
+</table>
+<br/>
+<br/>
+<p>Please take notice that  after the extension of due date of the Factoring Unit(s), you are now liable to</p>
+<p>pay interest (if not paid upfront)additional interest and applicable cost (if any) as charged by the</p>
+<p>Financier/ RXIL in terms of the aforesaid Master Agreement and the extension approval/acceptance,</p>
+<p>as detailed above:</p>
+<br/>
+<p>Please take note that by virtue of the acceptance/ approval of extension of due date by the</p>
+<p>Financier-</p>
+<br/>
+<p>-  You {{purName}} shall arrange to pay the factored amount along with</p>
+<p>   interest (if not recovered upfront), additional interest and applicable cost (if any) on the</p>
+<p>   extended due date(s) to the Financier.</p>
+<p>-  You {{purName}} confirm that payment to the Financier for these Factoring</p>
+<p>   Unit(s) along with interest (if not recovered upfront), additional interest and applicable cost</p>
+<p>  (if any) shall alone constitute a good and valid discharge.</p>
+<br/>
+<p>Please also note that Debit for the factored amount along with interest (if not recovered</p>
+<p>upfront), additional interest and applicable cost (if any)  will be effected on the extended due</p> 
+<p>date from the designated bank account given by you {{purName}} to RXIL and credit shall</p>
+<p>be given to the bank account of the Financier.</p>
+<br/>
+<p>Kindly keep sufficient balance in your designated bank account on extended due date(s) for </p>
+<p>repayment of above invoice(s) and interest (if any), additional interest and applicable cost (if any).</p>
+<p>Charge against a particular factoring unit out of all the above invoice shall be released only</p> 
+<p>after successful payment/credit of the factored amount (along with interest, if any, additional</p>
+<p>interest and applicable cost (if any)) in the above account of the Financier.</p>
+<br/>
+<p>All the details in respect to particular Factoring Unit is available on the TReDS platform.</p>
+<br/>
+<p><b>Receivables Exchange of India Ltd</b></p>
+<br/>
+<p><b>(For and on behalf of the Financier)</b></p>
+<br/>
+<p><b>{{finName}}</b></p>
+<br/>
+<br/>
+<p><center>This is a computer generated letter and does not require any signature.</center></p>
+<br/>
+</div>
+</body>
+</html>

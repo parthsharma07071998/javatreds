@@ -1,0 +1,37 @@
+{
+"name" : "nameNonMandatory",
+"desc" : "NonMandatory Name",
+"fields" : [
+		{
+			"name": "salutation",
+			"label": "Salutation",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"SALUTATION",
+		},
+		{
+			"name": "firstName",
+			"label": "First Name",
+			"dataType":"STRING",
+			"minLength":1,
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "middleName",
+			"label": "Middle Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "lastName",
+			"label": "Last Name",
+			"dataType":"STRING",
+			"minLength":1,
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		}
+	]
+}

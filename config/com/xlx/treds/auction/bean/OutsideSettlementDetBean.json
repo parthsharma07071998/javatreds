@@ -1,0 +1,108 @@
+{
+"name" : "outSetDet",
+"tableName" : "OutsideSettlementDet",
+"columnPrefix" : "OSD",
+"desc" : "Outside Settlement Details",
+"fields" : [
+		{
+			"name":"id",
+			"label":"Id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "osrId",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"paymentRefNo",
+			"label":"Payment Ref No",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true,
+			"desc":"Transaction reference number for the pay-out return file."
+		},
+		{
+			"name":"accName",
+			"label":"Account Name",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true
+		},
+		{
+			"name":"bankName",
+			"label":"Bank Name",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true
+		},
+		{
+			"name":"ifsc",
+			"label":"IFSC",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true
+		},
+		{
+			"name":"branchName",
+			"label":"Branch Name",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true
+		},
+		{
+			"name":"accountNo",
+			"label":"Account No",
+			"dataType": "STRING",
+			"maxLength":50,
+			"notNull": true
+		},
+		{
+			"name":"amount",
+			"label":"amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"date",
+			"label":"date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"type",
+			"label":"type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Direct", "value":"D"},{"text":"NEFT", "value":"N"},{"text":"RTGS", "value":"R"}],
+			"desc":"Current status of obligation."
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+    }
+}

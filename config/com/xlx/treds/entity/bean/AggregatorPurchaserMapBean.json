@@ -1,0 +1,42 @@
+{
+"name" : "aggregatorpurchasermap",
+"tableName" : "AggregatorPurchaserMap",
+"columnPrefix" : "APM",
+"desc" : "Aggregator Purchaser Mapping : The list of purchasers for the particular aggregator.",
+"fields" : [
+		{
+			"name": "aggregator",
+			"label":"Aggregator",
+			"maxLength": 10,
+			"dataType": "STRING",
+			"notNull": true
+		},
+		{
+			"name": "purchaser",
+			"label":"Purchaser",
+			"maxLength": 10,
+			"dataType": "STRING",
+			"notNull": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

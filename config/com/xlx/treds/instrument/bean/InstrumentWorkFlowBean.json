@@ -1,0 +1,69 @@
+{
+"name" : "instflow",
+"tableName" : "InstrumentWorkFlow",
+"columnPrefix" : "IWF",
+"desc" : "Instrument Workflow : The workflow of the Instrument right from creation, cheking, approval till the factoring and settelment of the Legs.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "inId",
+			"label": "Invoice Id",
+			"dataType": "INTEGER",
+			"notNull": true
+		},		
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.instrument.bean.InstrumentBean.Status",
+			"desc":"Drafting/Submitted/Checker Approved/Checker Returned/Checker Rejected/Counter Apporved/Counter Returned/Counter Rejected/In Auction/Withdrawn/Expired/Factored/Leg 1 Setteled/Leg 1 Failed/Leg 2 Setteled/Leg 2 Failed"
+		},
+		{
+			"name":"statusRemarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"entity",
+			"label":"Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"auId",
+			"label":"User",
+			"dataType":"INTEGER",
+			"notNull": true,
+			"desc":"Internal Logged-in user identifier."
+		},
+		{
+			"name":"loginId",
+			"label":"Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"name",
+			"label":"Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"statusUpdateTime",
+			"label":"Status Update Time",
+			"dataType":"DATETIME",
+			"notNull": true
+		}
+	]
+}

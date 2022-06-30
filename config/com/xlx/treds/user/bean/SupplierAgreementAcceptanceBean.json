@@ -1,0 +1,64 @@
+{
+"name" : "supaggacc",
+"tableName" : "SupplierAgreementAcceptance",
+"columnPrefix" : "SAA",
+"desc" : "SupplierAgreementAcceptance : Stores the Click Wrap Agreement date accepted by supplier.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/suppliers"
+		},
+		{
+			"name": "revisionDate",
+			"label": "Revision Date",
+			"dataType":"DATE"
+		},
+		{
+			"name": "version",
+			"label": "Version",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "factoringunitId",
+			"label": "FactoringUnit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups": {
+         "insert": [
+			"supplier", "revisionDate","version","recordCreator", "recordCreateTime", "recordVersion"
+        ]
+    }
+}

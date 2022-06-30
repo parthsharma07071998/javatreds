@@ -1,0 +1,59 @@
+.reactPivot {
+	margin-top:5px !important;
+	padding:0px 20px 0px !important;
+}
+.reactPivot .reactPivot-dimensions {
+	padding:0px 0px 10px !important;
+}
+.reactPivot th.colSTRING, .reactPivot th.colINTEGER, .reactPivot th.colDECIMAL, .reactPivot th.colDATETIME, .reactPivot th.colDATE, .reactPivot th.colTIME {
+	text-align:center;
+}
+.reactPivot td.colSTRING {
+	text-align:left;
+}
+.reactPivot td.colINTEGER, .reactPivot td.colDECIMAL {
+	text-align:right;
+}
+.reactPivot td.colDATETIME, .reactPivot td.colDATE, .reactPivot td.colTIME {
+	text-align:center;
+}
+
+.reactPivot .reactPivot-level-0 {
+	background-color:#ffffff !important;
+}
+.reactPivot .reactPivot-level-1 {
+	background-color:#fdfdfd !important;
+}
+.reactPivot .reactPivot-level-2 {
+	background-color:#fbfbfb !important;
+}
+.reactPivot .reactPivot-level-4 {
+	background-color:#f9f9f9 !important;
+}
+.reactPivot .reactPivot-level-5 {
+	background-color:#f7f7f7 !important;
+}
+.reactPivot .reactPivot-level-6 {
+	background-color:#f5f5f5 !important;
+}
+.reactPivot .reactPivot-level-7 {
+	background-color:#f3f3f3 !important;
+}
+.reactPivot .reactPivot-level-8 {
+	background-color:#f1f1f1 !important;
+}
+.reactPivot .reactPivot-level-9 {
+	background-color:#f0f0f0 !important;
+}
+
+
+.reactPivot-results th.asc::after {
+    content: "\f0de" !important;
+    font-family: FontAwesome !important;
+    font-size: 10px !important;
+}
+.reactPivot-results th.desc::after {
+    content: "\f0dd" !important;
+    font-family: FontAwesome !important;
+    font-size: 10px !important;
+}

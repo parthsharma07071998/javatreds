@@ -1,0 +1,192 @@
+{
+"name" : "buyercreditrating",
+"tableName" : "BuyerCreditRatings",
+"columnPrefix" : "BCR",
+"fields" : [
+		{
+			"name":"id",
+			"label":"Buyer Credit Rating Id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"autoNum":true
+		},
+		{
+			"name":"buyerCode",
+			"label":"Buyer Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/purchasers"
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"ratingAgency",
+			"label":"Rating Agency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_COMPANY"
+		},
+		{
+			"name":"filterRatingAgencyList",
+			"label":"Filter Rating Agency List",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"allowMultiple": true,
+			"minItems": 1,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_COMPANY"
+		},
+		{
+			"name": "filterRatingAgency",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"nonJson": true
+		},
+		{
+			"name":"ratingDate",
+			"label":"Rating Date",
+			"dataType":"DATE",
+			"format":"dd-MM-yyyy",
+			"notNull": true
+		},
+		{
+			"name":"expiryDate",
+			"label":"Expiry Date",
+			"dataType":"DATE",
+			"format":"dd-MM-yyyy",
+			"nonDatabase": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength":1,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Active", "value":"A"},{"text":"Expired", "value":"E"},{"text":"Future", "value":"F"}],
+			"nonDatabase": true
+		},
+		{
+			"name":"rating",
+			"label":"Filter Rating",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_VALUE"
+		},
+		{
+			"name":"filterRatingList",
+			"label":"Filter Rating List",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"allowMultiple": true,
+			"minItems": 1,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_VALUE"
+		},
+		{
+			"name": "filterRating",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"nonJson": true
+		},	
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"format":"dd-MM-yyyy",
+			"nonDatabase": true
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"format":"dd-MM-yyyy",
+			"nonDatabase": true
+		},
+		{
+			"name":"ratingType",
+			"label":"Rating Type",
+			"dataType":"STRING",
+			"maxLength":2,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"RATING_TYPE"
+		},
+		{
+			"name":"remarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "pan",
+			"label": "pan",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN",
+			"nonDatabase": true
+		},
+		{
+			"name":"financierCount",
+			"label":"Financier Count",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"fileId",
+			"label": "Batch File Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"ratingFile",
+			"label":"Rating File",
+			"dataType":"STRING",
+			"maxLength":50
+		},
+		{
+			"name":"expiryDays",
+			"label":"Expiry Days",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert": ["id","buyerCode","ratingAgency","ratingDate","rating","ratingType","remarks","recordCreator","recordCreateTime","recordUpdator","recordUpdateTime","recordVersion","fileId","ratingFile","expiryDays"],
+		"update": ["id","buyerCode","ratingAgency","ratingDate","rating","ratingType","remarks","recordUpdator","recordUpdateTime","recordVersion","fileId","ratingFile","expiryDays"]
+	}	
+}

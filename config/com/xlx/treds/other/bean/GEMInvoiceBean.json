@@ -1,0 +1,167 @@
+{
+"name" : "GEMInvoices",
+"tableName" : "geminvoices",
+"columnPrefix" : "GEM",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"arrId",
+			"label":"arr Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+		
+			"name": "supName",
+			"label": "Supplier Name",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "supGstn",
+			"label": "Supplier GSTN",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name": "supPan",
+			"label": "Supplier PAN",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "supLocation",
+			"label": "Supplier Location",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "purchaser",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "purName",
+			"label": "Purchaser Name",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "purGstn",
+			"label": "Purchaser GSTN",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name": "purPan",
+			"label": "Purchaser PAN",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "purLocation",
+			"label": "Purchaser Location",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"goodsAcceptDate",
+			"label":"Goods/Service Acceptance Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+				{
+			"name":"poDate",
+			"label":"Purchase Order Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"poNumber",
+			"label":"Purchase Order Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"instNumber",
+			"label":"Instrument Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"instDate",
+			"label":"Invoice Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"instDueDate",
+			"label":"Invoice Due Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"amount",
+			"label":"Invoice Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"adjAmount",
+			"label":"Adjustment Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"creditPeriod",
+			"label":"Credit Period",
+			"desc":"Credit period with respect to Goods/Service Acceptance Date.",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Success","value":"S"},{"text":"Pending","value":"P"},{"text":"Closed","value":"C"}]
+		},
+		{
+			"name":"creator",
+			"label":"Creator",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "createTime",
+			"label":"Create Date Time",
+			"dataType":"DATETIME",
+			"notNull": true
+		}
+	],
+	"fieldGroups": {
+	}	
+}

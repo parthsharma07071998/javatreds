@@ -1,0 +1,91 @@
+{
+"name" : "pslinkflow",
+"tableName" : "PurchaserSupplierLinkWorkFlow",
+"columnPrefix" : "PLW",
+"desc" : "PurchaserSupplierLink Workflow : The workflow of the PurchaserSupplierLink from creation, checking, submitting, approving, returning and Suspending and ReActivating.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.auction.bean.PurchaserSupplierLinkBean.ApprovalStatus",
+			"desc":"Drafting/Submitted/Returned/Apporved/Suspended/ReActivate/Withdrawn"
+		},
+		{
+			"name":"statusRemarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"entity",
+			"label":"Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"auId",
+			"label":"User",
+			"dataType":"INTEGER",
+			"notNull": true,
+			"desc":"Internal Logged-in user identifier."
+		},
+		{
+			"name":"loginId",
+			"label":"Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"name",
+			"label":"Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"statusUpdateTime",
+			"label":"Status Update Time",
+			"dataType":"DATETIME",
+			"notNull": true
+		}
+	]
+}

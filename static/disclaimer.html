@@ -1,0 +1,244 @@
+<script language="JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck()) 
+		{
+		c = document.all(com_id);
+		a = document.all(anchor_id);
+		if (null != c && null == c.length && null != a && null == a.length)
+			{
+			var cw = c.offsetWidth;
+			var ch = c.offsetHeight;
+			var aw = a.offsetWidth;
+			var ah = a.offsetHeight;
+			var x  = a.offsetLeft;
+			var y  = a.offsetTop;
+			var el = a;
+			while (el.tagName != "BODY") 
+				{
+				el = el.offsetParent;
+				x = x + el.offsetLeft;
+				y = y + el.offsetTop;
+				}
+			var bw = document.body.clientWidth;
+			var bh = document.body.clientHeight;
+			var bsl = document.body.scrollLeft;
+			var bst = document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+				{ c.style.left = x + aw - ah / 2 - cw; }
+			else 
+				{ c.style.left = x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+				{ c.style.top = y + ah / 2 - ch; }
+			else 
+				{ c.style.top = y + ah / 2; }
+			c.style.visibility = "visible";
+}	}	}
+function msoCommentHide(com_id) 
+{
+	if(msoBrowserCheck())
+		{
+		c = document.all(com_id);
+		if (null != c && null == c.length)
+		{
+		c.style.visibility = "hidden";
+		c.style.left = -1000;
+		c.style.top = -1000;
+		} } 
+}
+function msoBrowserCheck()
+{
+	ms = navigator.appVersion.indexOf("MSIE");
+	vers = navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 = (ms > 0) && (parseInt(vers) >= 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
+}
+// --></script>
+
+<div class=WordSection1 style='margin:30.0pt;'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt;line-height:115%'>Disclaimer</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>This platform (the &quot;Platform&quot;), developed, operated and managed by RXIL (&quot;we&quot;,
+&quot;our&quot;, and &quot;us&quot;), has been developed for the purpose of facilitating the discounting
+of trade receivables. By registering for and using the Platform, you agree to
+be bound by our <b>Privacy Policy</b> and <b>Terms &amp; Conditions </b>governing
+the use of the Platform and the website (the &quot;Site&quot;) hosting the Platform. Use
+of the Platform, or any information, functionality, tools or feature of the
+Platform constitutes an acceptance of the said Terms &amp; Conditions. We
+reserve the right to change or update the information on this Site, including this
+disclaimer, at any time by posting revisions on this Site. To the extent that
+any provision of this disclaimer is deemed to conflict with the Terms &amp;
+Conditions, this disclaimer<b> </b>shall have precedence. Your use of the Platform
+constitutes explicit agreement that such use is qualified by your understanding
+and acceptance of the Disclaimers and the Terms &amp; Conditions. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>RXIL provides an electronic web-based platform for trading of/bidding
+for Factoring Units, and financing trade receivables for MSME sellers. RXIL is
+merely a facilitator to such activities and transactions, and its services are
+limited to the provision of the Platform for such purpose. RXIL does not
+represent any of the Participants.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>RXIL makes no representations or warranties, express or implied, in
+regard to the contents of the instruments, materials and information provided
+on this Site and exclude all representations, conditions, and warranties,
+express or implied arising by operation of law or otherwise as to the quality, correctness,
+veracity, accuracy, completeness, performance, or fitness of the contents of
+and materials and information provided on the Site for any particular purpose. It
+should not in any way be deemed or construed by any participant on the Platform
+that the instruments offered on the Platform / the Site have been cleared or
+approved or endorsed by RXIL. The Platform contains material submitted by Member
+participants on an &quot;as is&quot; and &quot;as available&quot; basis, and such material will not
+have been independently verified, validated, or scrutinized. These Member
+participants are solely responsible for ensuring that the materials submitted
+comply with all legal, regulatory and statutory requirements. The Platform is
+not responsible for any errors, omissions or representations made by or on
+behalf of its Members. RXIL shall not be liable in contract, tort (including
+negligence) or otherwise for indirect, special, incidental, punitive or
+consequential losses or damages, or loss of profits, revenue, goodwill or
+anticipated savings or for any financial loss whatsoever, regardless of whether
+any such loss or damage would arise in the ordinary course of events or
+otherwise, or is reasonably foreseeable or is otherwise in the contemplation of
+the parties in connection with this Site or its use. No liability is excluded
+to the extent such liability may not be excluded or limited by law. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>The permission given by RXIL to the participants on the Platform to use its
+network and software systems should not in any way be interpreted, deemed or
+construed to mean or imply that the compliance with various statutory, legal,
+regulatory and other requirements by the parties to any issue are cleared or 
+approved by RXIL&#59; nor does it in any manner warrant, certify or endorse the
+correctness or completeness of any of the compliance with the statutory and
+other requirements nor does it take any responsibility for the financial or
+other soundness of this Issuer, its promoters, its management or any scheme or
+project of such Issuer.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>5.	RXIL is not responsible for the underlying transaction
+ between any of the Participants and also for ultimate settlement of any Factoring Units 
+ discounted on the TReDS Platform. RXIL does not make any representation or provide any warranty 
+ or guarantee that the purchase of any Factoring Unit on the Platform will necessarily 
+ result in its settlement by the buyer. RXIL will only facilitate the process of settlement of 
+ factoring units that are discounted on the Platform by financiers, and does not guarantee any 
+ transaction or related negotiation, potential or otherwise, on the Platform. Financiers on the 
+ Platform assume the credit risk involved in factoring/any trading transactions including the credit 
+ risk associated with the settlement of payments on any due date and recovery of dues on the occurrence 
+ of a Default or otherwise.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>6.	RXIL shall make the Platform available for prior testing
+ to all concerned participants upon registration, and in case any material changes
+  have been carried out to the software or the functionality of the Platform, upon the
+   implementation of such changes, to enable such participants to satisfy themselves of the
+    utility and functionality of the Platform for the intended purpose. Use of the Platform by
+     participants subsequent to being offered such opportunity to test the Platform constitutes
+      acceptance by such participants of the utility and functionality of such Platform for all intended
+       purposes, and such use shall constitute a waiver by such participants of their right to hold RXIL
+        responsible for any loss, damage, or other costs, including without limitation any incidental
+         special or consequential damages or loss of profit arising out of use of the Platform.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>RXIL shall provide its services on a best effort basis. Notwithstanding
+anything contained herein or otherwise to the contrary, neither RXIL nor its
+directors, officers, agents, employees or affiliates shall be liable for any failure
+of its systems, or for any loss, damage, or other costs arising in any way, without
+limitation, out of internet failures, telecom network failures or system
+failures including failure of ancillary or associated systems, power fluctuations/failures
+or other environmental conditions&#59;or any accident, neglect, misuse, error,
+fraud by any participant or its authorised persons or the agents or any third
+party&#59;or any fault in any attachments or associated equipment (either supplied
+by RXIL or approved by it) which forms or does not form part of the workstation
+installation&#59;or arising out of any acts of nature, forces or causes beyond the
+reasonable control of RXIL, including but not limited to acts of God, fire,
+flood, war act of violence, strikes, labour disputes, riots, insurrections,
+civil disturbances, shortages of labour or materials, fires, flood, storms,
+explosions, war, governmental actions, orders of domestic or foreign courts or
+tribunals or any other similar occurrence&#59;or any incidental special or
+consequential damages including without limitation any loss of profit. RXIL
+does not warrant that the use of the Platform shall be uninterrupted or error
+free, or that all deficiencies or errors are capable of being corrected.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>The Platform offers standard forms of agreement that may be digitally or
+electronically signed by the buyer and seller as part of the issue process. The
+forms of agreement are made available on an 'as-is' basis. The Platform is not
+acting as legal counsel to any party and use of any form of agreement, whether
+made available on the Platform or otherwise, does not constitute the provision
+of legal advice by the Platform to any person. Users of the Platform are solely
+responsible for their use of the Platform&#39;s forms of agreement, and their use
+of such forms shall constitute their explicit agreement to be additionally
+bound by these Disclaimers before participating in any issue on the Platform. The
+Platform shall not be liable for any claim arising out of or in connection with
+the use of the Platform&#39;s forms of agreement. The Platform strongly recommends that
+participants consult their legal advisors prior to entering into any agreement.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span>RXIL will not bear any obligation or liability nor will it be required
+to be a party in respect of any dispute or proceedings whatsoever between the Member
+participants (including in relation to any non-performance of any respective
+obligations of any Member participant in relation to any transactions
+undertaken on the TReDS Platform) and any such disputes or proceedings shall be
+resolved outside the TReDS Platform without any reference or recourse to RXIL.</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-left:18.0pt;text-align:justify;
+text-indent:-18.0pt'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span>The
+use of the Platform, related services, the Site, and the contents of this
+disclaimer, are governed by Indian law. We do not represent or warrant that the
+Site, or the Platform, or any functionality or feature thereof, is appropriate
+or available for use in any particular jurisdiction. Those who choose to use the
+Platform do so on their own initiative and at their own risk, and are
+responsible for complying with all local laws, rules, regulations, and other
+statutory or regulatory requirements. Any use of the Platform, this Site, and
+the related services are subject to Indian law. </p>
+
+</div>
+

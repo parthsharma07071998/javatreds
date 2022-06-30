@@ -1,0 +1,17 @@
+{
+"subject":"RXIL-TReDS - Registration - Login de-activation",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Your Login for registration {{loginId}} has been deactivated due to inactivity for {{days}} days.
+<br>
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

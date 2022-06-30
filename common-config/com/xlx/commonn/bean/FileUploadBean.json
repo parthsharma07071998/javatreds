@@ -1,0 +1,140 @@
+{
+	"name": "fileupload",
+	"tableName" : "FileUploads",
+	"columnPrefix" : "FU",
+	"desc" : "File Uploads",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "type",
+			"label": "Type",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 30
+		},
+		{
+			"name": "fileName",
+			"label": "File Name",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 100
+		},
+		{
+			"name": "storeType",
+			"label": "StoreType",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Database","value":"D"}, {"text":"File","value":"F"}]
+		},
+		{
+			"name": "fileStore",
+			"label": "File Store",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "fileId",
+			"label": "File Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "uniqueKey",
+			"label": "Unique Key",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "recordCount",
+			"label": "Record Count",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Pending", "value":"P"}, {"text":"Uploaded Successfully", "value":"S"}, {"text":"Uploaded With Errors", "value":"E"}, {"text":"Failed", "value":"F"}]
+		},
+		{
+			"name": "successCount",
+			"label": "Success Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "errorCount",
+			"label": "Error Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "returnFileName",
+			"label": "Return File Name",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "returnFileId",
+			"label": "Return File Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "auId",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"loginId",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"domain",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"fromDate",
+			"dataType": "DATETIME",
+			"nonDatabase": true
+		},
+		{
+			"name":"toDate",
+			"dataType": "DATETIME",
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups" : {
+		"view": ["id","fileName","status","recordCount","successCount","errorCount","remarks","returnFileName"],
+		"list" : [
+			"id","fileId", "fileName", "recordCreateTime", "recordCount", "successCount", "errorCount", "status", "returnFileName", "returnFileId"
+		]	
+	}
+}

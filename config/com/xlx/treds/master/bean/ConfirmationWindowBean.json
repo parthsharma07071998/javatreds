@@ -1,0 +1,61 @@
+{
+"name" : "confwin",
+"tableName" : "",
+"columnPrefix" : "CW",
+"desc" : "Confirmation Window",
+"fields" : [
+		{
+			"name": "confStartTime",
+			"label": "Confirmation Start Time",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "confEndTime",
+			"label": "Confirmation End Time",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"settlementDate",
+			"label":"Settlement Date (Leg1)",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name": "active",
+			"label": "Active",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "status",
+			"dataType": "STRING",
+			"maxLength":1,
+			"nonDatabase":true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Pending", "value":"P"},{"text":"Open", "value":"O"},{"text":"Closed", "value":"C"}]
+		},
+		{
+			"name": "confStartTimeTime",
+			"dataType": "TIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "confEndTimeTime",
+			"dataType": "TIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "skipClearingHoliday",
+			"label": "Skip Clearing Holiday",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"nonDatabase": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		}
+	]
+}

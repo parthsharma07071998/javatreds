@@ -1,0 +1,16 @@
+select fuid, INSTFUINVOICECOUNT.inid, fustatus
+, fupurchaser purchaser, fusupplier supplier
+, FURECORDCREATETIME createtime, FUACCEPTDATETIME accepttime, CHILDCOUNT instcount
+, factoringunits.FUAMOUNT fuamount
+, inamount instamt, innetamount instnetamt 
+, trunc((FUACCEPTDATETIME - FURECORDCREATETIME) * 24*60) diffinmin
+, trunc((FUACCEPTDATETIME - FURECORDCREATETIME) * 24) diffinhrs
+, trunc((FUACCEPTDATETIME - FURECORDCREATETIME) ) diffindays
+, pur.aename purchasername
+, sup.aename suppliername
+  from factoringunits,  INSTFUINVOICECOUNT , instruments inst , appentities pur , appentities sup
+where furecordversion > 0 and fuid = INSTFUINVOICECOUNT.INFUID and INSTFUINVOICECOUNT.inid = inst.inid
+and pur.aecode = fupurchaser and sup.aecode = fusupplier
+and FUACCEPTDATETIME is not null
+and fustatus in ( 'L2SET' , 'L1SET' ,'L1FAIL','L2FAIL','FACT'  )
+order by fuid desc

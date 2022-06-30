@@ -1,0 +1,83 @@
+{
+"name" : "obligpenalty",
+"tableName" : "ObligationExtensionPenalties",
+"columnPrefix" : "OEP",
+"desc" : "Obligation Extension Penalties.",
+"fields" : [
+		{
+			"name":"financier",
+			"label":"Financier",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"fieldType":"PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"finaucset/purchasers?def=Y"
+		},
+		{
+			"name":"allowExtension",
+			"label":"Allow Extension",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"maxExtension",
+			"label":"Maximum Extension (days)",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"penalty",
+			"dataType":"STRING",
+			"maxLength":500,
+			"nonJson":true
+		},
+		{
+			"name": "penaltyList",
+			"dataType":"OBJECT",
+			"allowMultiple":true,
+			"nonDatabase":true,
+			"objectClass":"com.xlx.treds.auction.bean.PenaltyDetailBean"
+		},
+		{
+			"name":"purchaserName",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups" : {
+		"insert":["purchaser","allowExtension","maxExtension","penaltyList"]
+	}
+}

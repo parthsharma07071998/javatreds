@@ -1,0 +1,5 @@
+select fuid, fustatus,  CHILDCOUNT instcount, factoringunits.FUAMOUNT amount
+  from factoringunits, INSTFUINVOICECOUNT 
+where furecordversion > 0 and fuid = INFUID
+and fustatus in ( 'WTHDRN' , 'L1FAIL' ,'EXP' )
+order by fuid desc

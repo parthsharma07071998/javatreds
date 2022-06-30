@@ -1,0 +1,118 @@
+{
+"name" : "bbdtl",
+"tableName" : "BankBranchDetail",
+"columnPrefix" : "BBD",
+"desc" : "Bank Branch Details : The master list of all the IFSC codes and their Branch names which are displayed after putting the IFSC code.",
+"fields" : [
+		{
+			"name": "ifsc",
+			"label": "IFSC",
+			"dataType": "STRING",
+			"maxLength": 11,
+			"fieldType":"PRIMARY",
+			"notNull": true,
+			"conversions": ["toUpper"]
+		},
+		{
+			"name": "micrcode",
+			"label": "MICR Code",
+			"dataType": "STRING",
+			"maxLength": 12
+		},
+		{
+			"name": "branchname",
+			"label": "Branch Name",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"wildCard": "CONTAINS" 
+		},
+		{
+			"name": "address",
+			"label": "Address",
+			"dataType": "STRING",
+			"maxLength": 200,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "contact",
+			"label": "Contact",
+			"dataType": "STRING",
+			"maxLength": 15
+		},
+		{
+			"name": "city",
+			"label": "City",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "district",
+			"label": "Address",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "state",
+			"label": "State",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "status",
+			"dataType": "STRING",
+			"maxLength":1,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Active", "value":"A"},{"text":"Suspended", "value":"S"},{"text":"Closed", "value":"C"},{"text":"Deleted", "value":"D"}]
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "bankCode",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"BANK"
+		}
+	],
+	 "fieldGroups": {
+        "update": [
+            "ifsc",
+            "micrcode",
+            "branchname",
+            "address",
+            "contact",
+            "city",
+            "district",
+            "state",
+            "status"
+        ],
+        "insert": [
+            "ifsc",
+            "micrcode",
+            "branchname",
+            "address",
+            "contact",
+            "city",
+            "district",
+            "state",
+            "status"
+        ]
+    }
+}

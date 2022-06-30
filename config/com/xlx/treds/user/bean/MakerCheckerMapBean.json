@@ -1,0 +1,58 @@
+{
+"name" : "makercheckermap",
+"tableName" : "MakerCheckerMap",
+"columnPrefix" : "MCM",
+"desc" : "Maker Checker Mapping : The list of checker for the particular maker.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "checkerType",
+			"label":"Checker Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Instrument", "value":"IN"},{"text":"Platform Limit", "value":"PL"},{"text":"Buyer Limit", "value":"BL"},{"text":"Buyer Seller Limit", "value":"BSL"},{"text":"User Limit", "value":"UL"},{"text":"Bid", "value":"BID"},{"text":"InstrumentCounter", "value":"INC"}]
+		},
+		{
+			"name": "makerId",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "checkerId",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups": {
+         "insert": [
+			"makerId", "checkerId"
+        ],
+        "update": []
+    }
+}

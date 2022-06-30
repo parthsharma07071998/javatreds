@@ -1,0 +1,42 @@
+{
+"subject":"NACH settlement for value date {{date}}",
+"body":"
+{{{header}}}
+
+Hi,<br>
+<br>
+The NACH transaction file is attached under the NPCI circular NPCI/2016-17/NACH/Circular No 206 dated December 21, 2016 and Circular 223 for Phase II implementation.<br>
+
+<br>This file contains {{debitCount}} debit and {{creditCount}} credit record for following banks<br>
+<br>
+{{#banks}}
+<br>{{.}}
+{{/banks}}
+<br>
+<br>
+<br>
+Please acknowledge receipt (Dr & Tr).<br>
+<br>
+<br>
+<br>
+
+Regards<br>
+<br>
+<br>
+<br>
+Subrath Shetty
+<br>
+
+Sr. Manager (Operations)
+<br>
+<br>
+
+Receivables Exchange of India Limited (RXIL)
+<br>
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

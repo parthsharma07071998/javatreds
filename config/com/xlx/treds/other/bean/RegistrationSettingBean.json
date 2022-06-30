@@ -1,0 +1,148 @@
+{
+"name" : "factoredReport",
+"columnPrefix" : "FA",
+"fields" : [
+		{
+			"name":"fuId",
+			"label":"Factoring Unit Id.",
+			"dataType":"STRING"
+		},
+		{
+			"name":"fuStatus",
+			"label":"Status",
+			"dataType":"STRING",
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Ready For Auction", "value":"RDY"},{"text":"Active", "value":"ACT"},{"text":"Factored", "value":"FACT"},{"text":"Expired", "value":"EXP"},{"text":"Leg 3 Generated", "value":"LEG3"},{"text":"Withdrawn", "value":"WTHDRN"},{"text":"Suspended", "value":"SUSP"},{"text":"Leg 1 Settled", "value":"L1SET"},{"text":"Leg 1 Failed", "value":"L1FAIL"},{"text":"Leg 2 Settled", "value":"L2SET"},{"text":"Leg 2 Failed", "value":"L2FAIL"}]
+		},
+		{
+			"name":"inInstNumber",
+			"label":"Invoice Number",
+			"dataType":"STRING"
+		},
+		{
+			"name":"inInstDate",
+			"label":"Invoice Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"inGoodsAcceptanceDate",
+			"label":"Goods Acceptance Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"l2Date",
+			"label":"Leg 2 Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"inInstImage",
+			"label":"Instument",
+			"dataType":"STRING"
+		},
+		{
+			"name":"inNetAmount",
+			"label":"Net Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"inTdsAmount",
+			"label":"TDS Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"inAdjAmount",
+			"label":"Adj Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"inCashDiscountValue",
+			"label":"Cash Discount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"inDeductions",
+			"label":"Deduction and TDS",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"fuAamount",
+			"label":"Factored Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"inSalesCategory",
+			"label":"Sales Category",
+			"dataType":"STRING",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory"
+		},
+		{
+			"name":"inFuAcceptDateTime",
+			"label":"Factored Date Time",
+			"dataType":"DATETIME",
+			"format" : "dd-MM-yyyy HH:mm:ss:SS"
+		},
+		{
+			"name":"l1Date",
+			"label":"Leg 1 Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"fuPurchaser",
+			"label":"Status",
+			"dataType":"STRING",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name":"fuSupplier",
+			"label":"Status",
+			"dataType":"STRING"
+		},
+		{
+			"name":"purchaser",
+			"label":"Status",
+			"dataType":"STRING"
+		},
+		{
+			"name":"supplier",
+			"label":"Status",
+			"dataType":"STRING"
+		},
+		{
+			"name":"groupFlag",
+			"label":"Status",
+			"dataType":"STRING"
+		}
+	],
+	"fieldGroups": {
+	}	
+}

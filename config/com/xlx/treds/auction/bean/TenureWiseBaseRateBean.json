@@ -1,0 +1,22 @@
+{
+"name" : "tenbaserate",
+"fields" : [
+		{
+			"name":"tenure",
+			"label":"Tenure",
+			"dataType":"INTEGER",
+			"integerLength":4,
+			"notNull":true,
+			"minValue":1
+		},
+		{
+			"name":"baseRate",
+			"label":"Base Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"notNull":true,
+			"minValue":0.01
+		}
+]
+}

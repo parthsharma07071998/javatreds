@@ -1,0 +1,26 @@
+{
+"subject":"RXIL-TReDS - Intimation of Registration - {{memberName}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+One of the MSME customers of your Bank as per details given below, has registered on Trade Receivables Discounting System (TReDS) platform of Receivables Exchange of India Limited (RXIL) as a Seller, to trade it's receivables on the platform.
+<br>
+<table>
+<tr><td><b>Name of the Participant</b></td><td>{{memberName}}</td></tr>
+<tr><td><b>Constitution</b></td><td>{{constitution}}</td></tr>
+<tr><td><b>Designated Banker on TReDS</b></td><td>{{bankName}}</td></tr>
+</table>
+<br>
+RXIL shall inform you through mails, as and when the above participant makes any transaction on the TReDS platform.
+<br>
+Meanwhile, this is for your information and necessary action.
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

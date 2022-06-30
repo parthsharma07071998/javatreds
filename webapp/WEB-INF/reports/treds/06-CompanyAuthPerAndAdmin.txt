@@ -1,0 +1,96 @@
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Authorsized Person' AS EntityType
+, (TRIM(CCSALUTATION) || ' ' || TRIM(CCFIRSTNAME) || ' ' || TRIM(CCMIDDLENAME) || ' ' || TRIM(CCLASTNAME)) AS PersonName
+, CCTelephone AS Telphone
+, CCMobile AS Mobile
+, CCEMAIL AS Email
+,nvl(to_char(CCDOB, 'DD-MM-YYYY'), '') AS DOB
+FROM COMPANYDETAILS, COMPANYCONTACTS
+WHERE CDRECORDVERSION > 0
+AND CCRECORDVERSION > 0
+AND CDID = CCCDID
+AND CCAUTHPER = 'Y'
+UNION 
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Administrator' AS EntityType
+, (TRIM(CCSALUTATION) || ' ' || TRIM(CCFIRSTNAME) || ' ' || TRIM(CCMIDDLENAME) || ' ' || TRIM(CCLASTNAME)) AS PersonName
+, CCTelephone AS Telphone
+, CCMobile AS Mobile
+, CCEMAIL AS Email
+,nvl(to_char(CCDOB, 'DD-MM-YYYY'), '') AS DOB
+FROM COMPANYDETAILS, COMPANYCONTACTS
+WHERE CDRECORDVERSION > 0
+AND CCRECORDVERSION > 0
+AND CDID = CCCDID
+AND CCADMIN = 'Y'
+UNION
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Authorsized Person' AS EntityType
+, (TRIM(CCSALUTATION) || ' ' || TRIM(CCFIRSTNAME) || ' ' || TRIM(CCMIDDLENAME) || ' ' || TRIM(CCLASTNAME)) AS PersonName
+, CCTelephone AS Telphone
+, CCMobile AS Mobile
+, CCEMAIL AS Email
+,nvl(to_char(CCDOB, 'DD-MM-YYYY'), '') AS DOB
+FROM COMPANYDETAILS_P, COMPANYCONTACTS
+WHERE CDRECORDVERSION > 0
+AND CCRECORDVERSION > 0
+AND CDID = CCCDID
+AND CCAUTHPER = 'Y'
+AND CDAPPROVALSTATUS != 'A'
+AND CDID NOT IN ( SELECT CDID FROM COMPANYDETAILS )
+UNION 
+SELECT  CDCODE AS MemberCode
+, CDCOMPANYNAME AS MemberName
+, (CASE WHEN CDSUPPLIERFLAG='Y' THEN 'Supplier' 
+WHEN CDPURCHASERFLAG = 'Y' THEN 'Purchaser' 
+WHEN CDFINANCIERFLAG = 'Y' THEN 'Financier' 
+ELSE '' END) AS RegType
+, (CASE WHEN CDApprovalStatus ='A' THEN 'Approved'
+WHEN CDApprovalStatus ='D' THEN 'Draft'
+WHEN CDApprovalStatus ='B' THEN 'Returned'
+WHEN CDApprovalStatus ='R' THEN 'Rejected'
+ELSE '' END) AS Status
+, 'Administrator' AS EntityType
+, (TRIM(CCSALUTATION) || ' ' || TRIM(CCFIRSTNAME) || ' ' || TRIM(CCMIDDLENAME) || ' ' || TRIM(CCLASTNAME)) AS PersonName
+, CCTelephone AS Telphone
+, CCMobile AS Mobile
+, CCEMAIL AS Email
+,nvl(to_char(CCDOB, 'DD-MM-YYYY'), '') AS DOB
+FROM COMPANYDETAILS_P, COMPANYCONTACTS
+WHERE CDRECORDVERSION > 0
+AND CCRECORDVERSION > 0
+AND CDID = CCCDID
+AND CCADMIN = 'Y'
+AND CDAPPROVALSTATUS != 'A'
+AND CDID NOT IN ( SELECT CDID FROM COMPANYDETAILS )
+ORDER BY MemberCode, EntityType

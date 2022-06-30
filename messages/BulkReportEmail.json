@@ -1,0 +1,14 @@
+{
+"subject":"Exception Report for date : {{date}}",
+"body":"
+{{{header}}}
+
+Dear <b>User</b><br>
+<br>
+Please find attached exception report for {{date}}.
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

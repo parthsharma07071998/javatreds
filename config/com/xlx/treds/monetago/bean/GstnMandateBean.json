@@ -1,0 +1,87 @@
+{
+	"name": "gstnmandate",
+	"tableName": "GstnMandate",
+	"columnPrefix": "GM",
+	"desc": "",
+	"fields": [{
+			"name": "id",
+			"fieldType": "PRIMARY",
+			"dataType": "INTEGER",
+			"autoNum": true,
+			"notNull": true
+		},
+		{
+			"name": "supplierCode",
+			"label": "SupplierCode",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name": "gstn",
+			"label": "GSTN",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{
+				"text": "Completed",
+				"value": "C"
+			}, {
+				"text": "Pending",
+				"value": "P"
+			}, {
+				"text": "Not Done",
+				"value": "N"
+			}]
+		},
+		{
+			"name": "statusDate",
+			"label": "Status Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "statusPayload",
+			"label": "Status Payload",
+			"dataType": "STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "emailList",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase":true,
+			"allowMultiple": true,
+			"maxItems":3,
+			"pattern": "PATTERN_EMAIL",
+			"patternMessage":"Please ensure the email id is valid.E.g. AmitM@gmail.com"
+		},
+		{
+			"name": "auId",
+			"fieldType": "PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "consentType",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "consentTypeDesc",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordVersion",
+			"fieldType": "RECORDVERSION"
+		}
+
+	]
+
+}

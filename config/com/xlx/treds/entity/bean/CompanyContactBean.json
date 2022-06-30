@@ -1,0 +1,309 @@
+{
+"name" : "companycontact",
+"tableName" : "CompanyContacts",
+"columnPrefix" : "CC",
+"desc" : "Company Contacts : List of contact details related to the different entities of the Company like Promoters/Officers etc.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true
+		},
+		{
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"name": "DOB",
+			"label": "Date of Birth",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "designation",
+			"label": "Designation",
+			"dataType": "STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DESIGNATION_CONTACT"
+		},
+		{
+			"name": "promoter",
+			"label": "Promoter",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "chiefPromoter",
+			"label": "Promoter",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "cpCat",
+			"label": "Chief Promoter Category",
+			"dataType":"STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"PROMOTERCATEGORY"
+		},
+		{
+			"name": "cpWomenEnt",
+			"label": "Women Entrepreneur",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "authPer",
+			"label": "Authorised Official",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "authPerAuthDate",
+			"label": "Auth. Off. Authorisation Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "admin",
+			"label": "Admin",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "adminAuthDate",
+			"label": "Admin Authorisation Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "ultimateBeneficiary",
+			"label": "Ultimate Beneficiary",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "ultimateBeneficiaryDate",
+			"label": "Ultimate Beneficiary Date",
+			"dataType": "DATE"
+		},
+		{
+			"name": "cersaiFlag",
+			"label": "CERSAI",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"cersai",
+			"label":"Father / Spouse",
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"name": "cersaiDOB",
+			"label": "Date of Birth",
+			"dataType": "DATE"
+		},
+		{
+			"name": "noaEmail",
+			"label": "Notice of Assignment Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"pattern": "PATTERN_EMAIL"
+		},
+		{
+			"name":"gender",
+			"label":"Gender",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Male", "value":"M"},{"text":"Female", "value":"F"}]
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "uidId",
+			"label": "UID Id",
+			"dataType": "STRING",
+			"maxLength": 12,
+			"pattern": "PATTERN_AADHAR"
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Karta", "value":"K"},{"text":"Trustee", "value":"T"},{"text":"NA", "value":"N"}]
+		},
+		{
+			"name": "dinNo",
+			"label": "Din No",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"nationality",
+			"label":"Nationality",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"notNull": true,
+			"dataSetValues":[{"text":"Indian", "value":"I"},{"text":"Others", "value":"O"}]
+		},
+		{
+			"name": "othersNationality",
+			"label": "Others",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"OTHER_COUNTRIES"
+		},
+		{
+			"name":"residentailStatus",
+			"label":"Residentail Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Residential Indian", "value":"RI"},{"text":"Non Residential Indian", "value":"NRI"},{"text":"Foreign National", "value":"FN"}]
+		},
+		{
+			"name":"res",
+			"ref": "com/xlx/treds/config/ResAddress.json"
+		},
+		{
+			"name":"nri",
+			"ref": "com/xlx/treds/config/NRIAddress.json"
+		},
+		{
+			"name":"occupation",
+			"label":"Occupation /Source of Income",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Private Sector service", "value":"PUB"},{"text":"Public sector Service", "value":"PRI"},{"text":"Govt service", "value":"GOV"},{"text":"Retired Professional", "value":"RTD"},{"text":"Agriculturist", "value":"AGR"},{"text":"Housewife", "value":"HWF"},{"text":"Students", "value":"STU"},{"text":"Business or Entrepreneur", "value":"BUS"},{"text":"Others", "value":"OTR"}]
+		},
+		{
+			"name": "othersOccupation",
+			"label": "Others Occupation",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"grossIncome",
+			"label":"Gross Anual Income",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Upto 5Lakhs", "value":"A"},{"text":"5 to 25 lakhs ", "value":"B"},{"text":"25lakhs to 1crore ", "value":"C"},{"text":"1 to 5crore ", "value":"D"},{"text":"5crore and above ", "value":"E"}]
+		},
+		{
+			"name": "networth",
+			"label": "Net Worth(lakhs)",
+			"dataType": "DECIMAL",
+			"integerLength": 15,
+			"decimalLength": 2
+		},
+		{
+			"name":"date",
+			"label":"NetWorth as on Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"force",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		},
+		{
+			"name":"companyCode",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase":true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name":"refId",
+			"label": "Ref Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups" : {
+		"promoter": ["chiefPromoter","dinNo"],
+		"chiefPromoter": ["cpCat"],
+		"authorisedPerson": ["authPerAuthDate"],
+		"ultimateBeneficiary": ["ultimateBeneficiaryDate"],
+		"admin": ["adminAuthDate"],
+		"nri": ["nriLine1","nriLine2","nriLine3","nriCountry","nriState","nriDistrict","nriCity","nriZipCode"],
+		"res": ["resLine1","resLine2","resLine3","resCountry","resState","resDistrict","resCity","resZipCode"],
+		"insertCompanyContact": ["id","cdId","companyCode","salutation","firstName","middleName","lastName","gender","DOB","pan","uidId","designation","email","telephone","mobile","fax","cersaiSalutation","cersaiFirstName","cersaiMiddleName","cersaiLastName","cersaiDOB","promoter","authPer","admin","authPerAuthDate","adminAuthDate","chiefPromoter","cersaiFlag","cpWomenEnt","dinNo","cpCat","nationality","othersNationality","residentailStatus","resLine1","resLine2","resLine3","resZipCode","resCity","resDistrict","resState","resCountry","nriLine1","nriLine2","nriLine3","nriZipCode","nriCity","nriDistrict","nriState","nriCountry","occupation","othersOccupation","grossIncome","networth","date","recordCreator","recordCreateTime","recordVersion"],
+		"update": ["id","cdId","salutation","firstName","middleName","lastName","email","pan","telephone","mobile","fax","gender","DOB","designation","promoter","chiefPromoter","cpCat","authPer","authPerAuthDate","admin","adminAuthDate","ultimateBeneficiary","ultimateBeneficiaryDate","cersaiFlag","cersaiSalutation","cersaiFirstName","cersaiMiddleName","cersaiLastName","cersaiDOB","noaEmail","uidId","status","dinNo","nationality","othersNationality","residentailStatus","resLine1","resLine2","resLine3","resZipCode","resCity","resDistrict","resState","resCountry","nriLine1","nriLine2","nriLine3","nriZipCode","nriCity","nriDistrict","nriState","nriCountry","date","force","refId","companyCode","recordUpdator","recordUpdateTime","recordVersion"]
+	}
+}

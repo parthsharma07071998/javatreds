@@ -1,0 +1,15 @@
+ select 
+fuid fuid
+, fuamount amount
+, FUFACTOREDAMOUNT factoredamt
+, obamount obliamt
+, obsamount oblisplitamt
+, obdate oblidate
+, OBORIGINALDATE oblioriginaldate
+, OBSSETTLEDDATE oblisettleddate
+, OBSPAYMENTREFNO paymentrefno
+, obsstatus oblistatus
+from factoringunits, obligations, obligationsplits 
+where furecordversion > 0 AND obrecordversion > 0 and obsrecordversion > 0 
+and obsobid=obid and fuid=obfuid and fustatus = 'L2SET' AND OBSPAYMENTSETTLOR='DIRECT' AND OBTYPE ='L2' 
+order by obdate desc

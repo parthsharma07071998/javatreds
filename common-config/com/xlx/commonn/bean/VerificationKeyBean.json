@@ -1,0 +1,52 @@
+{
+	"name": "VerificationKey",
+	"tableName" : "verificationkeys",
+	"columnPrefix" : "VK",
+	"desc" : "Verification Key",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "type",
+			"label": "Type",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 10
+		},
+		{
+			"name": "secretKey",
+			"label": "Secret Key",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 50
+		},
+		{
+			"name": "parameters",
+			"label": "Parameters",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 250
+		},
+		{
+			"name": "expiry",
+			"label": "Expiry",
+			"dataType":"DATETIME",
+			"notNull":true,
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

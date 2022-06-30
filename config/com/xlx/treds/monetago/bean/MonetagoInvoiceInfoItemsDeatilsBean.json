@@ -1,0 +1,38 @@
+{
+	"name": "monetagoinvoiceinfoitemsdetails",
+	"tableName": "MonetagoInvoiceInfoItemsDetails",
+	"columnPrefix": "MII",
+	"desc": "Invoice Info",
+	"fields": [{
+			"name": "rt",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "camt",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "iamt",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "samt",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "csamt",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "txval",
+			"dataType": "INTEGER",
+			"label": ""
+		}
+	]
+
+}

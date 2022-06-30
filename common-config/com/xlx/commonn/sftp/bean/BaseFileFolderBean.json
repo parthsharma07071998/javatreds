@@ -1,0 +1,33 @@
+{
+	"name": "baseFileFolderBean",
+	"desc" : "Base File Folder",
+	"fields": [
+		{
+			"name": "type",
+			"label": "Type",
+			"dataType":"STRING",
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Directory","value":"D"}, {"text":"File","value":"F"}]
+		},
+		{
+			"name": "name",
+			"label": "File Folder Name",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "path",
+			"label": "File Folder Path",
+			"dataType":"STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "displayName",
+			"label": "File Folder Display Name",
+			"dataType":"STRING",
+			"maxLength": 50
+		}
+	],
+	"fieldGroups" : {
+	}
+}

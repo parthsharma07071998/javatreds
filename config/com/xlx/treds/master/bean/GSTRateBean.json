@@ -1,0 +1,112 @@
+{
+"name" : "gstrate",
+"tableName" : "GstRates",
+"columnPrefix" : "GR",
+"desc" : "GST Rates : Stores GST Rates along with surcharge for a particular period.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "fromDate",
+			"label": "From Date",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "toDate",
+			"label": "To Date",
+			"dataType": "DATE"
+		},
+		{
+			"name":"cgst",
+			"label":"CGST",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name":"sgst",
+			"label":"SGST",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name":"igst",
+			"label":"IGST",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name":"cgstSurcharge",
+			"label":"CGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name":"sgstSurcharge",
+			"label":"SGSTSurcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name":"igstSurcharge",
+			"label":"IGSTSurcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name": "status",
+			"dataType": "STRING",
+			"maxLength":1,
+			"nonDatabase":true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Active", "value":"A"},{"text":"InActive", "value":"I"}]
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

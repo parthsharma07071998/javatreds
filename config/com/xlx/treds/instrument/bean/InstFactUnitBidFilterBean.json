@@ -1,0 +1,110 @@
+{
+  "name": "instFactUnitBidFilter",
+  "desc": "Instrument Report: It is List Field Which are from instrument,FactUnit and Bid. ",
+  "fields": [
+    {
+      "name": "instid",
+      "label": "Instrument Id",
+      "dataType": "STRING",
+      "notNull": true
+    },
+    {
+      "name":"inststatus",
+      "label":"Instrument Status",
+      "dataType":"STRING",
+      "maxLength": 3,
+      "allowMultiple":true,
+      "dataSetType":"ENUM",
+      "dataSetValues":"com.xlx.treds.instrument.bean.InstrumentBean.Status"
+    },
+    {
+      "name":"salesCategory",
+      "label":"Sales Category",
+      "dataType":"STRING",
+      "allowMultiple": true,
+      "maxLength": 20,
+      "dataSetType":"RESOURCE",
+      "dataSetValues":"appentity/salesCategory"
+    },
+    {
+      "name":"purchaser",
+      "label":"Buyer Code",
+      "dataType":"STRING",
+      "allowMultiple": true,
+      "maxLength": 30,
+      "notNull": true,
+      "dataSetType":"RESOURCE",
+      "dataSetValues":"appentity/purchasers"
+    },
+    {
+      "name":"supplier",
+      "label":"Seller Code",
+      "dataType":"STRING",
+      "allowMultiple": true,
+      "maxLength": 30,
+      "notNull": true,
+      "dataSetType":"RESOURCE",
+      "dataSetValues":"appentity/suppliers"
+    },
+    {
+      "name":"factid",
+      "label":"FactoringUnit ID",
+      "dataType":"STRING",
+      "notNull": true
+    },
+    {
+      "name":"factstatus",
+      "label":"FactoringUnit Status",
+      "dataType":"STRING",
+      "maxLength": 10,
+      "allowMultiple": true,
+      "notNull": true,
+      "dataSetType":"ENUM",
+      "dataSetValues":"com.xlx.treds.instrument.bean.FactoringUnitBean.Status"
+    },
+    {
+      "name":"bidID",
+      "label":"Bid Id",
+      "notNull": true,
+      "dataType":"STRING"
+    },
+    {
+      "name":"status",
+      "label":"Status",
+      "dataType":"STRING",
+      "maxLength": 3,
+      "allowMultiple": true,
+      "notNull": true,
+      "dataSetType":"ENUM",
+      "dataSetValues":"com.xlx.treds.auction.bean.BidBean.Status"
+    },
+    {
+      "name":"financierEntity",
+      "label":"Financier",
+      "dataType":"STRING",
+      "maxLength": 10,
+      "allowMultiple": true,
+      "notNull": true,
+      "dataSetType":"RESOURCE",
+      "dataSetValues":"appentity/financiers"
+    },
+    {
+		"name":"instIsAggregatorCreated",
+		"dataType":"STRING",
+		"maxLength":1,
+		"nonDatabase": true,
+		"dataSetType":"ENUM",
+		"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+	},
+	{
+		"name": "instAggregatorEntity",
+		"label": "Aggregator Entity",
+		"dataType": "STRING",
+		"allowMultiple": true,
+		"maxLength": 10,
+		"nonDatabase": true,
+		"dataSetType":"RESOURCE",
+		"dataSetValues":"appentity/aggregator"
+	}
+  ]
+}

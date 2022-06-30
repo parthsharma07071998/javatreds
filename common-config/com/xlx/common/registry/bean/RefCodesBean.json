@@ -1,0 +1,65 @@
+{
+	"name": "refcodes",
+	"tableName" : "RefCodes",
+	"columnPrefix" : "REC",
+	"desc" : "Reference Codes",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 30
+		},
+		{
+			"name": "codeDesc",
+			"label": "Description",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 100
+		},
+		{
+			"name": "dataType",
+			"label": "Data Type",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "config",
+			"label": "Config",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "flags",
+			"label": "Flags",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

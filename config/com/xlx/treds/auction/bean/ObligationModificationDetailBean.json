@@ -1,0 +1,135 @@
+{
+"name" : "obliModDetails",
+"tableName" : "ObligationsModiDetails",
+"columnPrefix" : "OMD",
+"desc" : "Obligation Modification Details",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal unique identifier of the record."
+		},
+		{
+			"name": "omrId",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"obId",
+			"label":"Obligatin Id",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "partNumber",
+			"label":"PartNo",
+			"notNull": true,
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"txnType",
+			"label":"Transaction Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.auction.bean.ObligationSplitsBean.TxnType",
+			"desc":"Type of transaction, whether Debit/Credit."
+		},
+		{
+			"name":"origAmount",
+			"label":"Original Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"origDate",
+			"label":"Original Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"origStatus",
+			"label":"Original Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.auction.bean.ObligationSplitsBean.Status",
+			"desc":"Current status of obligation."
+		},
+		{
+			"name":"revisedAmount",
+			"label":"Revised Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"revisedDate",
+			"label":"Revised Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"revisedStatus",
+			"label":"Revised Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.auction.bean.ObligationSplitsBean.Status",
+			"desc":"Current status of obligation."
+		},
+		{
+			"name":"paymentSettlor",
+			"label":"Settlor",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"ENUM",
+			"dataSetType":"REFCODE",
+			"dataSetValues":"FACILITATOR"
+		},
+		{
+			"name":"remarks",
+			"label":"Remarks",
+			"dataType": "STRING",
+			"maxLength":200,
+			"notNull": true
+		},
+		{
+			"name":"paymentRefNo",
+			"label":"Payment Ref No",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"Transaction reference number for the pay-out return file."
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+    }
+}

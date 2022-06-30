@@ -1,0 +1,2 @@
+select 	cdcode code,cdcompanyname companyname,CBDACCTYPE ACCTYPE,CBDACCNO ACCNO,CBDIFSC IFSC,CDENABLELOCATIONWISESETTLEMENT ENABLELOCATIONWISESETTLEMENT ,CBDDEFAULTACCOUNT DEFAULTACCOUNT 
+from companybankdetails,companydetails where CBDBANK='YESB' and cdid=cbdcdid order by 1

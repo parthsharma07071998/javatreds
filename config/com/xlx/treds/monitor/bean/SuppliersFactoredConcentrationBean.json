@@ -1,0 +1,89 @@
+{
+	"name": "sellerfactcon",
+	"columnPrefix": "sf",
+	"fields": [
+		{
+			"name": "purchaser",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name":"totalAmount",
+			"label":"Total Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"totalFactAmount",
+			"label":"Total Factored Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name": "factUnitsCount",
+			"label":"Factoring Unit Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"purTotalAmount",
+			"label":"Purchaser Total Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"purTotalFactAmount",
+			"label":"Purchaser Total Factored Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name": "purFuCount",
+			"label":"Purchaser Factoring Unit Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"totalPercent",
+			"label":"Total Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"totalFactoredPercent",
+			"label":"Factored Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

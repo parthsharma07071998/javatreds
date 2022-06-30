@@ -1,0 +1,127 @@
+{
+"name" : "facEntMap",
+"tableName" : "FacilitatorEntityMapping",
+"columnPrefix" : "FEM",
+"desc" : "Facilitator Entity Mapping : (Entity NACH Codes) This is a collection of the Facilitator(Bank) to Entity mapping which is used at the time of obligation genration. The Entity can provide a user-friendly name for the mapping in the Mapping Code.",
+"fields" : [
+		{
+			"name":"facilitator",
+			"label":"Facilitator",
+			"fieldType": "PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"FACILITATOR"
+		},
+		{
+			"name":"entityCode",
+			"label":"Entity Code",
+			"fieldType": "PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/all"
+		},
+		{
+			"name":"mappingCode",
+			"label":"Mapping Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name": "cbdId",
+			"label": "Designated Bank",
+			"fieldType": "PRIMARY",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"",
+			"notNull": true,
+			"desc":"Unique Internal Id of the Companys Desginated Account."
+		},
+		{
+			"name":"designatedBankName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"ifsc",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"accNo",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"mandateAmount",
+			"label":"Mandate Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"haircut",
+			"label":"Haircut",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"notNull": true,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name": "active",
+			"label": "Active",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo",
+			"desc":"The status of the current mapping."
+		},
+		{
+			"name":"expiry",
+			"label":"Expiry Date",
+			"dataType":"DATE",
+			"desc":"Date when the mapping code will expire"
+		},
+		{
+			"name": "locationList",
+			"label": "Locations",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":""
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR",
+			"desc":"Internal id of the logged-in-user entering the details."
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME",
+			"desc":"Internal time at which the record was created."
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR",
+			"desc":"Internal id of the logged-in-user updating the details."
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME",
+			"desc":"Internal time at which the record was updated."
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION",
+			"desc":"Internal record versioning counter."
+		}
+	]
+}

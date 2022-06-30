@@ -1,0 +1,63 @@
+{
+"name" : "cashInvoicePaymentAdviceLog",
+"tableName" : "CashInvoicePaymentAdviceLog",
+"columnPrefix" : "CIP",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum": true,
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"fuId",
+			"label":"Factoring Unit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"childInId",
+			"label":"Child Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Success", "value":"SUC"},{"text":"Failed", "value":"FL"}]
+		},
+		{
+			"name":"txnType",
+			"label":"Transaction Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Leg 1", "value":"L1"},{"text":"Leg 2", "value":"L2"},{"text":"Leg 3", "value":"L3"}],
+		},
+		{
+			"name":"date",
+			"label":"Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"lastRetryDateTime",
+			"label":"Last Retry Date Time",
+			"dataType":"DATE"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+	
+		"insert":["id","fuId","childInId","status","txnType","date","lastRetryDateTime","recordCreateTime","recordVersion"],
+		"update":["id","fuId","childInId","status","txnType","date","lastRetryDateTime"]
+	}
+}

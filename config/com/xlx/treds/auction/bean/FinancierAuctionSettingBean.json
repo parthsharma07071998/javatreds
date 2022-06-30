@@ -1,0 +1,409 @@
+{
+"name" : "finaucset",
+"tableName" : "FinancierAuctionSettings",
+"columnPrefix" : "FAS",
+"desc" : "Financier Auction Settings : The list of limits set by the financier for risk management at different levels. For all the levels (Platform/Buyer/BuyerSeller/User) the financiers limits are stored here. The table contains the current utilization, balance utilization and can be provided at a flat rate or in a range to the base rate",
+"fields" : [
+		{
+			"name":"id",
+			"fieldType": "PRIMARY",
+			"dataType":"INTEGER",
+			"notNull": true,
+			"desc":"Internal primary identifier of the record."
+		},
+		{
+			"name":"level",
+			"label":"Level",
+			"dataType":"STRING",
+			"maxLength": 4,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Financier Self", "value":"YNNN"},{"text":"Financier Buyer", "value":"YYNN"},{"text":"Financier Buyer Seller", "value":"YYYN"},{"text":"Financier User", "value":"YNNY"},{"text":"System Buyer", "value":"NYNN"}],
+			"desc":"Level at which the limit is set by the financier."
+		},
+		{
+			"name":"financier",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/financiers"
+		},
+		{
+			"name":"finName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"purchaserRef",
+			"label":"Buyer Internal Code 1",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"wildCard":"CONTAINS",
+			"desc":""
+		},
+		{
+			"name":"financierRef",
+			"label":"Financier Refrence",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"wildCard":"CONTAINS",
+			"desc":""
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/suppliers"
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supplierRef",
+			"label":"Seller Internal Code",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"wildCard":"CONTAINS",
+			"desc":""
+		},
+		{
+			"name":"auId",
+			"label":"User",
+			"dataType":"INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "user/all",
+			"desc":"The logged-in-user of the financier for which the current limit is to be applied."
+		},
+		{
+			"name":"loginId",
+			"label":"Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"userName",
+			"label":"User Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"limit",
+			"label":"Exposure Limit",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"desc":"Actual limit value."
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY",
+			"desc":"The currency type for which the limit is applied."
+		},
+		{
+			"name":"utilised",
+			"label":"Utilized Exposure Limit",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"balance",
+			"label":"Balance Exposure Limit",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"utilPercent",
+			"label":"Utilization %",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"rateRangeType",
+			"label":"Rate Range Type",
+			"dataType":"STRING",
+			"maxLength":1,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Absolute", "value":"A"},{"text":"Spread", "value":"S"}],
+			"nonDatabase":true
+		},
+		{
+			"name":"baseRate",
+			"label":"Lending Rates",
+			"dataType":"STRING",
+			"maxLength":700,
+			"nonJson":true,
+			"jsonField":"baseRateList"
+		},
+		{
+			"name":"baseRateList",
+			"label":"Lending Rates",
+			"dataType":"OBJECT",
+			"objectClass":"com.xlx.treds.auction.bean.TenureWiseBaseRateBean",
+			"allowMultiple":true,
+			"minItems":0,
+			"maxItems":20,
+			"nonDatabase":true,
+			"databaseField":"baseRate"
+		},
+		{
+			"name":"minBidRate",
+			"label":"Minimum Bid Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"maxBidRate",
+			"label":"Maximum Bid Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"minSpread",
+			"label":"Minimum Spread",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"maxSpread",
+			"label":"Maximum Spread",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"bidLimit",
+			"label":"Bidding Limit",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"bidLimitUtilised",
+			"label":"Utilized Bidding Limit",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2
+		},
+		{
+			"name":"purchaserCostLeg",
+			"label":"Interest Collection Leg (if Buyer bears cost)",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.AppConstants.CostCollectionLeg"
+		},
+		{
+			"name":"expiryDate",
+			"label":"Expiry Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"active",
+			"label":"Active",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Active", "value":"Y"},{"text":"Suspended", "value":"N"}],
+			"desc":"Current status of the limit set."
+		},
+		{
+			"name":"effectiveStatus",
+			"label":"Effective Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase": true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Active", "value":"Y"},{"text":"In-Active", "value":"N"}],
+			"desc":"Effective Current status of the limit set."
+		},
+		{
+			"name":"approvalStatus",
+			"label":"Approval Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Draft", "value":"DFT"},{"text":"Submitted", "value":"SUB"},{"text":"Returned", "value":"RET"},{"text":"Rejected", "value":"REJ"},{"text":"Approved", "value":"APP"},{"text":"Deleted", "value":"DEL"}]
+		},
+		{
+			"name":"approvalRemarks",
+			"label":"Approval Remarks",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"makerAUId",
+			"label":"Maker User",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"makerUserLogin",
+			"label":"Maker User",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerAUId",
+			"label":"Checker User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"checkerUserLogin",
+			"label":"Checker User",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"bypassCheckForDelete",
+			"label":"Bypass Checker for Bid Cancellation",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"withdrawBidModChecker",
+			"label":"Withdraw Bid upon Modification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"sellerLimitMandatory",
+			"label":"Seller Limit Mandatory",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"finClId",
+			"label":"Financier Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"financierLocation",
+			"label":"Financier Location",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerFlag",
+			"label":"Checker Flag",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase": true
+		},
+		{
+			"name": "chkLevel",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "effRateRange",
+			"label": "Effective Rates",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"nonDatabase": true
+		},
+		{
+			"name":"isLocationEnabled",
+			"label":"Locationwise Settlement Flag enabled.",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name": "cersaiCode",
+			"label": "Cersai Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		}
+	],
+	"fieldGroups": {
+		"insert": ["level","purchaser","purchaserRef","financierRef","supplier","auId","baseRateList","minBidRate","maxBidRate","minSpread","maxSpread","bidLimit","currency","limit","purchaserCostLeg","expiryDate","active","bypassCheckForDelete","withdrawBidModChecker","rateRangeType","supplierRef", "sellerLimitMandatory","finClId","cersaiCode"],
+		"update": ["id","purchaserRef","financierRef","level","baseRateList","minBidRate","maxBidRate","minSpread","maxSpread","bidLimit","currency","limit","purchaserCostLeg","bypassCheckForDelete","withdrawBidModChecker","rateRangeType","supplierRef","expiryDate","active","approvalStatus","makerAUId","checkerAUId","sellerLimitMandatory","finClId","cersaiCode"],
+		"updateUtilised": ["utilised","bidLimitUtilised"],
+		"updateApprovalStatus" : ["id","approvalStatus","approvalRemarks","checkerAUId","level"],
+		
+		"exportFields": ["level","financier","purchaser","purchaserRef","financierRef","supplier","supplierRef","loginId","minBidRate","maxBidRate","minSpread","maxSpread","currency","limit","bidLimit","purchaserCostLeg","active","bypassCheckForDelete","withdrawBidModChecker"],
+
+		"financierSelf": ["level","financier","currency","limit","purchaserCostLeg","active","expiryDate","cersaiCode"],
+		"buyer": ["level","financier","purchaser","minSpread","maxSpread","currency","limit","purchaserCostLeg","active","expiryDate"],
+		"buyerSeller": ["level","financier","purchaser","supplier","currency","limit","active","expiryDate"],
+		"user": ["level","financier","auId","currency","limit","active","expiryDate"],
+
+		"financierSelfX": ["purchaser","supplier","auId","loginId","purchaserRef","supplierRef","minSpread","maxSpread"],
+		"buyerX": ["supplier","supplierRef","financierRef","auId","loginId","baseRateList","minBidRate","maxBidRate","bypassCheckForDelete","withdrawBidModChecker"],
+		"buyerSellerX": ["auId","loginId","purchaserRef","financierRef","baseRateList","minBidRate","maxBidRate","minSpread","maxSpread","purchaserCostLeg","bypassCheckForDelete","withdrawBidModChecker"],
+		"userX": ["purchaser","supplier","purchaserRef","financierRef","supplierRef","baseRateList","bidLimit","purchaserCostLeg","bypassCheckForDelete","withdrawBidModChecker"]	
+    }
+}

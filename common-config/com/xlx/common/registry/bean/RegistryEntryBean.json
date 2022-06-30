@@ -1,0 +1,78 @@
+{
+	"name": "registryentries",
+	"tableName" : "RegistryEntries",
+	"columnPrefix" : "RE",
+	"desc" : "Registry Entries",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "name",
+			"label": "Name",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 62
+		},
+		{
+			"name": "rnId",
+			"label": "RN Id",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "dataType",
+			"label": "Data Type",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "structureRnId",
+			"label": "Structure RNId",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "flags",
+			"label": "Flags",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "value",
+			"label": "Value",
+			"dataType":"STRING",
+			"maxLength": 4000
+		},
+		{
+			"name": "description",
+			"label": "Description",
+			"dataType":"STRING",
+			"maxLength": 254
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"update":["value","recordUpdator","recordUpdateTime","recordVersion"]
+	}
+}

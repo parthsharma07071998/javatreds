@@ -1,0 +1,376 @@
+{
+"name" : "oblig",
+"tableName" : "Obligations",
+"columnPrefix" : "OB",
+"desc" : "Obligations : Complete list of obligations generated for the factored bid. It also captures the current state of the obligation as well as the settelment details of the particular obligation legwise.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal unique identifier of the record."
+		},
+		{
+			"name":"fuId",
+			"label":"Factoring Unit",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"bdId",
+			"label":"Bid Id",
+			"dataType":"INTEGER",
+			"notNull": true,
+			"desc":"Internal bid id for which the obligation is generated."
+		},
+		{
+			"name":"txnEntity",
+			"label":"Transacting Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"txnEntityName",
+			"label":"Transacting Entity Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name":"txnType",
+			"label":"Transaction Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Debit", "value":"D"},{"text":"Credit", "value":"C"}],
+			"desc":"Type of transaction, whether Debit/Credit."
+		},
+		{
+			"name":"date",
+			"label":"Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"originalDate",
+			"label":"Original Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"originalAmount",
+			"label":"Original Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Leg 1", "value":"L1"},{"text":"Leg 2", "value":"L2"},{"text":"Leg 3", "value":"L3"}],
+			"desc":"The Leg of the obligation transaction."
+		},
+		{
+			"name":"narration",
+			"label":"Narration",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"desc":"User-friendly description for the current transaction."
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Created", "value":"CRT"},{"text":"Ready", "value":"RDY"},{"text":"Sent", "value":"SNT"},{"text":"Success", "value":"SUC"},{"text":"Prov Success", "value":"PSC"},{"text":"Returned", "value":"RET"},{"text":"Failed", "value":"FL"},{"text":"Cancelled", "value":"CNL"},{"text":"L2 Prov Outside", "value":"L2P"},{"text":"L2 Set Outside", "value":"L2S"}],
+			"desc":"Current status of obligation."
+		},
+		{
+			"name":"pfId",
+			"label":"Pay File Id",
+			"dataType":"INTEGER",
+			"desc":"Internal id of the pay file uploaded."
+		},
+		{
+			"name":"fileSeqNo",
+			"label":"Pay File Sequence No",
+			"dataType":"INTEGER",
+			"desc":"Internal sequence no while generating pay-in upload file."
+		},
+		{
+			"name":"payDetail1",
+			"label":"Detail 1",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"For validating NACH code (Facilitator Mapping) or Designated Bank Account no. during pay-in return file upload."
+		},
+		{
+			"name":"payDetail2",
+			"label":"Detail 2",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"For validating IFSC code during pay-out return file upload."
+		},
+		{
+			"name":"payDetail3",
+			"label":"Detail 3",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"Displaying benificiary name (Entity name) during pay-out return file."
+		},
+		{
+			"name":"payDetail4",
+			"label":"Detail 4",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"Mapping Code"
+		},
+		{
+			"name":"settledDate",
+			"label":"Settled Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"settledAmount",
+			"label":"Settled Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"paymentRefNo",
+			"label":"Payment Ref No",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"Transaction reference number for the pay-out return file."
+		},
+		{
+			"name":"respErrorCode",
+			"label":"Response Code",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"ErrorCode for the error received in the pay-in return file."
+		},
+		{
+			"name":"respRemarks",
+			"label":"Remarks",
+			"dataType": "STRING",
+			"maxLength":200,
+			"desc":"Reason for the error received in the pay-in or pay-out return files."
+		},
+		{
+			"name":"filterToDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"downloadCSV",
+			"label":"Download CSV",
+			"dataType":"STRING",
+			"nonDatabase": true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"pan",
+			"label":"PAN",
+			"dataType":"STRING",
+			"maxLength":30,
+			"nonDatabase":true
+		},
+		{
+			"name":"oldObligationId",
+			"label":"Old Obligation Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "salesCategory",
+			"label": "Sales Category",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory"
+		},
+		{
+			"name":"billId",
+			"label":"Bill Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "salesCategoryDesc",
+			"label": "Sales Category Description",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase":true
+		},
+		{
+			"name": "billingStatus",
+			"label": "Billing Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Billed", "value":"B"},{"text":"Un-billed", "value":"U"}],
+			"desc":"Bill raised or not."
+		},
+		{
+			"name": "settlementCLId",
+			"label":"Settlement Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "extendedDays",
+			"label":"Extended Days",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "settlementLocationName",
+			"label": "Location Name",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase":true
+		},
+		{
+			"name": "settlementLocationCity",
+			"label": "Location City",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase":true
+		},
+		{
+			"name": "totalSplits",
+			"label":"Index",
+			"dataType": "INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name":"paymentSettlor",
+			"label":"Settlor",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"FACILITATOR",
+			"nonDatabase":true
+		},
+		{
+			"name":"filterBidAcceptFromDate",
+			"label":"Bid Accept From Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterBidAcceptToDate",
+			"label":"Bid Accept To Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "bidAcceptDateTime",
+			"label": "Bid Accept Date Time",
+			"dataType":"DATETIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "invoiceCount",
+			"label":"Invoice Count",
+			"dataType": "INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "instrumentCount",
+			"label":"Instrument Count",
+			"dataType": "INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "inId",
+			"label":"Instrument Id",
+			"dataType": "INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"allowExtension",
+			"label":"Extension Allowed",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo",
+			"nonDatabase": true
+		},
+		{
+			"name":"isUpfrontOblig",
+			"label":"Upfront Obligation",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"isUpfront",
+			"label":"Upfront Charge",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		}
+	],
+	"fieldGroups": {
+		"generate": ["pfId","fileSeqNo","status","payDetail1","payDetail2","payDetail3","payDetail4","recordUpdator","recordUpdateTime","recordVersion","originalDate"],
+		"return": ["status","paymentRefNo","settledAmount","settledDate","respErrorCode","respRemarks","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateStatus": ["status","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateBillId": ["billId","recordUpdator","recordUpdateTime","recordVersion"],
+		"updatePreGenerationModification": ["date","respRemarks","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateSettledAmount": ["settledAmount","settledDate","amount","status","recordUpdator","recordUpdateTime","recordVersion"],
+		"aggParentObli" : [ "id","txnType","type","status","date","amount","settledAmount" ]
+     }
+}

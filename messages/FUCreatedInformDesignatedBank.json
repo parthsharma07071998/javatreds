@@ -1,0 +1,24 @@
+{
+"subject":"RXIL-TReDS - Creation of Factoring Units pertaining to your customers - {{purName}}({{sysDate}})",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+This is to inform you that the following Factoring Unit(s) has/have been created on TReDS pertaining to the buyer(s) indicated below. 
+<br>
+<br>
+Factoring Unit ID,  Factoring Unit Amount,  Invoice No.,  Invoice Count,  Invoice Date,             Seller,     Buyer,     FU Creation Date & Time
+<br>
+{{fuId}},  {{fuAmount}},  {{invoiceNo}},  {{instCount}},  {{invoiceDate}},             {{supName}},     {{purName}},     {{fuCreatedDateTime}}
+<br>
+<br>
+In case of any query, please contact RXIL on 022-26598336  or write to us on info@rxil.in.  
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

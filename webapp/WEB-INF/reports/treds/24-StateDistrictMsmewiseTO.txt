@@ -1,0 +1,31 @@
+Select 
+MyData.State, MyData.District, MyData.MsmeStatus
+, count(*) Count
+, Sum(MyData.CalculatedTO) TurnOver
+FROM
+(SELECT FUSUPPLIER Supplier
+, sum(FUFACTOREDAMOUNT) CalculatedTO
+, NVL(CDMSMESTATUS,' ') MSMEStatus
+, NVL(State.RefDesc, '') State
+, InitCap(NVL(CLDistrict, '')) District
+FROM FactoringUnits, CompanyDetails
+LEFT OUTER JOIN COMPANYLOCATIONS ON (CLCDID = CDID AND CLLOCATIONTYPE = 'R' AND CLRECORDVERSION > 0 )
+LEFT OUTER JOIN 
+(
+SELECT RECCODE Code, RCVVALUE RefValue, RCVDESC RefDesc 
+FROM REFCODEVALUES, REFCODES
+WHERE RECRECORDVERSION > 0
+AND RCVRECORDVERSION > 0
+AND RCVRECID = RECID
+AND RECCODE = 'GSTSTATE'
+) State ON (State.RefValue = COMPANYLOCATIONS.CLSTATE)
+where
+FURecordVersion > 0 
+and CDCode = FuSupplier
+and fustatus in ('FACT','L1SET','L2SET') 
+and TO_DATE(FUACCEPTDATETIME) BETWEEN TO_DATE('01-04-2016','dd-MM-yyyy') and TO_DATE('31-03-2019','dd-MM-yyyy')
+group by FUSUPPLIER, CDMSMESTATUS, CLDistrict, State.RefDesc
+order by FUSUPPLIER, CLDistrict
+) MyData
+GROUP BY MyData.State, MyData.District, MyData.MsmeStatus
+ORDER BY MyData.State, MyData.District, MyData.MsmeStatus

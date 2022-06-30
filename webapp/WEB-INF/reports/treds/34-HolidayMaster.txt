@@ -1,0 +1,6 @@
+Select HMDATE HolidayDATE, HMDESC Description, CASE HMTYPE
+ WHEN 'T' THEN 'Trading'
+ WHEN 'C' THEN 'Clearing'
+ ELSE 'Both' 
+END as Type,
+AULoginID Login from holidaymaster left outer join appusers on (HMRECORDCREATOR=auid) order by HMDATE desc

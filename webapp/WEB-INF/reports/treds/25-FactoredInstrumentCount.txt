@@ -1,0 +1,15 @@
+SELECT factinst.fuid, factinst.fustatus, factinst.fufactoredamount, factinst.inid , nvl(factinst.ingroupflag,'-') grpflag, nvl(grpinst.groupcount, 1) count
+from (SELECT fuid, fustatus, fufactoredamount, inid , ingroupflag
+FROM FactoringUnits, Instruments
+where furecordversion > 0 and inrecordversion > 0
+and infuid = fuid 
+and fustatus in ('RDY','ACT','FACT', 'L1SET', 'L2SET','L2FAIL')
+order by fuid , inid , fustatus, ingroupflag
+) factinst left outer join
+(select ingroupinid , count(*) groupcount
+ from instruments
+where inrecordversion > 0
+and ingroupflag is null
+and ingroupinid is not null
+group by ingroupinid ) grpinst
+on (factinst.inid = grpinst.ingroupinid )

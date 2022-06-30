@@ -1,0 +1,13 @@
+{
+	"smsUrl":" Xhttps://www.mgage.solutions/SendSMS/sendmsg.php?uname=RXILOTP&pass=l(Z5s1F7&send=RTREDSX",
+	"paramMobile" : "dest",
+	"paramMessage" : "msg",
+	"proxyHost" : "",
+	"proxyPort" : "",
+	"fileSource":"db",
+	"commonData" : 
+	{
+		
+	}
+	
+}

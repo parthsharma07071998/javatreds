@@ -1,0 +1,58 @@
+{
+	"name": "instrumentFrequentRejection",
+	"columnPrefix": "ifr",
+	"fields": [
+		{
+			"name": "maker",
+			"label": "Maker Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "counter",
+			"label": "Maker Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "makerName",
+			"label": "Maker Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "counterName",
+			"label": "Counter Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "rejRetCount",
+			"label": "Reject Count",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "totalInstrument",
+			"label": "Total Instrument Count",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"percent",
+			"label":"Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"filterPercent",
+			"label":"Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

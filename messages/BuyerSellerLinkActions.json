@@ -1,0 +1,22 @@
+{
+"subject":"RXIL-TReDS - Buyer-Seller Link {{subjectActionText}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+The following entity registered on TReDS portal has {{bodyActionText}} a link with your entity.
+<br>
+<table>
+<tr><td><b>Name of the entity</b></td><td>{{memberName}}</td></tr>
+<tr><td><b>Member Code</b></td><td>{{memberCode}}</td></tr>
+</table>
+<br>
+Please visit the Buyer-Seller link of TReDS portal if futher action is required.
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

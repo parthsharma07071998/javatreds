@@ -1,0 +1,130 @@
+{
+"name" : "gstsummary",
+"desc" : "GST Summary",
+"fields" : [
+		{
+			"name":"entity",
+			"label":"Entity",
+			"dataType":"STRING",
+			"maxLength": 15
+		},
+		{
+			"name":"charge",
+			"label":"Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 0
+		},
+		{
+			"name":"cgst",
+			"label":"CGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sgst",
+			"label":"SGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"igst",
+			"label":"IGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"cgstSurcharge",
+			"label":"CGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sgstSurcharge",
+			"label":"SGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"igstSurcharge",
+			"label":"IGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"cgstValue",
+			"label":"CGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"sgstValue",
+			"label":"SGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"igstValue",
+			"label":"IGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"chargeType",
+			"label":"Charge Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Normal", "value":"N"},{"text":"Split", "value":"S"}]
+		},
+		{
+			"name":"tds",
+			"label":"TDS",
+			"dataType":"DECIMAL",
+			"integerLength":2,
+			"decimalLength":2,
+			"defaultValue":0,
+			"minValue": 0.1,
+			"maxValue": 10
+		},
+		{
+			"name":"tdsValue",
+			"label":"TDS Value",
+			"dataType":"DECIMAL",
+			"defaultValue":0,
+			"integerLength":2,
+			"decimalLength":2
+		}
+	],
+	"fieldGroups": {
+		"gstfields":["cgst","sgst","igst","igstValue","cgstValue","sgstValue","charge"]
+    }
+}

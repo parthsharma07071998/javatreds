@@ -1,0 +1,179 @@
+{
+"name" : "companyshareentity",
+"tableName" : "CompanyShareEntity",
+"columnPrefix" : "CSE",
+"desc" : "Company Share Entity : The detailed information about the shareholder entity.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"label": "Company Id",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true
+		},
+		{
+			"name": "companyName",
+			"label": "Name of Applicant Entity",
+			"dataType": "STRING",
+			"minLength": 3,
+			"maxLength": 100,
+			"notNull": true,
+			"pattern":"^([a-zA-Z])|(\\w{1}.*[a-zA-Z\\.()])",
+			"patternMessage":"Name should start with character or number and should have atleast one character",
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "benificiaryOwner",
+			"label": "Benificiary Owner",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "constitution",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CONSTITUTION"
+		},
+		{
+			"name": "companyDesc",
+			"label": "Brief Description of Activity",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"ref": "com/xlx/treds/config/AddressShareHolder.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/NameNM.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/ContactNM.json"
+		},
+		{
+			"name": "regNo",
+			"label": "Registration No.",
+			"dataType": "STRING",
+			"maxLength": 21,
+			"pattern": "^[^<>'\"/;`@*?.,!#$|^%]*$",
+			"patternMessage": "Special Characters are not allowed"
+		},
+		{
+			"name": "dateOfIncorporation",
+			"label": "Date of Incorporation",
+			"dataType": "DATE"
+		},
+		{
+			"name":"industry",
+			"label": "Industry",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"company/industry"
+		},
+		{
+			"name":"subSegment",
+			"label": "Sub-segment",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "kmpPan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "designation",
+			"label": "Designation",
+			"dataType": "STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DESIGNATION_CONTACT"
+		},
+		{
+			"name":"companyCode",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase":true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name": "refId",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name": "loginId",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "creatorLoginId",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups" : {
+		"updateCompanyShareEntity": ["id","cdId","companyCode","refId","companyName","benificiaryOwner","constitution","companyDesc","line1","line2","line3","zipCode","city","district","state","country","salutation","firstName","middleName","lastName","email","telephone","mobile","fax","regNo","dateOfIncorporation","industry","subSegment","pan","kmpPan","recordUpdator","recordUpdateTime","recordVersion"],
+		"update": ["id","cdId","companyName","companyCode","constitution","companyDesc","line1","line2","line3","zipCode","city","district","state","country","salutation","firstName","middleName","lastName","email","telephone","mobile","fax","regNo","dateOfIncorporation","industry","subSegment","pan","kmpPan","refId","recordUpdator","recordUpdateTime","recordVersion"]
+		}
+	
+}

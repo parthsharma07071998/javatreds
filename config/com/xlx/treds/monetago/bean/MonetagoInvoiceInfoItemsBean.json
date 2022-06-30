@@ -1,0 +1,19 @@
+{
+	"name": "monetagoinvoiceinfoitems",
+	"tableName": "MonetagoInvoiceInfoItems",
+	"columnPrefix": "MII",
+	"desc": "Invoice Info",
+	"fields": [{
+			"name": "num",
+			"dataType": "INTEGER",
+			"label": ""
+		},
+		{
+			"name": "itm_det",
+			"label": "",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.monetago.bean.MonetagoInvoiceInfoItemsDeatilsBean"
+		}
+	]
+
+}

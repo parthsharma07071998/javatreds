@@ -1,0 +1,15 @@
+{
+"subject":"TREDs OTP for Buyer-Seller link approval",
+"body":"
+{{{header}}}
+
+Dear <b>{{name}}</b><br>
+<br>
+Your OTP for <b>Buyer-Seller link approval</b> is <b>{{otp}}</b> and will be valid for {{validity}} minitues.<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

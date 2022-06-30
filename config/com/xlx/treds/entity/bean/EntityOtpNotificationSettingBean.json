@@ -1,0 +1,106 @@
+{
+"name" : "entotpnot",
+"tableName" : "EntityOtpNotificationSettings",
+"columnPrefix" : "EONS",
+"desc" : "",
+"fields" : [
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "notificationType",
+			"label": "Notification Type",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "mobile",
+			"label": "Mobile",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonJson":true,
+			"jsonField":"mobileList"
+		},
+		{
+			"name": "mobileList",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase":true,
+			"databaseField":"mobile",
+			"allowMultiple": true,
+			"maxItems":1,
+			"pattern": "^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)[1-9][0-9]{9}\\s*,?$",
+			"patternMessage":"Please ensure the it is a mobile number. E.g. 9878787654, 91 9878787654, +91 9878787654."
+		},
+		{
+			"name":"smsMessageType",
+			"label":"SMS Message Type",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.MessageType"
+		},
+		{
+			"name": "email",
+			"label": "Email",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonJson":true,
+			"jsonField":"emailList"
+		},
+		{
+			"name": "emailList",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"nonDatabase":true,
+			"databaseField":"email",
+			"allowMultiple": true,
+			"maxItems":1,
+			"pattern": "PATTERN_EMAIL",
+			"patternMessage":"Please ensure the email id is valid.E.g. AmitM@gmail.com"
+		},
+		{
+			"name":"emailMessageType",
+			"label":"Email Message Type",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.MessageType"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	 "fieldGroups": {
+        "update": ["notificationType","mobileList","smsMessageType","emailList","emailMessageType"],
+        "insert": ["notificationType","mobileList","smsMessageType","emailList","emailMessageType"]
+    }	
+}

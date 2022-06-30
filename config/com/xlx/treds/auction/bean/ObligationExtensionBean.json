@@ -1,0 +1,247 @@
+{
+"name" : "obligext",
+"tableName" : "ObligationExtensions",
+"columnPrefix" : "OE",
+"desc" : "Obligation Extensions",
+"fields" : [
+		{
+			"name":"obId",
+			"label":"Obligation Id",
+			"dataType":"INTEGER",
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name":"creditObId",
+			"label":"Obligation Id",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Purchaser",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"finaucset/purchasers"
+		},
+		{
+			"name":"financier",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/financiers"
+		},
+		{
+			"name":"purchaserName",
+			"label":"Purchaser Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name":"financierName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name":"oldDate",
+			"label":"Old Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name":"oldAmount",
+			"label":"Obligation Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"newDate",
+			"label":"New Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"interestRate",
+			"label":"Interest Rate %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue":0
+		},
+		{
+			"name":"interest",
+			"label":"Interest",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"penalty",
+			"label":"Penalty",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.00
+		},
+		{
+			"name":"penaltyRate",
+			"label":"Penalty Rate %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue":0,
+			"notNull":true
+		},
+		{
+			"name":"newAmount",
+			"label":"New Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"extendedBidRate",
+			"label":"Extended Bid Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"tredsCharge",
+			"label":"Treds Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 0.01
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Pending", "value":"P"},{"text":"Approved", "value":"A"},{"text":"Rejected", "value":"R"},{"text":"Expired", "value":"E"}]
+		},
+		{
+			"name":"remarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 250
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name":"penaltySetting",
+			"dataType":"OBJECT",
+			"objectClass":"com.xlx.treds.auction.bean.ObligationExtensionPenaltyBean",
+			"nonDatabase":true
+		},
+		{
+			"name":"tab",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"tenor",
+			"label":"Extended Tenor",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"originalInterest",
+			"label":"original Interest",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"newInterest",
+			"label":"New Interest",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"penaltyRateApplied",
+			"label":"Penalty Rate Applied",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo",
+			"nonDatabase": true
+		},
+		{
+			"name":"submitDate",
+			"label":"Submission Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"approveDate",
+			"label":"Approval Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"chargeDate",
+			"label":"Upfront Charge Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"upfrontCharge",
+			"label":"Upfront Charge",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		}
+	],
+	"fieldGroups": {
+		"update": ["obId","newDate","interest","interestRate","penalty","penaltyRate","newAmount","remarks","upfrontCharge","tredsCharge"]
+		,"approve": ["obId","status","interest","interestRate","penalty","penaltyRate","newAmount","remarks"]
+		,"updateStatusSubmit": ["obId","status","remarks","submitDate","tredsCharge"]
+		,"updateStatusApprove": ["obId","status","remarks","approveDate","chargeDate","tredsCharge"]
+		,"updateStatus": ["obId","status","remarks"]
+		,"placeBid": ["obId","interest","interestRate","penalty","penaltyRate","newAmount","status"]
+    }
+}

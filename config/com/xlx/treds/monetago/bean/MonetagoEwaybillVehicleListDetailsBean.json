@@ -1,0 +1,65 @@
+{
+	"name": "monetagoewaybillvehicallistdetails",
+	"tableName": "MonetagoEwaybillVehicalListDetails",
+	"columnPrefix": "MII",
+	"desc": "Invoice Info",
+	"fields": [{
+			"name": "updMode",
+			"dataType": "STRING",
+			"label": ""
+		},
+		{
+			"name": "vehicleNo",
+			"dataType": "STRING",
+			"label": ""
+		},
+		{
+			"name": "fromPlace",
+			"dataType": "STRING",
+			"label": ""
+		},
+		{
+			"name": "fromState",
+			"label": "",
+			"dataType": "STRING"
+		},
+		{
+			"name": "tripshtNo",
+			"label": "",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "userGSTINTransin",
+			"label": "",
+			"dataType": "STRING"
+		},
+		{
+			"name": "enteredDate",
+			"label": "",
+			"dataType": "DATETIME",
+			"format":"dd/MM/yyyy hh:mm:ss a"
+		},
+		{
+			"name": "transMode",
+			"label": "",
+			"dataType": "STRING"
+		},
+		{
+			"name": "transDocNo",
+			"label": "",
+			"dataType": "STRING"
+		},
+		{
+			"name": "transDocDate",
+			"label": "",
+			"dataType": "DATE",
+			"format":"dd/MM/yyyy"
+		},
+		{
+			"name": "groupNo",
+			"label": "",
+			"dataType": "STRING"
+		}
+	]
+
+}

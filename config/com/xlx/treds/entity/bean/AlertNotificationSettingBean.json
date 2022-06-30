@@ -1,0 +1,80 @@
+{
+"name" : "alrtnot",
+"tableName" : "AlertNotificationSettings",
+"columnPrefix" : "ANS",
+"desc" : "",
+"fields" : [
+		{
+			"name": "notificationType",
+			"label": "Notification Type",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "mobile",
+			"label": "Mobile",
+			"dataType": "STRING",
+			"maxLength": 300,
+			"nonJson":true,
+			"jsonField":"mobileList"
+		},
+		{
+			"name": "mobileList",
+			"label": "Mobile",
+			"dataType":"STRING",
+			"maxLength": 300,
+			"nonDatabase":true,
+			"databaseField":"mobile",
+			"allowMultiple": true,
+			"maxItems":3,
+			"pattern": "^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)[1-9][0-9]{9}\\s*,?$",
+			"patternMessage":"Please ensure the it is a mobile number. E.g. 9878787654, 91 9878787654, +91 9878787654."
+		},
+		{
+			"name": "email",
+			"label": "Email",
+			"dataType": "STRING",
+			"maxLength": 500,
+			"nonJson":true,
+			"jsonField":"emailList"
+		},
+		{
+			"name": "emailList",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 500,
+			"nonDatabase":true,
+			"databaseField":"email",
+			"allowMultiple": true,
+			"maxItems":10,
+			"pattern": "PATTERN_EMAIL",
+			"patternMessage":"Please ensure the email id is valid.E.g. AmitM@gmail.com"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	 "fieldGroups": {
+        "update": ["notificationType","mobileList","smsMessageType","emailList","emailMessageType"],
+        "insert": ["notificationType","mobileList","smsMessageType","emailList","emailMessageType"]
+    }	
+}

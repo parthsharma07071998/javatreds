@@ -1,0 +1,71 @@
+{
+	"name": "monitormeta",
+	"tableName": "MonitorMetas",
+	"columnPrefix": "MM",
+	"desc": "Monitor Meta : List of all monitors and info about their handler.",
+	"fields": [{
+			"name": "code",
+			"label": "Code Name",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "name",
+			"label": "Monitor Name",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "description",
+			"label": "Description",
+			"dataType": "STRING",
+			"maxLength": 250,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name":"frequency",
+			"label":"Frequency In Seconds",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"startDateTime",
+			"label":"Start DateTime",
+			"dataType":"DATE"
+		},
+		{
+			"name": "dataHandler",
+			"label": "Data Handler",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "templateName",
+			"label": "UI Handelbar Template name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "handelbarTemplate",
+			"label": "UI Handelbar Template",
+			"dataType": "STRING",
+			"maxLength": 500,
+			"nonDatabase": true
+		},
+		{
+			"name": "group",
+			"label": "Widget Group",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "secKey",
+			"label": "Security Key",
+			"dataType": "STRING",
+			"maxLength": 200
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

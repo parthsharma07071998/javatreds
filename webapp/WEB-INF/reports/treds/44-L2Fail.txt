@@ -1,0 +1,22 @@
+select fuid, fustatus status,p.aename Purchaser,f.aename FINANCIER
+, pur.obid PurchaserObli ,  fin.obid FinancierObli
+, pur.obamount PurchaserAmt, fin.obamount FinancierAmt
+, pur.obdate ObliDate, pur.obstatus ObliStatus
+,INGROUPFLAG, CHILDCOUNT
+ from obligations pur, FACTORINGUNITS, obligations fin, INSTFUINVOICECOUNT, Appentities p , Appentities f
+where pur.obrecordversion  > 0
+and fin.obrecordversion  > 0
+AND FURECORDVERSION > 0 
+and fuid = infuid
+AND pur.OBFUID = FUID
+AND fin.OBFUID = FUID
+and fupurchaser = pur.obtxnentity
+and fufinancier = fin.obtxnentity
+and fupurchaser = p.aecode
+and fufinancier = f.aecode
+AND pur.obtype = 'L2'
+AND fin.obtype = 'L2'
+and pur.obstatus NOT IN ('SUC','SFT','EXT','CNL')
+AND pur.OBDATE > TO_DATE('01-01-2019','DD-MM-YYYY')
+AND TO_DATE(pur.OBDATE,'DD-MM-YYYY') <= TO_DATE(SYSDATE,'DD-MM-YYYY')
+ORDER BY pur.OBDATE asc, pur.OBID asc

@@ -1,0 +1,142 @@
+{
+"name" : "AdapterRequestResponseBean",
+"tableName" : "AdapterRequestResponses",
+"columnPrefix" : "ARR",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "entityCode",
+			"label": "Entity Code",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "processId",
+			"label":"Process Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "key",
+			"label":"Instrument Id",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"In", "value":"I"},{"text":"Out", "value":"O"}]
+		},
+		{
+			"name":"apiRequestType",
+			"label":"Request Type",
+			"dataType":"STRING",
+			"maxLength": 4,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"GET", "value":"GET"},{"text":"POST", "value":"POST"},{"text":"PUT", "value":"PUT"}]
+		},
+		{
+			"name": "apiRequestUrl",
+			"label":"Request URL",
+			"dataType": "STRING",
+			"maxLength":200
+		},
+		{
+			"name": "apiRequestData",
+			"label":"Request Dsta",
+			"dataType": "STRING",
+			"maxLength":9999
+		},
+		{
+			"name": "uid",
+			"label":"Unique Identification",
+			"dataType": "STRING",
+			"maxLength":100
+		},
+		{
+			"name":"timestamp",
+			"label":"Timestamp",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"requestStatus",
+			"label":"Request Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Sent", "value":"S"},{"text":"Failed", "value":"F"}]
+		},
+		{
+			"name":"responseAckStatus",
+			"label":"Response Ack Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Read", "value":"R"},{"text":"Not Read", "value":"N"}]
+		},
+		{
+			"name": "apiResponseUrl",
+			"label":"Response Url",
+			"dataType": "STRING",
+			"maxLength":200
+		},
+		{
+			"name": "apiResponseData",
+			"label":"Response Data",
+			"dataType": "STRING",
+			"maxLength":9999
+		},
+		{
+			"name": "apiResponseStatus",
+			"label":"Response Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Success", "value":"S"},{"text":"Failed", "value":"F"}]
+		},
+		{
+			"name": "apiResponseDataReturned",
+			"label":"Response Data Returned",
+			"dataType": "STRING",
+			"maxLength":4000
+		},
+		{
+			"name":"provResponseAckStatus",
+			"label":"Provisional Response Ack Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Read", "value":"R"},{"text":"Not Read", "value":"N"}]
+		},
+		{
+			"name": "provResponseData",
+			"dataType": "STRING",
+			"maxLength":4000
+		},
+		{
+			"name":"lastSendDateTime",
+			"label":"Last Send Date Time",
+			"dataType":"DATETIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME",
+			"desc":"Internal time at which the record was updated."
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert": ["id","entityCode","key","processId","type","apiRequestType","apiRequestUrl","apiRequestData","uid","timestamp","recordVersion","apiResponseStatus"],
+		"update": ["id","apiResponseData","apiResponseStatus","recordUpdateTime","recordVersion"]
+	}
+}

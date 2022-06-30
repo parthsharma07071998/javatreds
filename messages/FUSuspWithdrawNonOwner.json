@@ -1,0 +1,22 @@
+{
+"subject":"TReDS - Factoring Unit {{action}} by Owner. Id: {{id}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+The following Factoring Unit has been {{action}} from TReDS by its owner.<br>
+<br>
+<table>
+<tr><td><b>Factoring Unit ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Factoring Unit Amount</b></td><td>&#8377; {{amount}}</td></tr>
+<tr><td><b>Seller</b></td><td>{{supName}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>{{action}} Date Time</b></td><td>{{actionDateTime}}</td></tr>
+</table>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

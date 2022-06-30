@@ -1,0 +1,71 @@
+{
+"name" : "memberlocforinstkeys",
+"tableName" : "MemberLocForInstKeys",
+"columnPrefix" : "MLK",
+"fields" : [
+		{
+			"name": "code",
+			"label":"Code",
+			"maxLength": 10,
+			"dataType": "STRING",
+			"fieldType": "PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "clId",
+			"label":"Company Location Id",
+			"dataType": "INTEGER",
+			"fieldType": "PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "clIdList",
+			"label": "Company Location List",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"allowMultiple": true,
+			"maxLength": 500,
+			"databaseField":"locations",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "memberlocforinstkeys/lov"
+		},
+		{
+			"name": "locations",
+			"label": "Locations",
+			"dataType":"STRING",
+			"maxLength": 500,
+			"nonJson":true,
+			"jsonField":"clIdList"
+		},
+		{
+			"name": "gstn",
+			"label":"Gstn",
+			"maxLength": 30,
+			"dataType": "STRING",
+			"notNull": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups" : {
+		"insertDB": ["clId","code","gstn","recordCreator","recordCreateTime","recordVersion"]
+		}
+}

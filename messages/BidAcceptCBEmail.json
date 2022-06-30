@@ -1,0 +1,15 @@
+{
+"subject":"TREDs OTP for .. verification",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam</b><br>
+<br>
+Your OTP for <b>Bid acceptance</b> is <b>{{otp}}</b> and will be valid for {{validity}} minitues.<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

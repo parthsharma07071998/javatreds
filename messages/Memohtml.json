@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+<title>Issue Details</title>
+<style type="text/css">
+h2{
+	color: #298FCE;
+	font-family:Arial;
+	font-size: 24px;
+}
+h3{
+	color: #298FCE;
+	font-family:Arial;
+	font-size: 20px;
+}
+.mytable {
+    border-collapse: collapse;
+    width : 100%;
+}
+
+.mytable th{
+    border: 1px solid black;
+}
+.mytable td {
+    border: 1px solid black;
+}
+
+.mytable tr td:first-child {
+  background-color: #AABEF6;
+  font-weight:bold;
+  width : 35% !important;
+}
+.mytable td {
+  text-align: left;
+  width : 65%;
+}
+body
+{
+	font-family:Arial;
+	font-size: 12.5px;
+}
+.divTable1 {
+  page-break-after:always;
+  justify-content: center;
+}
+.divTable1:last-child {
+    page-break-after: avoid;
+}
+
+@page { 
+	 /*size: 8.50in 9.50in;*//* width height */
+	 size: A4;   /* auto is the initial value */
+	 margin: 2cm;
+	 padding: 0px;
+	 
+	 border: 0pt solid black;
+	 
+	 @top-right {
+        content: element(header); 
+        vertical-align: bottom;
+        padding-bottom: 10px;
+    }
+	@bottom-left {
+	    content: element(footer);
+	}
+	@bottom-right {
+	    font-style: italic; 
+	    font-size:11px;
+	    color:black;
+	    content: counter(page);
+	 text-align:center;
+	}
+	@top-center {
+	  content: element(current);
+	  text-align:center;
+	}
+}
+@media print
+{
+	.pagebreak { height:0; page-break-before:always; margin:0; border-top:none; }
+}
+@media screen{
+    .pagebreak  { height:10px; border-top:0px dotted #999; margin-bottom:13px; }
+}
+
+div.indent{ padding-left: 1.8em }
+
+</style>
+</head>
+<body>
+<div class='header'>
+<center>
+<table border="0" cellspacing="10" cellpadding="0">
+	<tr>
+		<td style='text-align:left' width="20%"><img src="{{appPath}}../images/logo2x.png" width="108px" height="36px" border="0px" /></td>
+		<td><h2>RECEIVABLES EXCHANGE OF INDIA LIMITED</h2></td>
+	</tr>
+</table>
+</center>
+</div>
+<div>
+	<table border="0">
+			<caption><h3>Auto-debit Bounce Advise</h3></caption>
+	</table>
+	{{#splits}}	
+	<div class="divTable1">
+		<table class="mytable">
+			<tbody>
+				<tr>
+					<td>Unique Reference Number</td>
+					<td>{{uniqueRefreneceNumber}}</td>
+				</tr>
+				<tr>
+					<td>Buyer (Payer) name</td>
+					<td>{{purEntityName}}</td>
+				</tr>
+				<tr>
+					<td>Bank Account No</td>
+					<td>{{payDetil1}}</td>
+				</tr>
+				<tr>
+					<td>IFSC Code</td>
+					<td>{{payDetil2}}</td>
+				</tr>
+				<tr>
+					<td>Account Type</td>
+					<td>{{accountType}}</td>
+				</tr>
+				<tr>
+					<td>Beneficiary name</td>
+					<td>{{finEntityName}}</td>
+				</tr>
+				<tr>
+					<td>Presentation date</td>
+					<td>{{obdate}}</td>
+				</tr>
+				<tr>
+					<td>Amount</td>
+					<td>{{amount}}</td>
+				</tr>
+				<tr>
+					<td>Factoring unit id</td>
+					<td>{{fuid}}</td>
+				</tr>
+				<tr>
+					<td>Bounce date</td>
+					<td>{{obdate}}</td>
+				</tr>
+				<tr>
+					<td>Reason code for bounce</td>
+					<td>{{reasonCode}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	{{/splits}}
+</div>
+</body>
+
+</html>

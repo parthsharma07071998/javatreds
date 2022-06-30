@@ -1,0 +1,11 @@
+select cdid, CdCode, CdCompanyName , EffectiveStartDate
+from CompanyDetails
+left outer join 
+(
+select MpCode, Max(MpEffectiveStartDate) EffectiveStartDate
+from MemberwisePlans
+where MPRecordVersion > 0
+group by MPCode
+) ON CdCode = MpCode
+where CDRecordVersion > 0
+and CDPurchaserFlag = 'Y'

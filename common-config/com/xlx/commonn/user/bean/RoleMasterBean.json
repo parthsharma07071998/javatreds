@@ -1,0 +1,95 @@
+{
+	"name": "role",
+	"tableName" : "rolemaster",
+	"columnPrefix" : "RM",
+	"desc" : "Role Master",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "name",
+			"label": "RoleName",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"notNull": true,
+			"wildCard":"CONTAINS"
+		},
+		{
+			"name": "desc",
+			"label":"RoleDescription",
+			"dataType": "STRING",
+			"maxLength" : 100
+		},
+		{
+			"name": "userTypeList",
+			"label": "User Types",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"allowMultiple": true,
+			"minItems":1,
+			"nonDatabase": true,
+			"dataSetType": "RESOURCE",
+			"dataSetValues": "role/usertypes"
+		},
+		{
+			"name": "userTypes",
+			"dataType": "STRING",
+			"maxLength" : 200,
+			"nonJson": true
+		},
+		{
+			"name": "owner",
+			"label":"Owner",
+			"dataType": "STRING",
+			"maxLength" : 30
+		},
+		{
+			"name": "actionList",
+			"label": "Actions",
+			"dataType":"INTEGER",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "actions",
+			"dataType":"STRING",
+			"maxLength": 1000,
+			"nonJson": true
+		},
+		{
+			"name":"active",
+			"label": "Active",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"update": ["id","desc","owner","actionList", "actions", "active", "recordVersion"]
+	}
+}

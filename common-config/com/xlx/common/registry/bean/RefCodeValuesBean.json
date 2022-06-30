@@ -1,0 +1,62 @@
+{
+	"name": "refcodevalue",
+	"tableName" : "RefCodeValues",
+	"columnPrefix" : "RCV",
+	"desc" : "Reference Code Values",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "RECId",
+			"label": "Reference Code",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"refcodevalue/all"
+		},
+		{
+			"name": "seqNo",
+			"label": "Sequence No",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "value",
+			"label": "Value",
+			"dataType":"STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "desc",
+			"label": "Description",
+			"dataType":"STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdate",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"update":["id","seqNo","value","desc","recordUpdator","recordUpdateTime","recordVersion"]
+	}
+}

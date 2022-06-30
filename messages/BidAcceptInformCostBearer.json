@@ -1,0 +1,21 @@
+{
+"subject":"RXIL-TReDS - Bids Accepted ({{sysDate}})",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+The following bid(s) on your factoring unit(s) have been accepted today on TReDS.    
+<br>
+<br>
+Factoring Unit ID,  Factoring Unit Amount,  Invoice No.,  Invoice Count,   Invoice Date,      Seller,     Buyer,   Financier Name,   Bid Date,  Bid-Rate,    Bid Accepted Date, Bid Acceptance Type (Auto/Manual), Expected Net Payment,   Expected Settlement Date  (T+1 or T+2)   
+<br>
+{{fuId}}, {{fuAmount}} ,  {{invoiceNo}},  {{instCount}},  {{invoiceDate}}, {{supName}}  ,  {{purName}} , {{finName}} , {{bidDate}}, {{bidRate}}, {{bidAcceptedDate}}, {{bidAcceptType}}, {{netPayment}}, {{settlementDate}}  
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

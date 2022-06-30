@@ -1,0 +1,26 @@
+{
+"subject":"RXIL-TReDS - Registration for approval",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+The following registration has been submitted for approval :
+<br>
+<br>
+<table>
+<tr><td><b>Member ID</b></td><td>{{memberCode}}</td></tr>
+<tr><td><b>Entity Name</b></td><td>{{memberName}}</td></tr>
+<tr><td><b>Entity Type</b></td><td>{{memberType}}</td></tr>
+</table>
+<br>
+<br>
+<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

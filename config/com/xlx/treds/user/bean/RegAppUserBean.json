@@ -1,0 +1,81 @@
+{
+"name" : "reguser",
+"base": "com/xlx/treds/user/bean/AppUserBean.json",
+"fields" : [
+		{
+			"name": "domain",
+			"notNull":false
+		},
+		{
+			"name": "companyName",
+			"label": "Name of Applicant Entity",
+			"dataType": "STRING",
+			"minLength": 3,
+			"maxLength": 100,
+			"notNull": true,
+			"nonDatabase": true,
+			"pattern":"^(([a-zA-Z])|(\\w{1}.*[a-zA-Z()]))",
+			"patternMessage":"Name should start with character or number and should have atleast one character",
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "entityType",
+			"label":"Entity Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"ENTITYTYPE"
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"nonDatabase": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "constitution",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CONSTITUTION"
+		},
+		{
+			"name": "secretQuestions",
+			"label": "Password Recovery Question",
+			"minItems":1,
+			"notNull":true
+		},
+		{
+			"name": "secretAnswers",
+			"label": "Answer",
+			"minItems":1,
+			"notNull":true
+		}
+	],
+"fieldGroups" : {
+	"insert": [
+			"domain",
+			"companyName",
+			"entityType",
+			"pan",
+			"constitution",
+            "loginId",
+            "salutation",
+            "firstName",
+            "middleName",
+            "lastName",
+            "mobile",
+            "email",
+            "altEmail"
+        ],
+    "update": []
+	}
+}

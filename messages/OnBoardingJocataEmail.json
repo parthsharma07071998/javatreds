@@ -1,0 +1,13 @@
+{
+"subject":"{{subject}}",
+"body":"
+{{{header}}}
+
+{{{messagebody}}}
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

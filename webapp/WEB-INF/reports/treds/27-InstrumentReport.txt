@@ -1,0 +1,18 @@
+SELECT 
+report.*,  nvl(report.ingroupflag,'-') grpflag, nvl(grpinst.groupcount, 1) count
+from 
+(
+SELECT * FROM INSTRUMENTS  
+LEFT OUTER JOIN COMPANYLOCATIONS a ON  a.clid= INPURCLID  LEFT OUTER JOIN COMPANYLOCATIONS b  ON b.clid= INSUPCLID  
+LEFT OUTER JOIN FACTORINGUNITS ON INFUID=FUID AND INRECORDVERSION>0 AND FURECORDVERSION>0  
+LEFT OUTER JOIN BIDS ON BDFUID=FUID AND (( BDRATE IS NOT NULL OR BDPROVRATE IS NOT NULL) OR BDSTATUS IN ('EXP','DEL')
+) 
+where inRecordVersion > 0 
+) report left outer join
+(select ingroupinid , count(*) groupcount
+ from instruments
+where inrecordversion > 0
+and ingroupflag is null
+and ingroupinid is not null
+group by ingroupinid ) grpinst
+on (report.inid = grpinst.ingroupinid )

@@ -1,0 +1,32 @@
+{
+"subject": "Expiring rating",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam</b><br>
+<br>
+Following rating of the mentioned Buyers are due to expire during next 1 month
+<table border='1px'>
+	<tr>
+		<th> Buyer </th>
+		<th> Rating Agency </th>
+		<th> Rating Date </th>
+		<th> Rating </th>
+		<th> Remarks </th>
+	</tr>
+	{{#ratings}}
+		<tr>
+			<td> {{buyer}} </td>
+			<td> {{ratingAgency}} </td>
+			<td> {{ratingDate}} </td>
+			<td> {{rating}} </td>
+			<td> {{remarks}} </td>
+		</tr>
+	{{/ratings}}
+</table>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

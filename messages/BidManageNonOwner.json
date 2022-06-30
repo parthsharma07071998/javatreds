@@ -1,0 +1,26 @@
+{
+"subject":"TReDS - Bid {{action}} by financier - Counter Party Factoring Unit ID No.{{id}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Bid has been {{action}} by financier for following factoring unit owned by your counter party
+<br>
+<table>
+<tr><td><b>Factoring Unit ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Factoring Unit Amount</b></td><td>&#8377; {{amount}}</td></tr>
+<tr><td><b>Seller</b></td><td>{{supName}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Bid Date & Time</b></td><td>{{bdTimestamp}}</td></tr>
+<tr><td><b>Bid Rate</b></td><td>{{rate}}</td></tr>
+<tr><td><b>Bid Type</b></td><td>{{bidType}}</td></tr>
+<tr><td><b>Bid Haircut</b></td><td>{{haircut}}</td></tr>
+<tr><td><b>Valid Till</b></td><td>{{validTill}}</td></tr>
+</table>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

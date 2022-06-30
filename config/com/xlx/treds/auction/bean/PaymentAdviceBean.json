@@ -1,0 +1,90 @@
+{
+"name" : "paymentAdviceBean",
+"tableName" : "PaymentAdviceBean",
+"columnPrefix" : "PAB",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"fuId",
+			"label":"Factoring Unit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"settlementDate",
+			"label":"Settlement Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"vendorName",
+			"label":"Vendor Name",
+			"dataType":"STRING"
+		},
+		{
+			"name":"vendorAddress",
+			"label":"Vendor Address",
+			"dataType":"STRING"
+		},
+		{
+			"name":"vendorCode",
+			"label":"Vendor Code",
+			"dataType":"STRING",
+			"maxLength": 25
+		},
+		{
+			"name":"buyer",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 25
+		},
+		{
+			"name":"buyerAddress",
+			"label":"Buyer Address",
+			"dataType":"STRING"
+		},
+		{
+			"name":"buyerName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"cinNumber",
+			"label":"Company Identification Number",
+			"dataType":"STRING",
+			"maxLength": 25
+		},
+		{
+			"name":"paymentReferenceNumber",
+			"label":"Payment Reference Number",
+			"dataType":"STRING"
+		},
+		{
+			"name":"customerRefNo",
+			"label":"Customer Reference No",
+			"dataType":"STRING"
+		},
+		{
+			"name":"instNetAmount",
+			"label":"Instrument Net Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"obligationSplitsId",
+			"label":"Obligation Splits Id",
+			"dataType":"STRING"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+	}
+}

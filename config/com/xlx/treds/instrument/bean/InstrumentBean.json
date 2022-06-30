@@ -1,0 +1,1241 @@
+
+{
+"name" : "inst",
+"tableName" : "Instruments",
+"columnPrefix" : "IN",
+"desc" : "Instruments : List of Insturments created for converting to factoring units and actioning them.",
+"fields" : [
+		{
+			"name": "id",
+			"label":"Instrument Id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"type",
+			"label":"Instrument Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Invoice", "value":"INV"}]
+		},
+		{
+			"name":"supplier",
+			"label":"Seller Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"supplierRef",
+			"label":"Seller Short Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supClId",
+			"label":"Seller Location",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"supLocation",
+			"label":"Seller Location",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"supGstState",
+			"label":"Seller GST State",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"GSTSTATE"
+		},
+		{
+			"name":"supGstn",
+			"label":"Seller GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"supSettleClId",
+			"label":"Seller Settlement Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"supBillClId",
+			"label":"Seller Billing Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "supMsmeStatus",
+			"label": "MSME Status",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"nonJson": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer Code",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"purchaserRef",
+			"label":"Buyer Short Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"purClId",
+			"label":"Buyer Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"purLocation",
+			"label":"Buyer Location",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"purGstState",
+			"label":"Buyer GST State",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"GSTSTATE"
+		},
+		{
+			"name":"purGstn",
+			"label":"Buyer GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"purSettleClId",
+			"label":"Purchaser Settlement Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"purBillClId",
+			"label":"Purchaser Billing Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"poDate",
+			"label":"Purchase Order Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"poNumber",
+			"label":"Purchase Order Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"counterRefNum",
+			"label":"Counter Reference",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"goodsAcceptDate",
+			"label":"Goods/Service Acceptance Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"delCat",
+			"label":"Invoice Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Material", "value":"MAT"},{"text":"Service", "value":"SER"}]
+		},
+		{
+			"name":"description",
+			"label":"Goods/Service Description",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"instNumber",
+			"label":"Invoice Number",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name":"instDate",
+			"label":"Invoice Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"instDueDate",
+			"label":"Invoice Due Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"statDueDate",
+			"label":"Statutory Due Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"maturityDate",
+			"label":"Maturity Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"factorMaxEndDateTime",
+			"label":"Factoring Maximum End Date",
+			"dataType":"DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name":"amount",
+			"label":"Invoice Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name": "haircutPercent",
+			"label": "Haircut %",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength":2,
+			"minValue": 0,
+			"notNull":true,
+			"maxValue": 100
+		},
+		{
+			"name":"adjAmount",
+			"label":"Deductions",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 0,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name": "cashDiscountPercent",
+			"label": "Cash Discount %",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength":2,
+			"notNull":true,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name": "cashDiscountValue",
+			"label": "Cash Discount Value",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength":2,
+			"minValue": 0
+		},
+		{
+			"name":"tdsAmount",
+			"label":"TDS",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 0,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"netAmount",
+			"label":"Factoring Unit Cost",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.00,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"instImage",
+			"label":"Invoice Attachment",
+			"dataType":"STRING",
+			"maxLength":50
+		},
+		{
+			"name":"creditNoteImage",
+			"label":"Credit Note Attachment",
+			"dataType":"STRING",
+			"maxLength":50
+		},
+		{
+			"name":"supportings",
+			"label":"Supportings",
+			"dataType":"STRING",
+			"maxLength":250,
+			"nonJson": true
+		},
+		{
+			"name":"sup1",
+			"label":"Supporting 1",
+			"dataType":"STRING",
+			"maxLength":50,
+			"nonDatabase": true
+		},
+		{
+			"name":"sup2",
+			"label":"Supporting 2",
+			"dataType":"STRING",
+			"maxLength":50,
+			"nonDatabase": true
+		},
+		{
+			"name":"sup3",
+			"label":"Supporting 3",
+			"dataType":"STRING",
+			"maxLength":50,
+			"nonDatabase": true
+		},
+		{
+			"name":"sup4",
+			"label":"Supporting 4",
+			"dataType":"STRING",
+			"maxLength":50,
+			"nonDatabase": true
+		},
+		{
+			"name":"sup5",
+			"label":"Supporting 5",
+			"dataType":"STRING",
+			"maxLength":50,
+			"nonDatabase": true
+		},
+		{
+			"name":"creditPeriod",
+			"label":"Credit Period",
+			"desc":"Credit period with respect to Goods/Service Acceptance Date.",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"enableExtension",
+			"label":"enableExtension",
+			"desc":"enableExtension",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"defaultValue":"N",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"extendedCreditPeriod",
+			"label":"extendedCredit Period",
+			"desc":"ExtendedCredit Period with respect to Goods/Service Acceptance Date.",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"extendedDueDate",
+			"label":"extendedDueDate ",
+			"desc":"extendedDueDate date with respect to Goods/Service Acceptance Date.",
+			"dataType":"DATE"
+		},
+		{
+			"name":"autoAccept",
+			"label":"Auto Accept Bids",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptBid",
+			"desc":"On receipt of Bid / Cut-off time / Disabled "
+		},
+		{
+			"name":"autoAcceptableBidTypes",
+			"label":"Auto Acceptable Bid Types",
+			"dataType": "STRING",
+			"maxLength": 2,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptableBidTypes",
+			"desc":"Open Bids / All Bids "
+		},
+		{
+			"name":"autoConvert",
+			"label":"Auto Send for Auction",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"defaultValue":"Y",
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Auto", "value":"Y"},{"text":"Supplier", "value":"S"},{"text":"Purchaser", "value":"P"}] 
+		},
+		{
+			"name":"period1CostBearer",
+			"label":"Period 1 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1CostPercent",
+			"label":"Period 1 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2CostBearer",
+			"label":"Period 2 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2CostPercent",
+			"label":"Period 2 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3CostBearer",
+			"label":"Period 3 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3CostPercent",
+			"label":"Period 3 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"costBearingType",
+			"label":"Cost Bearing Type",
+			"dataType":"STRING",
+			"maxLength": 2,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearingType",
+			"nonDatabase": true
+		},
+		{
+			"name":"splittingPoint",
+			"label":"Splitting Point",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 3,
+			
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Statutory Due Date", "value":"SDD"},{"text":"Invoice Due Date", "value":"IDD"}]
+		},
+		{
+			"name":"preSplittingCostBearer",
+			"label":"Pre Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"postSplittingCostBearer",
+			"label":"Post Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"buyerPercent",
+			"label":"Buyer Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sellerPercent",
+			"label":"Seller Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"bidAcceptingEntityType",
+			"label":"Bid Accepting Entity Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer",
+			"nonDatabase": true
+		},
+		{
+			"name":"chargeBearer",
+			"label":"Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 2,
+			"nonDatabase":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearingType"
+		},
+		{
+			"name":"period1ChargeBearer",
+			"label":"Period 1 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1ChargePercent",
+			"label":"Period 1 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2ChargeBearer",
+			"label":"Period 2 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2ChargePercent",
+			"label":"Period 2 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3ChargeBearer",
+			"label":"Period 3 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3ChargePercent",
+			"label":"Period 3 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"splittingPointCharge",
+			"label":"Charge Splitting Point ",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 3,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Statutory Due Date", "value":"SDD"},{"text":"Invoice Due Date", "value":"IDD"}]
+		},
+		{
+			"name":"preSplittingCharge",
+			"label":"Pre Splitting Charge Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"postSplittingCharge",
+			"label":"Post Splitting Charge Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"buyerPercentCharge",
+			"label":"Buyer Charge Percent ",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sellerPercentCharge",
+			"label":"Seller Charge Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"settleLeg3Flag",
+			"label":"Enable Leg 3 Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"fileId",
+			"label": "Batch File Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Drafting", "value":"DRFT"},{"text":"Checker Pending", "value":"SUB"},{"text":"Checker Approved", "value":"CHKAPP"},{"text":"Checker Returned", "value":"CHKRET"},{"text":"Checker Rejected", "value":"CHKREJ"},{"text":"Counter Approved", "value":"COUAPP"},{"text":"Counter Returned", "value":"COURET"},{"text":"Counter Rejected", "value":"COUREJ"},{"text":"Converted To Factoring Unit", "value":"FACUNT"},{"text":"Withdrawn", "value":"WTHDRN"},{"text":"Expired", "value":"EXP"},{"text":"Leg 3 Generated", "value":"LEG3"},{"text":"Factored", "value":"FACT"},{"text":"Leg 1 Settled", "value":"L1SET"},{"text":"Leg 1 Failed", "value":"L1FAIL"},{"text":"Leg 2 Settled", "value":"L2SET"},{"text":"Leg 2 Failed", "value":"L2FAIL"},{"text":"Counter Checker Pending", "value":"COUCHKPEN"},{"text":"Counter Checker Return", "value":"COUCHKRET"},{"text":"Leg 3 Settled", "value":"L3SET"},{"text":"Leg 3 Failed", "value":"L3FAIL"}]
+		},
+		{
+			"name":"statusRemarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"statusUpdateTime",
+			"label":"Status Update Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"makerEntity",
+			"label":"Maker Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"makerAuId",
+			"label":"Maker User",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"makerLoginId",
+			"label":"Maker Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"makerName",
+			"label":"Maker Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerAuId",
+			"label":"Checker User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"checkerLoginId",
+			"label":"Checker Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerName",
+			"label":"Checker Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterEntity",
+			"label":"Counter Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"counterAuId",
+			"label":"Counter User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"counterLoginId",
+			"label":"Counter Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterName",
+			"label":"Counter Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterCheckerAuId",
+			"label":"Counter Checker User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"counterCheckerLoginId",
+			"label":"Counter Checker Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterCheckerName",
+			"label":"Counter Checker Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"ownerEntity",
+			"label":"Owner Entity",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"ownerAuId",
+			"label":"Owner User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"ownerLoginId",
+			"label":"Owner Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"ownerName",
+			"label":"Owner Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"monetagoLedgerId",
+			"label":"Ledger Id",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"monetagoFactorTxnId",
+			"label":"Factoring Transaction Id",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"monetagoCancelTxnId",
+			"label":"Cancelation Transaction Id",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"settlePurLocation",
+			"label":"Seller Location",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"settlePurGstState",
+			"label":"Seller GST State",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"GSTSTATE"
+		},
+		{
+			"name":"settlePurGstn",
+			"label":"Seller GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"fuId",
+			"label":"Factoring Unit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "counterModifiedFields",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name": "counterUpdateFields",
+			"dataType": "STRING",
+			"maxLength": 500
+		},
+		{
+			"name":"isApiVerified",
+			"dataType":"STRING",
+			"maxLength":1,
+			"nonDatabase": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "salesCategory",
+			"label": "Sales Category",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory"
+		},
+		{
+			"name":"ewayBillNo",
+			"label":"E-Way Bill No",
+			"maxLength":30,
+			"dataType":"STRING"
+		},
+		{
+			"name":"supplyType",
+			"label":"Supply Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Inward", "value":"I"},{"text":"Outward", "value":"O"}]
+		},
+		{
+			"name":"docType",
+			"label":"Document Type",
+			"dataType":"STRING",
+			"maxLength":3,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Invoice", "value":"INV"},
+					  {"text":"Bill", "value":"BIL"},
+					  {"text":"Bill of Entry", "value":"BOE"},
+					  {"text":"Challan", "value":"CHL"},
+					  {"text":"Credit Note", "value":"CNT"},
+					  {"text":" Others", "value":"OTH"}
+					 ]
+		},
+		{
+			"name":"docNo",
+			"label":"Document Number",
+			"dataType":"STRING",
+			"maxLength":50
+		},
+		{
+			"name":"docDate",
+			"label":"Document Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"fromPincode",
+			"label":"From Pincode",
+			"dataType": "STRING",
+			"maxLength":10,
+			"pattern": "PATTERN_PINCODE"
+		},
+		{
+			"name":"toPincode",
+			"label":"To Pincode",
+			"dataType": "STRING",
+			"maxLength":10,
+			"pattern": "PATTERN_PINCODE"
+		},
+		{
+			"name":"transMode",
+			"label":"Mode of Transport",
+			"dataType":"INTEGER",
+			"maxLength":1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Road", "value":1},
+					  {"text":"Rail", "value":2},
+					  {"text":"Air", "value":3},
+					  {"text":"Ship", "value":4}
+					 ]
+		},
+		{
+			"name":"transporterName",
+			"label":"Transporter Name",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"transporterId",
+			"label":"Transporter Id",
+			"dataType":"STRING",
+			"maxLength":15
+		},
+		{
+			"name":"transDocNo",
+			"label":"Transporter Doc No",
+			"dataType":"STRING",
+			"maxLength":15
+		},
+		{
+			"name":"transDocDate",
+			"label":"Transporter Doc Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"vehicleNo",
+			"label":"Vehicle No",
+			"dataType":"STRING",
+			"maxLength":15,
+			"pattern":"PATTERN_VEHICLE",
+			"conversion": ["toUpper"]
+		},
+		{
+			"name":"acceptAgreement",
+			"label":"I ACCEPT",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		},
+		{
+			"name":"groupFlag",
+			"label":"Grouping",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "groupInId",
+			"label":"Group Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"groupRefNo",
+			"label":"Group Refrence No",
+			"dataType":"STRING",
+			"maxLength": 15
+		},
+		{
+			"name": "cersaiFileId",
+			"label":"CERSAI File Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "ebdId",
+			"label":"Eway Bill Details Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "mkrChkLevel",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cntChkLevel",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"otherSettings",
+			"label":"Other Settings",
+			"dataType":"STRING",
+			"maxLength": 2000
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"tab",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "age",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "instCount",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"filtHistFlag",
+			"dataType":"STRING",
+			"maxLength":1,
+			"nonDatabase": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"groupId",
+			"label":"Group Id",
+			"nonDatabase": true,
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"group",
+			"label":"Group Flag",
+			"dataType":"STRING",
+			"nonDatabase": true,
+			"maxLength": 10
+		},
+		{
+			"name": "count",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"statusDesc",
+			"label":"Status Description",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "purPan",
+			"label": "Purchaser PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"nonDatabase": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "supPan",
+			"label": "Supplier PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"nonDatabase": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"isAggregatorCreated",
+			"dataType":"STRING",
+			"maxLength":1,
+			"nonDatabase": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "aggregatorEntity",
+			"label": "Aggregator Entity",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+      			"dataSetValues":"appentity/aggregator"
+		},
+		{
+			"name":"aggregatorAuId",
+			"label":"Aggregator AuId",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "instrumentCreationKeys",
+			"label": "Instrument Creation Keys",
+			"dataType": "STRING",
+			"maxLength": 300,
+			"nonJson":true,
+			"databaseField":"instrumentCreationKeys",
+			"nonDatabase":true,
+			"jsonField":"instrumentCreationKeysList"
+		},
+		{
+			"name": "instrumentCreationKeysList",
+			"label": "Instrument Creation Keys List",
+			"dataType":"STRING",
+			"maxLength": 300,
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name":"instVisibleToMaker",
+			"label":"Instrument visible to Maker",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromFilterGoodsAcceptDate",
+			"label":"Filter From Goods/Service Acceptance Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"toFilterGoodsAcceptDate",
+			"label":"Filter To Goods/Service Acceptance Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"fromFilterInstDate",
+			"label":"Filter From Invoice Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"toFilterInstDate",
+			"label":"Filter To Invoice Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"fromFilterInstDueDate",
+			"label":"Filter From Invoice Due Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"toFilterInstDueDate",
+			"label":"Filter To Invoice Due Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "cfId",
+			"label": "Custom Fields Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cfData",
+			"label": "Custom Fields Data",
+			"dataType": "STRING",
+			"maxLength":4000
+		},
+		{
+			"name": "isGemInvoice",
+			"label": "Is Gem Invoice",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups" : {
+		"insert": ["supplier","supplierRef","supClId","purchaser","purchaserRef","purClId","instNumber","instDate","goodsAcceptDate","poDate","poNumber","counterRefNum","description","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer", "period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","bidAcceptingEntityType","autoAcceptableBidTypes","autoAccept","salesCategory","instImage","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","ebdId","aggregatorEntity","aggregatorAuId","instrumentCreationKeysList","instrumentCreationKeys","cfId","cfData","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge"]
+		,"update":["id","supplier","supplierRef","supClId","purchaser","purchaserRef","purClId","instNumber","instDate","goodsAcceptDate","poDate","poNumber","counterRefNum","description","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","recordVersion","bidAcceptingEntityType","autoAcceptableBidTypes","autoAccept","salesCategory","instImage","extendedDueDate","instDueDate","statDueDate","maturityDate","factorMaxEndDateTime","monetagoLedgerId","monetagoFactorTxnId","monetagoCancelTxnId","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","aggregatorEntity","aggregatorAuId","instrumentCreationKeysList","instrumentCreationKeys","statusRemarks","cfId","cfData","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge"]
+		,"updateSave":["id","supplier","supplierRef","supClId","supSettleClId","purchaser","purchaserRef","purClId","purSettleClId","instNumber","instDate","goodsAcceptDate","poDate","poNumber","counterRefNum","description","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","recordVersion","bidAcceptingEntityType","autoAcceptableBidTypes","autoAccept","salesCategory","instImage","extendedDueDate","instDueDate","statDueDate","maturityDate","factorMaxEndDateTime","monetagoLedgerId","monetagoFactorTxnId","monetagoCancelTxnId","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","statusRemarks","cfId","cfData","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge"]
+		,"insertApi": ["supplier","supplierRef","supClId","supLocation","purchaser","purchaserRef","purClId","purLocation","instNumber","instDate","goodsAcceptDate","poDate","poNumber","counterRefNum","description","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer", "period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","bidAcceptingEntityType","autoAcceptableBidTypes","autoAccept","salesCategory","instImage","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","instDueDate","instVisibleToMaker","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge"]
+		,"updateApi":["id","supplier","supplierRef","supClId","supLocation","purchaser","purchaserRef","purClId","purLocation","instNumber","instDate","goodsAcceptDate","poDate","poNumber","counterRefNum","description","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","recordVersion","bidAcceptingEntityType","autoAcceptableBidTypes","autoAccept","salesCategory","instImage","extendedDueDate","instDueDate","statDueDate","maturityDate","monetagoLedgerId","monetagoFactorTxnId","monetagoCancelTxnId","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","aggregatorEntity","aggregatorAuId","status","instVisibleToMaker"]
+		,"updateStatus":["status","mkrChkLevel","statusRemarks","statusUpdateTime","monetagoLedgerId","monetagoFactorTxnId","monetagoCancelTxnId"]
+		,"updateStatusOnSubmit":["status","mkrChkLevel","statusRemarks","statusUpdateTime","monetagoLedgerId","monetagoFactorTxnId","monetagoCancelTxnId","makerAuId"]
+		,"updateCounterStatus":["id","statusUpdateTime","counterName","counterLoginId","counterAuId","status","statusRemarks","ownerEntity","ownerAuId", "costBearingType","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","settleLeg3Flag","netAmount","monetagoLedgerId","monetagoCancelTxnId","ewayBillNo","supplyType","docType","docNo","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","counterCheckerAuId","cntChkLevel"]
+		,"updateCheckerStatus":["statusUpdateTime","checkerName","checkerLoginId","checkerAuId","status","statusRemarks","netAmount","monetagoLedgerId","monetagoCancelTxnId"]
+		,"updateConvFactUnit": ["fuId","status","ownerEntity","ownerAuId"]
+		,"duedaterequest": ["supplier","goodsAcceptDate","creditPeriod","extendedCreditPeriod","enableExtension","purchaser"]
+		,"duedateresponse": ["instDueDate","statDueDate","extendedDueDate"]
+		,"fetchCounter" :["id","purchaser","purClId","purGstState","purGstn","supplier","supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","costBearingType","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer", "buyerPercent", "sellerPercent", "bidAcceptingEntityType","ownerEntity","ownerAuId","counterEntity","counterAuId","ewayBillNo","supplyType","docType","docNo","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge"]
+		,"counterBuyerDisplay" :["purClId","purGstState","purGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","costBearingType","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer", "buyerPercent", "sellerPercent", "bidAcceptingEntityType","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount"]
+		,"updateCounterBuyerDb" :["purClId","purGstState","purGstn","goodsAcceptDate","creditPeriod","maturityDate","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount", "period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","monetagoLedgerId","monetagoFactorTxnId","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","factorMaxEndDateTime","counterLoginId","counterAuId","cntChkLevel","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"counterSellerDisplay" :["supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount"]
+		,"updateCounterSellerDb" :["supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","maturityDate","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","monetagoLedgerId","monetagoCancelTxnId","factorMaxEndDateTime","counterLoginId","counterAuId","cntChkLevel"]
+		,"updateCounterApprove" :["id","purClId","purGstState","purGstn","supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","statusUpdateTime","counterName","counterLoginId","counterAuId","statusRemarks","ownerEntity","ownerAuId","maturityDate","factorMaxEndDateTime","cntChkLevel"]
+		,"dispInstrument" : ["id","supName","supplierRef","purName","purchaserRef","supLocation","purLocation","instNumber","instDate","poDate","poNumber","counterRefNum","salesCategory","description","goodsAcceptDate","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","autoConvert","statDueDate","instDueDate","maturityDate","status","instImage","creditNoteImage","sup1","sup2","sup3","sup4","sup5","supportings","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo"]
+		,"fixedBuyerSellerLink" : ["autoConvert", "costBearingType", "buyerPercent","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer","chargeBearer","settleLeg3Flag","bidAcceptingEntityType"]
+		,"updateMonetagoCancel": ["monetagoCancelTxnId","monetagoLedgerId"]
+		,"expireInstrument": ["status","statusUpdateTime","monetagoCancelTxnId","monetagoLedgerId"]
+		,"ewayBill": ["ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo"]
+		,"updateGroupFieldsChild" : ["id","groupInId","status","statusUpdateTime","statusRemarks","monetagoCancelTxnId","monetagoLedgerId","recordVersion"]
+		,"updateGroupFieldsParent" : ["id","amount","status","tdsAmount","adjAmount","netAmount","cashDiscountValue","recordVersion"]
+		,"updateMonetagoGroup" : ["id","groupInId","monetagoLedgerId","recordVersion"]
+		,"updateCounterAutoApprove" : ["id","purClId","purGstState","purGstn","supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","autoConvert","status","counterModifiedFields","statusUpdateTime","counterName","counterLoginId","counterAuId","statusRemarks","ownerEntity","ownerAuId", "costBearingType","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "settleLeg3Flag","netAmount","monetagoLedgerId","monetagoCancelTxnId","ewayBillNo","supplyType","docType","docNo","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","maturityDate","factorMaxEndDateTime","counterCheckerAuId","cntChkLevel","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"apiResponse" : ["id","supName","supplierRef","purName","purchaserRef","supLocation","purLocation","instNumber","instDate","poDate","poNumber","counterRefNum","salesCategory","description","goodsAcceptDate","currency","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","netAmount","chargeBearer","creditPeriod","extendedCreditPeriod","extendedDueDate","statDueDate","instDueDate","maturityDate","status"]
+		,"updateEwayInv": ["instImage"]
+		,"eInvoiceFields": ["supplier", "supClId", "purchaser", "purClId", "instNumber", "instDate", "currency", "amount", "instImage"]
+		,"duedates":["extendedDueDate","instDueDate", "statDueDate"]
+		,"checkerlevel":["id","mkrChkLevel","statusRemarks"]
+		,"counterlevel":["id","cntChkLevel","statusRemarks"]
+		,"aggParentInst": ["instDate","instNumber","purchaser","purGstn","supplier","supGstn","counterRefNum","description","instDueDate","extendedDueDate","amount","adjAmount","cashDiscountValue","netAmount","chargeBearer","instrumentList"]
+		,"aggChildInst": ["instDate","instNumber","counterRefNum","description","poNumber","poDate","goodsAcceptDate","period1CostBearer","period1CostPercent"," period2CostBearer"," period2CostPercent"," period3CostBearer"," period3CostPercent","amount","adjAmount","cashDiscountValue","netAmount","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"aggPrntToChld": ["instDate","makerEntity","status","currency","factorMaxEndDateTime","purchaser","purClId","purGstn","purGstState","supClId","supGstState","supGstn","supMsmeStatus","description","poNumber","poDate","goodsAcceptDate","statDueDate","period1CostBearer","period1CostPercent"," period2CostBearer"," period2CostPercent"," period3CostBearer"," period3CostPercent","maturityDate","purSettleClId","supSettleClId","purchaserRef","supplierRef","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"aggPurSupLink" : ["purchaserSupplierRef", "supClId","creditPeriod","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","supplier","extendedCreditPeriod","settleLeg3Flag","autoAccept", "autoConvert","autoAcceptableBidTypes","costBearingType","bidAcceptingEntityType","buyerPercent","preSplittingCostBearer","postSplittingCostBearer","splittingPoint","sellerPercent", "purchaserAutoApproveInvoice","cashDiscountPercent","haircutPercent","aggregatorEntity","aggregatorAuId","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"instAggMisData" : ["id","amount","instDate","instNumber","instDueDate"]
+		,"aggChildToParent" : ["poNumber","poDate","goodsAcceptDate","statDueDate"]
+		,"supplierBulk" : ["id","supClId","goodsAcceptDate","creditPeriod","extendedCreditPeriod","amount","haircutPercent","adjAmount","cashDiscountPercent","tdsAmount","status","statusRemarks"]
+		,"purchaserBulk" : ["id","purClId","goodsAcceptDate","creditPeriod","extendedCreditPeriod","amount","haircutPercent","adjAmount","cashDiscountPercent","tdsAmount","status","statusRemarks"]
+		,"gemsAddinvoice" : ["purGstn","purPan","supGstn","supPan","instNumber","instDate","goodsAcceptDate","counterRefNum","poNumber","amount","adjAmount","creditPeriod"]
+		,"bhelPemInst": ["id","instNumber","purchaser","supplier","supplierRef","purGstn","supGstn","poNumber","salesCategory","instDate","poDate","goodsAcceptDate","maturityDate","instDueDate","creditPeriod","extendedCreditPeriod","amount","cashDiscountPercent","haircutPercent","adjAmount","description"]
+		,"bhelCouApp": ["supplierRef","purGstn","supGstn","poNumber","salesCategory","instDate","poDate","goodsAcceptDate","maturityDate","instDueDate","creditPeriod","extendedCreditPeriod","amount","cashDiscountPercent","haircutPercent","adjAmount","description","status"]
+		,"counterBuyerDisplayApi" :["purClId","purGstState","purGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","costBearingType","splittingPoint", "preSplittingCostBearer", "postSplittingCostBearer", "buyerPercent", "sellerPercent", "bidAcceptingEntityType","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","counterRefNum","instDueDate"]
+		,"updateCounterBuyerDbApi" :["purClId","purGstState","purGstn","goodsAcceptDate","creditPeriod","maturityDate","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount", "period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","monetagoLedgerId","monetagoFactorTxnId","ewayBillNo","supplyType","docType","docNo","docDate","fromPincode","toPincode","transMode","transporterName","transporterId","transDocNo","transDocDate","vehicleNo","factorMaxEndDateTime","counterLoginId","counterAuId","cntChkLevel","counterRefNum","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent"]
+		,"counterSellerDisplayApi" :["supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","enableExtension","extendedCreditPeriod","extendedDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","counterRefNum","instDueDate"]
+		,"updateCounterSellerDbApi" :["supClId","supGstState","supGstn","goodsAcceptDate","creditPeriod","maturityDate","enableExtension","extendedCreditPeriod","extendedDueDate","instDueDate","statDueDate","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount","chargeBearer","settleLeg3Flag","autoConvert","status","counterModifiedFields","netAmount","monetagoLedgerId","monetagoCancelTxnId","factorMaxEndDateTime","counterLoginId","counterAuId","cntChkLevel","counterRefNum"]
+		, "counterMakerUpdateFields" :["id","goodsAcceptDate","creditPeriod","amount","adjAmount","haircutPercent","cashDiscountPercent","cashDiscountValue","tdsAmount"]
+		, "counterMakerUpdate" :["id","counterUpdateFields"]
+	}
+}

@@ -1,0 +1,170 @@
+{
+"name" : "companybankdetail",
+"tableName" : "CompanyBankDetails",
+"columnPrefix" : "CBD",
+"desc" : "Banking Details : List of bank accounts of the Entity. It contains all the bank details of the account held. The Entity specifies the default and lead banks here.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true,
+			"desc":"Internal Company/Entity Id"
+		},
+		{
+			"name": "bank",
+			"label": "Bank",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"BANK"
+		},
+		{
+			"ref": "com/xlx/treds/config/AddressBank.json"
+		},
+		{
+			"name": "accType",
+			"label": "Type of Account",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 5,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Term Loan", "value":"TL"}, {"text":"Cash Credit", "value":"CC"}, {"text":"Overdraft", "value":"OD"}, {"text":"Current Account", "value":"CA"}, {"text":"Other", "value":"OT"}]
+		},
+		{
+			"name": "accNo",
+			"label": "Account Number",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_BANKACNO",
+			"notNull": true
+		},
+		{
+			"name": "ifsc",
+			"label": "IFSC",
+			"dataType": "STRING",
+			"maxLength": 11,
+			"pattern": "PATTERN_IFSC",
+			"conversion": ["toUpper"]
+		},
+		{
+			"name": "salutation",
+			"label": "Salutation",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"SALUTATION"
+		},
+		{
+			"name": "firstName",
+			"label": "First Name",
+			"dataType":"STRING",
+			"notNull":true,
+			"minLength":1,
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "middleName",
+			"label": "Middle Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "lastName",
+			"label": "Last Name",
+			"dataType":"STRING",
+			"minLength":1,
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"ref": "com/xlx/treds/config/ContactBank.json"
+		},
+		{
+			"name": "defaultAccount",
+			"label": "Designated Transaction Account",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "leadBank",
+			"label": "Lead Bank",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "bankingType",
+			"label": "Type of Banking Facilities",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Sole", "value":"S"}, {"text":"Multiple", "value":"M"}, {"text":"Consortium", "value":"C"}]
+		},
+		{
+			"name": "companyCode",
+			"label":"Company Code",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name":"refId",
+			"label": "Ref Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups" : {
+		"update": ["id","cdId","bank","line1","line2","line3","country","state","district","city","zipCode","accType","accNo","ifsc","salutation","firstName","middleName","lastName","email","telephone","mobile","fax","defaultAccount","leadBank","bankingType","refId","recordUpdator","recordUpdateTime","recordVersion"]
+}	
+}

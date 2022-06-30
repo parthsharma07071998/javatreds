@@ -1,0 +1,69 @@
+{
+	"name": "addresschange",
+	"columnPrefix": "cd",
+	"listFields":["type","code","companyName","name","line1","line2","line3","country","state","district","city","zipcode","actionTime"],
+	"fields": [
+		{
+			"name": "type",
+			"label": "Type",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "key",
+			"label":"Key",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "code",
+			"label": "Company Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "companyName",
+			"label": "Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "name",
+			"label": "Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"ref": "com/xlx/treds/config/AddressGST.json"
+		},
+			{
+			"name": "changeCount",
+			"label":"Change Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"firstChange",
+			"label":"First Change Date Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"lastChange",
+			"label":"Last Change Date Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

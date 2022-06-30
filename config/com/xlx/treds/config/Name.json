@@ -1,0 +1,39 @@
+{
+"name" : "nameDetails",
+"desc" : "Name Details",
+"fields" : [
+		{
+			"name": "salutation",
+			"label": "Salutation",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"SALUTATION"
+		},
+		{
+			"name": "firstName",
+			"label": "First Name",
+			"dataType":"STRING",
+			"notNull":true,
+			"minLength":1,
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "middleName",
+			"label": "Middle Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		},
+		{
+			"name": "lastName",
+			"label": "Last Name",
+			"dataType":"STRING",
+			"minLength":1,
+			"maxLength": 30,
+			"pattern":"PATTERN_ALPHA"
+		}
+	]
+}

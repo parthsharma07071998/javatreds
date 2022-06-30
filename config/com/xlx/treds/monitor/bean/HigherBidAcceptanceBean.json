@@ -1,0 +1,86 @@
+{
+	"name": "higherBidAcceptance",
+	"columnPrefix": "fu",
+	"fields": [
+		{
+			"name": "fuId",
+			"label":"Factoring Unit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "rate",
+			"label": "Rate of not accepted bid",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "financier",
+			"label": "Financier Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "financierName",
+			"label": "Financier",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "supplierName",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "acceptedRate",
+			"label": "Accepted Bid Rate",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "acceptedFinancier",
+			"label": "Accepted Financier Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "acceptedFinancierName",
+			"label": "Accepted Financier",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2
+		},
+		{
+			"name":"acceptDateTime",
+			"label":"Accepted Date Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

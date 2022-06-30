@@ -1,0 +1,34 @@
+{
+"subject":"RXIL TREDS: Settlement status for due date {{settlementDate}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Some transaction were due for settlement on {{settlementDate}}. 
+<br>
+<table border='0px'>
+  <tr>
+    <th>Supplier</th>
+    <th>Amount due</th>
+    <th>Amount settled</th>
+    <th>Amount failed/ cancelled</th>
+  </tr>
+{{#each supList}}
+  <tr>
+    <td>{{entityCode}}</td>
+    <td>{{totalObligationAmt}}</td>
+    <td>{{settledAmt}}</td>
+    <td>{{failedCancelledAmt}}</td>
+  </tr>
+{{/each}}
+</table>
+<br>
+Please refer attachment for details
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

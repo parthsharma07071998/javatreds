@@ -1,0 +1,132 @@
+{
+	"name": "MessageData",
+	"tableName" : "MessageData",
+	"columnPrefix" : "MD",
+	"desc" : "MessageData",
+	"fields": [
+		{
+			"name": "id",
+			"dataType":"INTEGER",
+			"fieldType":"PRIMARY"
+		},
+		{
+			"name": "referenceKey",
+			"label": "ReferenceKey",
+			"dataType":"STRING",
+			"maxLength": 200,
+			"notNull": false
+		},
+		{
+			"name": "type",
+			"label": "type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"messagedata/allfortype"
+		},
+		{
+			"name": "data1",
+			"label": "Data1",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"notNull": false
+		},
+		{
+			"name": "data2",
+			"label": "Data2",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"notNull": false
+		},
+		{
+			"name": "data3",
+			"label": "Data3",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"notNull": false
+		},
+		{
+			"name": "template",
+			"label": "template",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"notNull": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"description":"Status",
+			"dataType":"STRING",
+			"maxLength":1,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"messagedata/allforstatus"
+		},
+		{
+			"name":"count",
+			"label":"Count",
+			"dataType":"INTEGER",
+			"notNull": false
+			
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordTime",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "typeDescription",
+			"label": "type",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"statusDescription",
+			"label":"Status",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"data",
+			"label":"Data",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"mdIds",
+			"dataType":"INTEGER",
+			"allowMultiple":true,
+			"nonDatabase":true
+		}		
+	],
+	"fieldGroups": {
+		"updatestatus":["status","recordUpdator","recordTime","recordVersion","count"]
+	}
+}

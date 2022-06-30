@@ -1,0 +1,60 @@
+{
+	"name": "registryentryvalues",
+	"tableName" : "RegistryEntryValues",
+	"columnPrefix" : "REV",
+	"desc" : "Registry Entry Values",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "reId",
+			"label": "RE Id",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "seqNo",
+			"label": "Seq No",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name": "key",
+			"label": "Key",
+			"dataType":"STRING",
+			"maxLength": 60
+		},
+		{
+			"name": "value",
+			"label": "Value",
+			"dataType":"STRING",
+			"maxLength": 4000
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"update":["seqNo", "key", "value","recordUpdator","recordUpdateTime","recordVersion"]
+	}
+}

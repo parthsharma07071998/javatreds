@@ -1,0 +1,79 @@
+
+{
+"name" : "InstStatsCacheBean",
+"tableName" : "InstStatsCache",
+"columnPrefix" : "IN",
+"fields" : [
+		{
+			"name": "id",
+			"label":"Instrument Id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"instNumber",
+			"label":"Invoice Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"poNumber",
+			"label":"PO Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"amount",
+			"label":"Invoice Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"units",
+			"label":"Units",
+			"dataType":"DECIMAL",
+			"integerLength":1,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"tens",
+			"label":"Tens",
+			"dataType":"DECIMAL",
+			"integerLength":1,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},		
+		{
+			"name":"hundreds",
+			"label":"Hundreds",
+			"dataType":"DECIMAL",
+			"integerLength":1,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"thousands",
+			"label":"Thousands",
+			"dataType":"DECIMAL",
+			"integerLength":1,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		}
+	]
+}

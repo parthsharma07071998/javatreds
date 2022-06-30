@@ -1,0 +1,1 @@
+SELECT * FROM Instruments where INRECORDVERSION > 0 and ingroupflag = 'Y'

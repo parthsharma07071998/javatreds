@@ -1,0 +1,37 @@
+{
+"subject": "Invoice financed by your customer on RXIL TREDS",
+"body":"
+{{{header}}}
+Dear <b>Sir/Madam,</b><br>
+As per RBI TREDS notification, notification needs to be sent to Banker in case of any transaction related 
+to their customer.<br>
+Please find all the transaction done by you customer(s) for the day.<br>
+{{#data}}
+Customer: {{code}} : {{purchaser}} - {{supplier}}
+<table border='1px'>
+	<tr>
+		<th> Sr. No. </th>
+		<th> Factoring unit id </th>
+		<th> Obligation id </th>
+		<th> Amount </th>
+		<th> Due date</th>
+	</tr>
+	{{#obligations}}
+		<tr>
+			<td> {{srNo}} </td>
+			<td> {{fuId}} </td>
+			<td> {{obId}} </td>
+			<td> {{leg2AmtBuyer}} </td>
+			<td> {{ObligDateL2Buyer}} </td>
+		</tr>
+	{{/obligations}}
+</table>
+<br>
+{{/data}}
+<br>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

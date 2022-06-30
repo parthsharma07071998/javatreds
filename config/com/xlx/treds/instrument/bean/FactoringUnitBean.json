@@ -1,0 +1,808 @@
+{
+"name" : "factunit",
+"tableName" : "FactoringUnits",
+"columnPrefix" : "FU",
+"desc" : "Factoring units : List of all the factoring units.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true
+		},
+		{
+			"name":"maturityDate",
+			"label":"Maturity Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"statDueDate",
+			"label":"Statutory Due Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+     	{
+			"name":"enableExtension",
+			"label":"enableExtension",
+			"desc":"enableExtension",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"defaultValue":"N",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name":"extendedCreditPeriod",
+			"label":"extendedCredit Period",
+			"desc":"ExtendedCredit Period with respect to Goods/Service Acceptance Date.",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"extendedDueDate",
+			"label":"extendedDueDate ",
+			"desc":"extendedDueDate date with respect to Goods/Service Acceptance Date.",
+			"dataType":"DATE"
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/purchasers"
+		},
+		{
+			"name":"purchaserRef",
+			"label":"Buyer Reference",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/suppliers"
+		},
+		{
+			"name":"supplierRef",
+			"label":"Seller Reference",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"introducingEntity",
+			"label":"Introducing Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"introducingAuId",
+			"label":"Introducing User",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"introducingLoginId",
+			"label":"Introducing Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"introducingName",
+			"label":"Introducing Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterEntity",
+			"label":"Counter Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"counterAuId",
+			"label":"Counter User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"counterLoginId",
+			"label":"Counter Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"counterName",
+			"label":"Counter Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"ownerEntity",
+			"label":"Owner Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"ownerAuId",
+			"label":"Owner User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"ownerLoginId",
+			"label":"Owner Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"ownerName",
+			"label":"Owner Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Ready For Auction", "value":"RDY"},{"text":"Active", "value":"ACT"},{"text":"Factored", "value":"FACT"},{"text":"Expired", "value":"EXP"},{"text":"Leg 3 Generated", "value":"LEG3"},{"text":"Withdrawn", "value":"WTHDRN"},{"text":"Suspended", "value":"SUSP"},{"text":"Leg 1 Settled", "value":"L1SET"},{"text":"Leg 1 Failed", "value":"L1FAIL"},{"text":"Leg 2 Settled", "value":"L2SET"},{"text":"Leg 2 Failed", "value":"L2FAIL"},{"text":"Leg 3 Settled", "value":"L3SET"},{"text":"Leg 3 Failed", "value":"L3FAIL"}]
+		},
+		{
+			"name":"factorStartDateTime",
+			"label":"Factoring Start Date",
+			"dataType":"DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"factorEndDateTime",
+			"label":"Factoring End Date",
+			"dataType":"DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"factorMaxEndDateTime",
+			"label":"Factoring Maximum End Date",
+			"dataType":"DATETIME",
+			"notNull": true
+		},
+		{
+			"name":"autoAccept",
+			"label":"Auto Accept Bids",
+			"dataType": "STRING",
+			"notNull": true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptBid"
+		},
+		{
+			"name":"autoAcceptableBidTypes",
+			"label":"Auto Acceptable Bid Types",
+			"dataType": "STRING",
+			"maxLength": 2,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptableBidTypes",
+			"desc":"Open Bids / All Bids "
+		},
+		{
+			"name":"autoConvert",
+			"label":"Send for Auction",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"defaultValue":"Y",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoConvert" 
+		},
+		{
+			"name":"period1CostBearer",
+			"label":"Period 1 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1CostPercent",
+			"label":"Period 1 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2CostBearer",
+			"label":"Period 2 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2CostPercent",
+			"label":"Period 2 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3CostBearer",
+			"label":"Period 3 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3CostPercent",
+			"label":"Period 3 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period1ChargeBearer",
+			"label":"Period 1 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1ChargePercent",
+			"label":"Period 1 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2ChargeBearer",
+			"label":"Period 2 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2ChargePercent",
+			"label":"Period 2 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3ChargeBearer",
+			"label":"Period 3 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3ChargePercent",
+			"label":"Period 3 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"supGstState",
+			"label":"Seller GST State",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"supGstn",
+			"label":"Seller GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"purGstState",
+			"label":"Buyer GST State",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"purGstn",
+			"label":"Buyer GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"settleLeg3Flag",
+			"label":"Enable Leg 3 Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"bdId",
+			"label":"Accepted Bid",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"acceptedBidType",
+			"label":"Accepted Bid Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.bid.bean.BidType"
+		},
+		{
+			"name":"acceptedRate",
+			"label":"Accepted Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"acceptedHaircut",
+			"label":"Accepted Haircut",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"leg1Date",
+			"label":"Leg 1 Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"factoredAmount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"purchaserLeg1Interest",
+			"label":"Buyer Interest Leg1",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"supplierLeg1Interest",
+			"label":"Seller Interest Leg1",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"purchaserLeg2Interest",
+			"label":"Buyer Interest Leg2",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"leg2ExtensionInterest",
+			"label":"Buyer Extension Interest Leg2",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"charges",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"entityGstSummary",
+			"dataType":"STRING",
+			"maxLength":4000,
+			"nonJson":true
+		},
+		{
+			"name":"entityGstSummaryList",
+			"label":"Entity Gst Summary",
+			"dataType":"OBJECT",
+			"allowMultiple":true,
+			"nonDatabase":true,
+			"objectClass": "com.xlx.treds.instrument.bean.GstSummaryBean"
+		},
+		{
+			"name":"financier",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"acceptingEntity",
+			"label":"Accepting Entity",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"acceptingAuId",
+			"label":"Accepting User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"acceptingLoginId",
+			"label":"Accepting Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"acceptingName",
+			"label":"Accepting Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"acceptDateTime",
+			"label":"Accept Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"limitUtilized",
+			"label":"Limit Utilized",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name": "limitIds",
+			"dataType": "STRING",
+			"maxLength":100,
+			"nonJson":true
+		},
+		{
+			"name":"purSupLimitUtilized",
+			"label":"Buyer-Seller Limit Utilized",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"filterMaturityDate",
+			"label":"To Maturity Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterAmount",
+			"label":"To Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name": "salesCategory",
+			"label": "Sales Category",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory"
+		},
+		{
+			"name":"purchaserSettleLoc",
+			"label":"Purchaser Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"supplierSettleLoc",
+			"label":"Seller Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "financierSettleLoc",
+			"label":"Financier Settle Location",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"purchaserBillLoc",
+			"label":"Purchaser Billing Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"supplierBillLoc",
+			"label":"Seller Billing Location",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "financierBillLoc",
+			"label":"Financier Billing Location",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"statusUpdateTime",
+			"label":"Status Update Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name": "costBearerBillId",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "financierBillId",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "extBillId1",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "extBillId2",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"finName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"tenure",
+			"label":"Tenor",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"interest",
+			"label":"Interest",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"filterFromTenure",
+			"label":"From Tenor",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterToTenure",
+			"label":"To Tenor",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterSellerCategory",
+			"label":"Seller Category",
+			"dataType":"STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"PROMOTERCATEGORY",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterMsmeStatus",
+			"label":"MSME Status",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"MSMESTATUS",
+			"nonDatabase": true
+		},
+		{
+			"name":"capRate",
+			"label":"Cap Rate %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01,
+			"nonDatabase": true
+		},
+		{
+			"name":"filterToCapRate",
+			"label":"To Cap Rate %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0.01,
+			"nonDatabase": true
+		},
+		{
+			"name":"purBankName",
+			"label":"Purchaser Bank Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name":"supBankName",
+			"label":"Supplier Bank Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"nonDatabase": true
+		},
+		{
+			"name":"purIfsc",
+			"label":"Purchaser IFSC",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supIfsc",
+			"label":"Supplier IFSC",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name": "purAccNo",
+			"label": "Account Number",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_BANKACNO",
+			"nonDatabase": true
+		},
+		{
+			"name": "supAccNo",
+			"label": "Account Number",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_BANKACNO",
+			"nonDatabase": true
+		},
+		{
+			"name": "purDesignatedBankFlag",
+			"label": "Designated Bank",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		},
+		{
+			"name": "supDesignatedBankFlag",
+			"label": "Designated Bank",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		},
+		{
+			"name": "oldInstId",
+			"label": "Old Instrument Id",
+			"dataType":"INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name":"financierCharge",
+			"label": "Financier Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase":true
+		},
+		{
+			"name":"chargeBearerCharge",
+			"label": "Charge Bearer Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase":true
+		},
+		{
+			"name":"fromAcceptanceDate",
+			"label":"From Acceptance Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"toAcceptanceDate",
+			"label":"To Acceptance Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromFactorStartDate",
+			"label":"From Factor Start Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"toFactorEndDate",
+			"label":"To Factor End Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fetchActiveBids",
+			"label":"Factoring Units With Active Bids",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+		"updateExtenstion": ["id","factorEndDateTime","recordVersion","enableExtension","extendedCreditPeriod","extendedDueDate"],
+		"updateLeg3Flag": ["id","settleLeg3Flag","recordVersion"],
+		"updateStatus": ["status","bdId","acceptedBidType","acceptedRate","acceptedHaircut","limitUtilized","purSupLimitUtilized","statusUpdateTime"],
+		"updateWithdrawnStatus": ["status","bdId","acceptedBidType","acceptedRate","acceptedHaircut","limitUtilized","purSupLimitUtilized","statusUpdateTime"],
+		"acceptBid": ["status","statusUpdateTime","bdId","acceptedBidType","acceptedRate","acceptedHaircut","leg1Date","financier","acceptingEntity","acceptingAuId","acceptDateTime","factoredAmount", "purchaserLeg1Interest", "supplierLeg1Interest", "purchaserLeg2Interest","charges","limitUtilized","limitIds","entityGstSummary","entityGstSummaryList","purchaserSettleLoc","supplierSettleLoc","financierSettleLoc","purchaserBillLoc","supplierBillLoc","financierBillLoc","recordVersion"],
+		"updateBestBid": ["bdId","acceptedBidType","acceptedRate","acceptedHaircut"],
+		"supPurList": ["id","maturityDate","enableExtension","extendedDueDate","currency","amount","autoAccept","autoAcceptableBidTypes","purchaser","supplier","financier","purName","supName","finName","bdId","acceptedBidType","acceptedRate","acceptedHaircut","status","settleLeg3Flag","acceptDateTime"],
+		"finList": ["id","maturityDate","enableExtension","extendedDueDate","currency","amount","purchaser","supplier","financier","purName","supName","finName","bdId","acceptedBidType","acceptedRate","acceptedHaircut","status","supAccNo","purAccNo","supIfsc","purIfsc","supBankName","purBankName","purDesignatedBankFlag","supDesignatedBankFlag"],
+		"updatePurSupLimit": ["id","purSupLimitUtilized","recordVersion"],
+		"bringBackToAuction" :["id","oldInstId"],
+		"aggFactUnit" :["id","purchaser","supplier","financier","amount","factoredAmount","status","acceptedHaircut","acceptedRate","acceptingEntity","purchaserLeg1Interest","supplierLeg1Interest","purchaserLeg2Interest","leg2ExtensionInterest","charges","financierBillId"],
+		"updateBillId" :["costBearerBillId","financierBillId"],
+		"factAggMisData" :["id","acceptDateTime","status","tenure","factoredAmount","acceptedRate","interest","charges","financier","finName","supplier","supName","supGstn","leg1Date","maturityDate","purchaserLeg1Interest","supplierLeg1Interest","purchaserLeg2Interest","extendedDueDate"],
+		"updateGstExtension" :["fuId","entityGstSummary"]
+	}
+}

@@ -1,0 +1,25 @@
+{
+"subject":"RXIL TREDS: Obligation due on next five days.",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Please find attached your Leg-2 obligation for final settlement of the transactions as attached.
+<br>
+<table border='0px'>
+  <tr> <th width='150px'>Debit date</th> <th width='150px'>Amount due</th> </tr>
+  <tr> <td align='center'>{{debitDate1}}</td> <td align='right'>{{amountDue1}}</td> </tr>
+  <tr> <td align='center'>{{debitDate2}}</td> <td align='right'>{{amountDue2}}</td> </tr>
+  <tr> <td align='center'>{{debitDate3}}</td> <td align='right'>{{amountDue3}}</td> </tr>
+  <tr> <td align='center'>{{debitDate4}}</td> <td align='right'>{{amountDue4}}</td> </tr>
+  <tr> <td align='center'>{{debitDate5}}</td> <td align='right'>{{amountDue5}}</td> </tr>
+</table>
+<br>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

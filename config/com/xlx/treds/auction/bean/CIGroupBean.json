@@ -1,0 +1,100 @@
+{
+"name" : "ciGroupBean",
+"tableName" : "CIGroup",
+"columnPrefix" : "CIG",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"autoNum": true,
+			"notNull":true
+		},
+		{
+			"name": "cvNumber",
+			"label":"CV Number",
+			"dataType": "STRING",
+			"maxLength": 15,
+			"notNull":true
+		},
+		{
+			"name": "fuId",
+			"label":"FactoringUnit Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"inId",
+			"label":"Group Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "ciGroupDetail",
+			"label": "CI Group Detail",
+			"dataType": "STRING",
+			"maxLength": 9999,
+			"nonJson":true,
+			"jsonField":"ciGroupDetailList"
+		},
+		{
+			"name": "ciGroupDetailBeanList",
+			"label": "CI Group Detail Bean List",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.auction.bean.CIGroupDetailBean",
+			"nonDatabase": true,
+			"allowMultiple": true
+		},
+		{
+			"name": "customerRefNo",
+			"label":"Customer Ref No",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "vendorCode",
+			"label":"Vendor Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "vendorName",
+			"label":"Vendor Name",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull":true
+		},
+		{
+			"name": "vendorAddress",
+			"label":"Vendor Address",
+			"dataType": "STRING",
+			"maxLength": 500,
+			"notNull":true
+		},
+		{
+			"name": "buyerName",
+			"label":"Buyer Name",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull":true
+		},
+		{
+			"name": "buyerAddress",
+			"label":"Vendor Address",
+			"dataType": "STRING",
+			"maxLength": 500,
+			"notNull":true
+		},
+		{
+			"name": "cinNumber",
+			"label":"Cin Number",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull":true
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+	}
+}

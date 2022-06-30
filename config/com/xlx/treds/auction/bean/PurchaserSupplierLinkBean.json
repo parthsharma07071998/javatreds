@@ -1,0 +1,573 @@
+{
+"name" : "pursuplnk",
+"tableName" : "PurchaserSupplierLinks",
+"columnPrefix" : "PSL",
+"desc" : "Buyer Seller Link : The table stores a link between the Buyer/Seller along with Cap Rate, Cost bearer setting, Credit period and a user-friendly name for the link. These parameters are utilized  while creating and saving an insturment by the Buyer/Seller.",
+"fields" : [
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"fieldType": "PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/suppliers"
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supGstn",
+			"label":"Supplier GSTN",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supPan",
+			"label":"Supplier PAN",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase": true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"fieldType": "PRIMARY",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name":"purName",
+			"label":"Buyer Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"supplierPurchaserRef",
+			"label":"Buyer Internal Code",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"desc":""
+		},
+		{
+			"name":"creditPeriod",
+			"label":"Default Credit Period",
+			"dataType":"INTEGER",
+			"minValue": 1
+		},
+ 	   {
+			"name":"extendedCreditPeriod",
+			"label":"extended Credit Period",
+			"dataType":"INTEGER",
+			"minValue": 1
+		},
+		{
+			"name":"purchaserSupplierRef",
+			"label":"Seller Internal Code",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"period1CostBearer",
+			"label":"Period 1 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1CostPercent",
+			"label":"Period 1 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2CostBearer",
+			"label":"Period 2 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2CostPercent",
+			"label":"Period 2 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3CostBearer",
+			"label":"Period 3 Cost Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3CostPercent",
+			"label":"Period 3 Cost Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"bidAcceptingEntityType",
+			"label":"Bid Accepting Entity Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"costBearingType",
+			"label":"Cost Bearing Type",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 2,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearingType"
+		},
+		{
+			"name":"splittingPoint",
+			"label":"Splitting Point",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 3,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Statutory Due Date", "value":"SDD"},{"text":"Invoice Due Date", "value":"IDD"}]
+		},
+		{
+			"name":"preSplittingCostBearer",
+			"label":"Pre Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"postSplittingCostBearer",
+			"label":"Post Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"buyerPercent",
+			"label":"Buyer Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sellerPercent",
+			"label":"Seller Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"chargeBearer",
+			"label":"Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 2,
+			"nonDatabase":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearingType"
+		},
+		{
+			"name":"period1ChargeBearer",
+			"label":"Period 1 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period1ChargePercent",
+			"label":"Period 1 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period2ChargeBearer",
+			"label":"Period 2 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period2ChargePercent",
+			"label":"Period 2 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"period3ChargeBearer",
+			"label":"Period 3 Charge Bearer",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"period3ChargePercent",
+			"label":"Period 3 Charge Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+				{
+			"name":"splittingPointCharge",
+			"label":"Splitting Point",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 3,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Statutory Due Date", "value":"SDD"},{"text":"Invoice Due Date", "value":"IDD"}]
+		},
+		{
+			"name":"preSplittingCharge",
+			"label":"Pre Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"postSplittingCharge",
+			"label":"Post Splitting Cost Bearer",
+			"dataType":"STRING",
+			"nonDatabase":true,
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.CostBearer"
+		},
+		{
+			"name":"buyerPercentCharge",
+			"label":"Buyer Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sellerPercentCharge",
+			"label":"Seller Percent",
+			"dataType":"DECIMAL",
+			"nonDatabase":true,
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"settleLeg3Flag",
+			"label":"Enable Leg 3 Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"autoAccept",
+			"label":"Auto Accept Bids",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptBid",
+			"desc":"On receipt of Bid / Cut-off time / Disabled "
+		},
+		{
+			"name":"autoAcceptableBidTypes",
+			"label":"Auto Acceptable Bid Types",
+			"dataType": "STRING",
+			"maxLength": 2,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.AutoAcceptableBidTypes",
+			"desc":"Open Bids / All Bids "
+		},
+		{
+			"name":"autoConvert",
+			"label":"Send for Auction",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"defaultValue":"Y",
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Auto", "value":"Y"},{"text":"Supplier", "value":"S"},{"text":"Purchaser", "value":"P"}] 
+		},
+		{
+			"name":"purchaserAutoApproveInvoice",
+			"label":"Buyer Auto approves Invoice",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"defaultValue":"N",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo" 
+		},
+		{
+			"name":"sellerAutoApproveInvoice",
+			"label":"Seller Auto approves Invoice",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"defaultValue":"N",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo" 
+		},
+		{
+			"name":"status",
+			"label":"Internal Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Active", "value":"ACT"},{"text":"Suspended by Buyer", "value":"SBB"},{"text":"Suspended by Seller", "value":"SBS"}]
+		},
+		{
+			"name":"approvalStatus",
+			"label":"Approval Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"defaultValue":"DFT",
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Draft", "value":"DFT"},{"text":"Submitted", "value":"SUB"},{"text":"Returned", "value":"RET"},{"text":"Approved", "value":"APP"},{"text":"Deleted", "value":"DEL"},{"text":"Suspended", "value":"SPN"},{"text":"ReActivate", "value":"ACT"},{"text":"Withdraw", "value":"WDR"}]
+		},
+		{
+			"name":"invoiceMandatory",
+			"label":"Invoice Mandatory",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"defaultValue":"N",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo" 
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"inWorkFlow",
+			"label":"In Work Flow",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "cashDiscountPercent",
+			"label": "Cash Discount %",
+			"notNull":true,
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength":2,
+			"defaultValue":0,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name": "haircutPercent",
+			"label": "Haircut %",
+			"notNull":true,
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength":2,		
+			"defaultValue":0,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"instrumentCreation",
+			"label":"Invoice Creation",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"defaultValue":"B",
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Purchaser", "value":"P"},{"text":"Supplier", "value":"S"},{"text":"Both", "value":"B"}]
+		},
+		{
+			"name":"tab",
+			"dataType":"INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name":"supName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"purName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "salesCategory",
+			"label": "Sales Category",
+			"dataType":"STRING",
+			"maxLength": 20,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/salesCategory",
+			"nonDatabase": true
+		},
+		{
+			"name":"supportsInstCreationKeys",
+			"label":"Supports Instrument Creation Keys",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name":"fetchSupGstn",
+			"label":"Fetch Supplier Gstn",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name":"platformStatus",
+			"label":"Platform Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Active", "value":"ACT"},{"text":"Suspended", "value":"SUS"}]
+		},
+		{
+			"name":"relationFlag",
+			"label":"Relation Flag",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"platformReasonCode",
+			"label":"Platform Reason Code",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "pursuplnk/platformreasoncode"
+		},
+		{
+			"name":"relationDoc",
+			"label":"Relation Doc",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"relationEffectiveDate",
+			"label":"Relation Effective Date",
+			"dataType":"DATE",
+			"format": "dd-MM-yyyy"
+		},
+		{
+			"name":"platformRemarks",
+			"label":"platformRemarks",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"buyerTds",
+			"label":"Buyer Tds",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo" 
+		},
+		{
+			"name":"sellerTds",
+			"label":"Seller Tds",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo" 
+		},
+		{
+			"name":"buyerTdsPercent",
+			"label":"Buyer Tds %",
+			"dataType": "DECIMAL",
+			"integerLength": 2,
+			"decimalLength":2,		
+			"minValue":0.1,
+			"maxValue": 10
+		},
+		{
+			"name":"sellerTdsPercent",
+			"label":"Seller Tds %",
+			"dataType": "DECIMAL",
+			"integerLength": 2,
+			"decimalLength":2,		
+			"minValue":0.1,
+			"maxValue": 10
+		},
+		{
+			"name":"authorizeRxil",
+			"label":"Authorize Rxil",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		}
+	],
+	"fieldGroups": {
+		"insert":["supplier","purchaser","supplierPurchaserRef", "creditPeriod","extendedCreditPeriod", "purchaserSupplierRef","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer", "settleLeg3Flag", "autoAccept", "autoConvert", "approvalStatus","status","autoAcceptableBidTypes","costBearingType","bidAcceptingEntityType","buyerPercent","preSplittingCostBearer","postSplittingCostBearer","splittingPoint","sellerPercent", "purchaserAutoApproveInvoice","invoiceMandatory","cashDiscountPercent","haircutPercent","instrumentCreation", "remarks","relationDoc","relationEffectiveDate","relationFlag","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge","buyerTds","buyerTdsPercent","sellerTds","sellerTdsPercent","authorizeRxil"],
+		"updateSupplier": ["supplierPurchaserRef","sellerAutoApproveInvoice","sellerTds","sellerTdsPercent"],
+		"updatePurchaser": ["purchaserSupplierRef", "creditPeriod","period1CostBearer", "period1CostPercent","period2CostBearer", "period2CostPercent","period3CostBearer", "period3CostPercent", "chargeBearer","extendedCreditPeriod","settleLeg3Flag", "approvalStatus","autoAccept", "autoConvert","autoAcceptableBidTypes","costBearingType","bidAcceptingEntityType","buyerPercent","preSplittingCostBearer","postSplittingCostBearer","splittingPoint","sellerPercent", "purchaserAutoApproveInvoice","invoiceMandatory","cashDiscountPercent","haircutPercent","instrumentCreation","platformStatus","relationFlag","platformReasonCode","relationDoc","relationEffectiveDate","period1ChargeBearer", "period1ChargePercent","period2ChargeBearer", "period2ChargePercent","period3ChargeBearer", "period3ChargePercent","buyerPercentCharge","preSplittingCharge","postSplittingCharge","splittingPointCharge","sellerPercentCharge","buyerTds","buyerTdsPercent","authorizeRxil"],
+		"updatePurchaserApprovalStatus" : ["supplier","purchaser","approvalStatus","remarks"],
+		"updateSupplierApprovalStatus" : ["supplier","purchaser","approvalStatus","remarks","supplierPurchaserRef","sellerAutoApproveInvoice", "autoConvert","sellerTds","sellerTdsPercent"],
+		"updateStatus" : ["supplier","purchaser","status","remarks"],
+		"updatePurchaserCode" : ["supplier","purchaser","purchaserSupplierRef","remarks"],
+		"updateSupplierRefCode" : ["supplier","purchaser","supplierPurchaserRef"],
+		"updatePurchaserRefCode" : ["supplier","purchaser","purchaserSupplierRef"],
+		"exportFields" : ["supplier","purchaser","supplierPurchaserRef", "creditPeriod","extendedCreditPeriod", "purchaserSupplierRef", "costBearingType", "chargeBearer", "settleLeg3Flag", "autoAccept", "autoConvert", "approvalStatus","status"],
+		"respFieldsApi" : ["chargeBearer","costBearingType","autoConvert","inWorkFlow","splittingPoint","settleLeg3Flag","salesCategory","autoAccept","supplier","preSplittingCostBearer","invoiceMandatory","extendedCreditPeriod","sellerAutoApproveInvoice","supName","approvalStatus","cashDiscountPercent","purchaser","bidAcceptingEntityType","supplierPurchaserRef","creditPeriod","purchaserAutoApproveInvoice","haircutPercent","autoAcceptableBidTypes","remarks","status","instrumentCreation"],
+ 		"apiList":["supplier","purchaser","supplierPurchaserRef", "creditPeriod","extendedCreditPeriod", "purchaserSupplierRef","period1CostBearer", "chargeBearer", "settleLeg3Flag", "autoAccept", "autoConvert", "approvalStatus","status","autoAcceptableBidTypes","costBearingType","bidAcceptingEntityType","buyerPercent","splittingPoint","sellerPercent", "purchaserAutoApproveInvoice","invoiceMandatory","cashDiscountPercent","haircutPercent","instrumentCreation"],
+ 		"updatePlatformStatus":["purchaser","supplier","platformStatus","platformRemarks","platformReasonCode"]
+    }
+}

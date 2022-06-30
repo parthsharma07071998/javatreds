@@ -1,0 +1,28 @@
+{
+"name" : "chargeslabdetail",
+"desc" : "",
+"columnPrefix" : "CSD",
+"fields" : [
+		{
+			"name":"entity",
+			"label":"Entity",
+			"dataType":"STRING",
+			"maxLength": 15
+		},
+		{
+			"name": "slab",
+			"label": "Charge Slab Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.master.bean.AuctionChargeSlabBean",
+			"nonDatabase": true
+		},
+		{
+			"name":"chargeType",
+			"label":"Charge Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Normal", "value":"N"},{"text":"Split", "value":"S"}]
+		}
+	]
+}

@@ -1,0 +1,5 @@
+select OBID,OBDATE,OBTXNENTITY,CDCOMPANYNAME 
+from obligations,companydetails  
+where obdate >= to_date('06-03-2020','dd-mm-yyyy') 
+and obtxnentity=cdcode
+and obtxnentity in (select distinct cdcode  from companybankdetails,companydetails where CBDBANK='YESB' and CDENABLELOCATIONWISESETTLEMENT is null and CBDDEFAULTACCOUNT='Y' and cdid=cbdcdid ) 

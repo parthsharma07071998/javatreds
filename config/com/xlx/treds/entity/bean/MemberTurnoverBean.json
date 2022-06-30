@@ -1,0 +1,63 @@
+{
+"name" : "memberTurnover",
+"tableName" : "MemberTurnover",
+"columnPrefix" : "MT",
+"desc" : "Member Turnover",
+"fields" : [
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "finYearStartDate",
+			"label": "Financial Start Year",
+			"dataType": "DATE",
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "finYearEndDate",
+			"label": "Financial End Year",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "turnover",
+			"label": "Turnover Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name": "lastUpdateTime",
+			"label": "Last Updated Date Time",
+			"dataType":"DATETIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+}

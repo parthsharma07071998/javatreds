@@ -1,0 +1,37 @@
+select
+mydate
+, sum(invoicecount) invoicecount
+, count(fucount) fucount
+,sum(fuamt) fuamt
+,sum(fuamtInLakhs) fuamtInLakhs
+,sum(factoredamt) factoredamt
+,sum(factoredamtInLakhs) factoredamtInLakhs
+from ( select
+ to_date(to_char(furecordcreatetime , 'DD-MM-YYYY'), 'DD-MM-YYYY') mydate
+, count(*) fucount
+, sum(CHILDCOUNT) invoicecount
+, sum(factoringunits.fuamount) fuamt 
+, sum(nvl(fufactoredamount,0)) factoredamt
+, sum(factoringunits.fuamount)/100000 fuamtInLakhs 
+, sum(nvl(fufactoredamount,0))/100000 factoredamtInLakhs
+ from factoringunits, INSTFUINVOICECOUNT
+where furecordversion > 0
+and fuid = infuid
+and furecordcreatetime >= to_date('25-02-2020', 'DD-MM-YYYY') 
+and furecordcreatetime <= to_date('24-03-2020', 'DD-MM-YYYY') 
+group by to_date(to_char(furecordcreatetime , 'DD-MM-YYYY'), 'DD-MM-YYYY')
+union
+select
+ to_date(to_char(furecordcreatetime , 'DD-MM-YYYY'), 'DD-MM-YYYY') mydate
+, count(*) fucount, sum(CHILDCOUNT) invoicecount
+, sum(factoringunits.fuamount) fuamt 
+, sum(nvl(fufactoredamount,0)) factoredamt
+, sum(factoringunits.fuamount)/10000000 fuamtInLakhs 
+, sum(nvl(fufactoredamount,0))/10000000 factoredamtInLakhs
+from factoringunits, INSTFUINVOICECOUNT
+where furecordversion > 0
+and fuid = infuid
+and furecordcreatetime >= to_date('25-03-2020', 'DD-MM-YYYY') 
+group by to_date(to_char(furecordcreatetime , 'DD-MM-YYYY'), 'DD-MM-YYYY')
+) group by mydate
+order by 1 desc

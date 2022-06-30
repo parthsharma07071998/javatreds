@@ -1,0 +1,110 @@
+{
+	"name": "l2nachFail",
+	"columnPrefix": "l2",
+	"fields": [{
+			"name": "entity",
+			"label": "Entity Code",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "companyName",
+			"label": "Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"obligationDate",
+			"label":"Obligation Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"totalOblig",
+			"label":"Obligation Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"npciSuccess",
+			"label":"NPCI Success Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"npciFail",
+			"label":"NPCI Fail Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"failPercent",
+			"label":"Failure Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2
+		},
+		{
+			"name":"directSuccess",
+			"label":"DIRECT Success Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"directFail",
+			"label":"DIRECT Fail Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"directPending",
+			"label":"DIRECT Pending Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name": "fuCount",
+			"label":"Factoring Units Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "instCount",
+			"label":"Invoice Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"filterPercent",
+			"label":"Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

@@ -1,0 +1,65 @@
+{
+"name" : "address",
+"desc" : "Addresses",
+"fields" : [
+		{
+			"name": "line1",
+			"label": "Line 1",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"notNull": true,
+		},
+		{
+			"name": "line2",
+			"label": "Line 2",
+			"dataType": "STRING",
+			"maxLength": 100,
+		},
+		{
+			"name": "line3",
+			"label": "Line 3",
+			"dataType": "STRING",
+			"maxLength": 100,
+		},
+		{
+			"name": "country",
+			"label": "Country",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"notNull": true,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"COUNTRY"
+		},
+		{
+			"name": "state",
+			"label": "State",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"notNull": true,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"STATE"
+		},
+		{
+			"name": "district",
+			"label": "District",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name": "city",
+			"label": "City",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name": "zipCode",
+			"label": "Zip Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"pattern": "PATTERN_PINCODE"
+		}
+	]
+}

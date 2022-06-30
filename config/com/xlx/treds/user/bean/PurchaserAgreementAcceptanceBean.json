@@ -1,0 +1,64 @@
+{
+"name" : "puraggacc",
+"tableName" : "PurchaserAgreementAcceptance",
+"columnPrefix" : "PAA",
+"desc" : "PurchaserAgreementAcceptance : Stores the Click Wrap Agreement date accepted by Purchaser.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/purchasers"
+		},
+		{
+			"name": "revisionDate",
+			"label": "Revision Date",
+			"dataType":"DATE"
+		},
+		{
+			"name": "version",
+			"label": "Version",
+			"dataType":"STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "instrumentId",
+			"label": "Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups": {
+         "insert": [
+			"purchaser", "revisionDate","version","recordCreator", "recordCreateTime", "recordVersion"
+        ]
+    }
+}

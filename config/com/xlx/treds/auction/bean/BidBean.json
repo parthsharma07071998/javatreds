@@ -1,0 +1,261 @@
+{
+"name" : "bid",
+"tableName" : "Bids",
+"columnPrefix" : "BD",
+"desc" : "Bids : The complete list of bids for a specific auction calander date. It captures all the details such as the financier, the rate at which the bid is placed, the validity of the bid and the current state of the bid. ",
+"fields" : [
+		{
+			"name":"fuId",
+			"label":"Factoring Unit",
+			"dataType":"INTEGER",
+			"fieldType": "PRIMARY",
+			"notNull": true
+		},
+		{
+			"name":"financierEntity",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"fieldType": "PRIMARY",
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/financiers"
+		},
+		{
+			"name":"financierAuId",
+			"label":"Financier User",
+			"dataType":"INTEGER",
+			"desc":"Internal Id of transacting user of Financier"
+		},
+		{
+			"name":"financierLoginId",
+			"label":"Financier Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"financierName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"rate",
+			"label":"Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name":"haircut",
+			"label":"Retention Margin %",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name":"validTill",
+			"label":"Valid Till",
+			"dataType":"DATE"
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Active", "value":"ACT"},{"text":"Deleted", "value":"DEL"},{"text":"Deleted By Owner", "value":"DLO"},{"text":"Accepted", "value":"APT"},{"text":"Expired", "value":"EXP"},{"text":"NotAccepted", "value":"NAT"}]
+		},
+		{
+			"name":"statusRemarks",
+			"label":"Status Remarks",
+			"dataType":"STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "id",
+			"label": "Bid Id",
+			"dataType":"INTEGER",
+			"desc":"Unique Internal Id of the bid."
+		},
+		{
+			"name":"timestamp",
+			"label":"Timestamp",
+			"dataType":"DATETIME",
+			"format" : "dd-MM-yyyy HH:mm:ss:SS"
+		},
+		{
+			"name":"lastAuId",
+			"label":"Last User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"lastLoginId",
+			"label":"Financier User",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"bidType",
+			"label":"Bid Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Reserved", "value":"RES"},{"text":"Open", "value":"OPN"}]
+		},
+		{
+			"name":"provRate",
+			"label":"Prov Rate",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name":"provHaircut",
+			"label":"Prov Haircut",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"maxValue":100,
+			"minValue":0
+		},
+		{
+			"name":"provValidTill",
+			"label":"Prov Valid Till",
+			"dataType":"DATE"
+		},
+		{
+			"name":"provBidType",
+			"label":"Prov Bid Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"dataSetType": "ENUM",
+			"dataSetValues": "BidType"
+		},
+		{
+			"name":"provAction",
+			"label":"Prov Action",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Entry", "value":"E"},{"text":"Modify", "value":"M"},{"text":"Cancel", "value":"C"}]
+		},
+		{
+			"name":"appStatus",
+			"label":"Approval Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Pending", "value":"P"},{"text":"Approved", "value":"A"},{"text":"Rejected", "value":"R"},{"text":"Withdrawn", "value":"W"}]
+		},
+		{
+			"name":"appRemarks",
+			"label":"Approval Remarks",
+			"dataType":"STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"checkerAuId",
+			"label":"Checker User",
+			"dataType":"INTEGER",
+			"desc":"Internal Id of checker user of Financier"
+		},
+		{
+			"name":"limitUtilised",
+			"label":"Limit Utilised",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2
+		},
+		{
+			"name":"bidLimitUtilised",
+			"label":"Bid Limit Utilised",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2
+		},
+		{
+			"name": "limitIds",
+			"dataType": "STRING",
+			"maxLength":100,
+			"nonJson":true
+		},
+		{
+			"name":"costLeg",
+			"label":"Cost Leg",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.AppConstants.CostCollectionLeg"
+		},
+		{
+			"name": "chkLevel",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"charges",
+			"label": "Charges",
+			"dataType":"STRING",
+			"maxLength":500
+		},
+		{
+			"name":"buyerSplitCharge",
+			"label": "Buyer Split Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"sellerSplitCharge",
+			"label": "Seller Split Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"financierSplitCharge",
+			"label": "Financier Split Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"chargeBearerCharge",
+			"label": "Charge Bearer Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"financierCharge",
+			"label": "Financier Charge",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups": {
+		"update": ["financierAuId", "rate", "haircut", "validTill", "status", "id", "timestamp","lastAuId","bidType","limitUtilised","bidLimitUtilised","limitIds","provRate","provHaircut","provValidTill","provBidType","provAction","appStatus","checkerAuId","charges","chkLevel"],
+		"updateStatus": ["status","timestamp"],
+		"updateAcceptStatus": ["status","timestamp","limitUtilised","bidLimitUtilised","limitIds"],
+		"finList": ["id","rate", "haircut","validTill","status","bidType","financierEntity","financierName","provRate","provHaircut","provValidTill","provBidType","provAction"],
+		"depth": ["id", "rate", "bidType", "haircut","timestamp","costLeg"],
+		"checkerlevel": ["id","chkLevel"]
+	}
+}

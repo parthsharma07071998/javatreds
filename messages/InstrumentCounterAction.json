@@ -1,0 +1,28 @@
+{
+"subject":"TReDS - Instrument ID No.{{id}} {{verb}} by counter party",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+The following instrument on TReDS has been {{verb}} by your counterparty.<br>
+<br>
+<table>
+<tr><td><b>Instrument ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Instrument Amount</b></td><td>&#8377; {{netAmount}}</td></tr>
+<tr><td><b>Invoice No.</b></td><td>{{instNumber}}</td></tr>
+{{#instCount}}<tr><td><b>Instrument Count</b></td><td>{{instCount}}</td></tr>{{/instCount}}
+<tr><td><b>Seller</b></td><td>{{supName}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Maker</b></td><td>{{makerLoginId}}</td></tr>
+<tr><td><b>Checker</b></td><td>{{checkerLoginId}}</td></tr>
+{{#counterCheckerLoginId}}<tr><td><b>Counter Party User</b></td><td>{{counterCheckerLoginId}}</td></tr>{{/counterCheckerLoginId}}
+<tr><td><b>{{noun}} Date & Time</b></td><td>{{statusDateTime}}</td></tr>
+{{#statusRemarks}}<tr><td><b>Remarks</b></td><td>{{statusRemarks}}</td></tr>{{/statusRemarks}}
+</table>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

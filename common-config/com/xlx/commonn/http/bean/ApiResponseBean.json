@@ -1,0 +1,41 @@
+{
+"name": "apiresp",
+"tableName": "APIResponses",
+"columnPrefix": "ARS",
+"desc": "API Responses",
+"fields" : [
+		{
+			"name": "statusCode",
+			"label": "Status Code",
+			"dataType":"INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "responseText",
+			"label": "Response Text",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "error",
+			"label": "Error",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "json",
+			"label": "JSON",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "hdr",
+			"label": "Header",
+			"dataType":"STRING",
+			"nonDatabase": true
+		}
+	],
+"fieldGroups": {
+	"toString" : ["statusCode","responseText","error","json","hdr"]
+    }
+}

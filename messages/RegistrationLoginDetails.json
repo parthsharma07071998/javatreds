@@ -1,0 +1,22 @@
+{
+"subject":"RXIL-TReDS - Registration - Login Password",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Details for Login to your Admin account is 
+<br>
+<table>
+<tr><td><b>Member ID</b></td><td>{{memberCode}}</td></tr>
+<tr><td><b>LogIn ID</b></td><td>{{loginId}}</td></tr>
+<tr><td><b>Password</b></td><td>{{password}}</td></tr>
+</table>
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,34 @@
+{
+"subject":"TREDs limts nearing expiry",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam</b><br>
+Your Limits are nearing expiry.<br>
+The list of limts nearing expiry are as follows<br>
+<table border='1px'>
+	<tr>
+		<th> Level Name </th>
+		<th> Purchaser Name </th>
+		<th> Supplier Name </th>
+		<th> Login Id </th>
+		<th> Name </th>
+		<th> Date </th>
+	</tr>
+	<span>{{test}}</span>
+	{{#expiryList}}
+		<tr>
+			<td> {{level}} </td>
+			<td> {{purchaser}} </td>
+			<td> {{supplier}} </td>
+			<td> {{login}} </td>
+			<td> {{userName}} </td>
+			<td> {{expiryDate}} </td>
+		</tr>
+	{{/expiryList}}
+</table>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,25 @@
+{
+"subject":"RXIL-TReDS - Registration Returned",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Your registration for Member ID : {{memberCode}} on the TReDS platform of RXIL has been returned for modification.<br>
+<br>
+<br>
+The administrator returned the registration with the following remarks : 
+<br>
+{{remarks}}
+<br>
+<br>
+<br>
+Please login with your previous credentials and rectify and submit.
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

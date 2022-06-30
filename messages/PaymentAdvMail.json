@@ -1,0 +1,15 @@
+{
+"subject":"TReDS - Payment Advice - Factoring Unit ID No.{{fuId}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Payment advice has been generated for Factoring Unit ID No.{{fuId}}.<br>
+<br>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

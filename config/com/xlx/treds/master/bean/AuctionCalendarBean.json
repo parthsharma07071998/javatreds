@@ -1,0 +1,112 @@
+{
+"name" : "auccal",
+"tableName" : "AuctionCalendar",
+"columnPrefix" : "AC",
+"desc" : "Auction Calendar : The list of valid auction days generated during eod after adjusting the holidays.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "type",
+			"label":"Auction Type",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"AUCTION_TYPES"
+		},
+		{
+			"name": "date",
+			"label": "Auction Date",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "bidStartTime",
+			"label": "Bidding Start Time",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "bidEndTime",
+			"label": "Bidding End Time",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "status",
+			"dataType": "STRING",
+			"maxLength":1,
+			"nonDatabase":true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Pending", "value":"P"},{"text":"Bidding", "value":"B"},{"text":"Closed", "value":"C"}]
+		},
+		{
+			"name":"confWinList",
+			"label":"Confirmation Windows",
+			"dataType":"OBJECT",
+			"objectClass":"com.xlx.treds.master.bean.ConfirmationWindowBean",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name":"confWindows",
+			"label":"Confirmation Windows",
+			"dataType":"STRING",
+			"maxLength":1000,
+			"nonJson": true
+		},
+		{
+			"name": "active",
+			"label": "Active",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name": "bidStartTimeTime",
+			"dataType": "TIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "bidEndTimeTime",
+			"dataType": "TIME",
+			"nonDatabase": true
+		},
+		{
+			"name": "auctionDay",
+			"dataType":"STRING",
+			"maxLength":1,
+			"nonDatabase": true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Today", "value":"0"},{"text":"Tomorrow", "value":"1"}]
+		}
+	],
+	"fieldGroups": {
+		"update":["id","bidStartTime","bidEndTime","status","confWinList","confWindows","active","recordVersion"]
+	}
+}

@@ -1,0 +1,65 @@
+{
+	"entities" : [
+	    {
+	    	"class" : "com.xlx.treds.adapter.IOCLClientAdapter"
+			,"entityCode" : "IN0000399"
+			,"clientUrl" : "https://b2b.ioclebiz.in:6900/RESTAdapter/RXIL"
+			,"clientUsername" : "b2buser"
+			,"clientPassword" : "iocl1234"
+			,"certificatePath" : "D:\\app\\treds\\iocl\\treds.pfx"
+			,"certificateAlias" : "eb540d01bcc75861dcb598800684b0636aee695d"
+			,"certificateIdentityPassword" : "changeit"			
+        },
+        {
+	    	"class" : "com.xlx.treds.adapter.GEMClientAdapter"
+			,"entityCode" : "AR0001145"
+			,"clientUrl" : "https://arteriatredsqas1.apimanagement.ap1.hana.ondemand.com"
+			,"clientUsername" : "AG0001145"
+			,"clientPassword" : "WelcomeTreds@1"
+			,"certificatePath" : ""
+			,"certificateAlias" : ""
+			,"certificateIdentityPassword" : ""			
+			,"headers" : {"APIKey":"CO2hy3eONHI9ILmnMwF8hFp9rS4XAOLo"}
+        },
+        {
+	    	"class" : "com.xlx.treds.adapter.BHELPEMClientAdapter"
+			,"entityCode" : "BH0000824"
+			,"clientUrl" : ""
+			,"clientUsername" : ""
+			,"clientPassword" : ""
+			,"certificatePath" : ""
+			,"certificateAlias" : ""
+			,"certificateIdentityPassword" : ""			
+        },
+        {
+	    	"class" : "com.xlx.treds.adapter.EDNClientAdapter"
+			,"entityCode" : "BH0000400"
+			,"clientUrl" : ""
+			,"clientUsername" : ""
+			,"clientPassword" : ""
+			,"certificatePath" : ""
+			,"certificateAlias" : ""
+			,"certificateIdentityPassword" : ""			
+        },
+        {
+	    	"class" : "com.xlx.treds.adapter.JBMClientAdapter"
+			,"entityCode" : "ST0000818"
+			,"clientUrl" : ""
+			,"clientUsername" : ""
+			,"clientPassword" : ""
+			,"certificatePath" : ""
+			,"certificateAlias" : ""
+			,"certificateIdentityPassword" : ""			
+        },
+		{
+        	"class" : "com.xlx.treds.adapter.CashInvoiceAdapter"
+            ,"entityCode" : "CA0001100"
+            ,"clientUrl" : ""
+            ,"clientUsername" : ""
+            ,"clientPassword" : ""
+            ,"certificatePathX" : ""
+            ,"certificateAliasX" : ""
+            ,"certificateIdentityPasswordX" : ""                        
+        }
+    ]
+}

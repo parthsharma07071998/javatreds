@@ -1,0 +1,21 @@
+{
+	"frequency" : 60
+    ,"srcPath" : "D://edn//ready//"
+    ,"success" : "D://edn//success//"
+    ,"destPath" : "/data/BHEL-EDN/bhelincoming/"
+    ,"inSrcPath" : "/data/BHEL-EDN/bheloutgoing/"
+    ,"inSuccess" : "D://edn//in//success//"
+    ,"inDestPath" : "D://edn//in//ready//"
+    ,"extensions" : ""
+    ,"type" : "BLACK"
+    ,"user" : "bheledn"
+    ,"password" : ""
+    ,"key" : "D://edn//bheledn.ppk"
+    ,"ip":"152.67.6.1"
+    ,"port":22
+    ,"entityCode":"BH0000400"
+    ,"instDetInOblig":"N"
+    ,"obligList":["id","fuId","inId","txnEntity","txnType","type","status","date","amount","paymentRefNo","respErrorCode","respRemarks","pan","salesCategoryDesc"]
+	,"instList":[]
+	,"factUnitList":[]
+}

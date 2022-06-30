@@ -1,0 +1,34 @@
+{
+"subject":"RXIL-TReDS - Registration Approved",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Your registration on the TReDS platform of RXIL has been approved.<br>
+<br>
+<br>
+Please use the following credentials for signing into the TReDS portal:
+<br>
+<table>
+<tr><td><b>Member ID</b></td><td>{{memberCode}}</td></tr>
+<tr><td><b>LogIn ID</b></td><td>{{loginId}}</td></tr>
+</table>
+<br>
+<br>
+A separate email will be sent to you with the password. 
+<br>
+You are requested to ensure the following to activate your account for the transactions. 
+<br>
+<br>
+(i) Please change the password at the time of first login and set the two factor authentication preferences. 
+<br>
+(ii) Please donot disclose the Member ID, Login ID and password to any one. 
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

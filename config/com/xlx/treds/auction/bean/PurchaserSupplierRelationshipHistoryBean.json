@@ -1,0 +1,69 @@
+{
+"name" : "pursuprelationshiphistory",
+"tableName" : "PurSupRelationshipHistory",
+"columnPrefix" : "PSR",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"autoNum": true,
+			"notNull":true
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"startDate",
+			"label":"Start Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"relationDocName",
+			"label":"Relation Doc Name",
+			"dataType":"STRING",
+			"maxLength":100
+		},
+		{
+			"name":"relationFlag",
+			"label":"Relation Flag",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert":["id","purchaser","supplier","startDate","relationDocName","relationFlag"],
+		"updateChangeInRelation":["id","purchaser","supplier","startDate","relationDocName","relationFlag"]
+    }
+}

@@ -1,0 +1,112 @@
+{
+"name" : "MonetagoRequestResponseBean",
+"tableName" : "MonetagoRequestResponses",
+"columnPrefix" : "MRR",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "inId",
+			"label": "Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "groupInId",
+			"label": "Group Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 2,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Register", "value":"R"},{"text":"Cancel", "value":"C"},{"text":"Factor", "value":"F"},{"text":"RegisterBatch", "value":"RB"},{"text":"CancelBatch", "value":"CB"},{"text":"FactorBatch", "value":"FB"}]
+		},
+		{
+			"name": "sellerGSTN",
+			"label": "Seller GSTN",
+			"dataType":"STRING",
+			"maxLength": 15
+		},
+		{
+			"name": "amount",
+			"label": "Amount",
+			"dataType":"DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "buyerGSTN",
+			"label": "Buyer GSTN",
+			"dataType":"STRING",
+			"maxLength": 15
+		},
+		{
+			"name":"exchRecvDateTime",
+			"label":"Exchange Receive Date Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"invoiceDate",
+			"label":"InvoiceDate",
+			"dataType":"DATE"
+		},
+		{
+			"name": "invoiceID",
+			"label": "Invoice Id",
+			"dataType":"STRING",
+			"maxLength":30
+		},
+		{
+			"name": "duplicateFlag",
+			"label": "Duplicate Flag",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "inputTxnId",
+			"label":"Input Transaction Id",
+			"dataType": "STRING",
+			"maxLength":250
+		},
+		{
+			"name": "reasonCode",
+			"label": "Reason Code",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"requestDateTime",
+			"label":"Timestamp",
+			"dataType":"DATETIME"
+		},
+		{
+			"name": "override",
+			"label": "Override",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "outputTxnId",
+			"label":"Output Transaction Id",
+			"dataType": "STRING",
+			"maxLength":250
+		},
+		{
+			"name": "apiResponseStatus",
+			"label":"Response Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Success", "value":"S"},{"text":"Failed", "value":"F"}]
+		},
+		{
+			"name":"responseDateTime",
+			"label":"Timestamp",
+			"dataType":"DATETIME"
+		}
+	],
+	"fieldGroups": {
+	}
+}

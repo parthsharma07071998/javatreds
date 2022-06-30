@@ -1,0 +1,23 @@
+{
+"subject":"RXIL-TReDS - Changes in Factoring Unit ",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+This is to inform you that the following Factoring Unit has been changed on TReDS. 
+<br>
+<br>
+{{^fuAmt}}Factoring Unit ID  {{fuId}} amount has been changed.{{/fuAmt}}
+{{#fuAmt}}Factoring Unit ID  {{fuId}} has been deleted.{{/fuAmt}}
+{{#bdId}} Your Bid {{bdId}} for same has been deleted.{{/bdId}}
+<br>
+In case of any query, please contact RXIL on 022-26598336  or write to us on info@rxil.in.  
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,132 @@
+{
+"name" : "assignmentNotices",
+"tableName" : "AssignmentNotices",
+"columnPrefix" : "AN",
+"desc" : "AssignmentNotice : The complete details of the Notice of Assignements which are sent to the purchaser/supplier/financier. This is generated after the Leg1 successfully settlement. ",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal id of the notice of assignment of a particular business date for the combination of purchaser/supplier/financier."
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/purchasers"
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"appentity/suppliers"
+		},
+		{
+			"name":"financier",
+			"label":"Financier",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/financiers"
+		},
+		{
+			"name":"businessDate",
+			"label":"Business Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name": "finAccNo",
+			"label": "Account Number",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_BANKACNO",
+			"notNull": true
+		},
+		{
+			"name": "finIfsc",
+			"label": "IFSC",
+			"dataType": "STRING",
+			"maxLength": 11,
+			"pattern": "PATTERN_IFSC",
+			"conversion": ["toUpper"]
+		},
+		{
+			"name":"finBankName",
+			"label":"Bank Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"finBranchName",
+			"label":"Branch Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"supName",
+			"label":"Seller Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"purName",
+			"label":"Purchaser Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"finName",
+			"label":"Financier Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"sup",
+			"label":"Supplier Address",
+			"ref": "com/xlx/treds/config/Address.json"
+		},
+		{
+			"name":"pur",
+			"label":"Purchaser Address",
+			"ref": "com/xlx/treds/config/Address.json"
+		},
+		{
+			"name":"fin",
+			"label":"Financier Address",
+			"ref": "com/xlx/treds/config/Address.json"
+		},
+		{
+			"name":"supBankName",
+			"label":"Supplier Bank Name",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name": "supAccType",
+			"label": "Type of Account",
+			"dataType":"STRING",
+			"maxLength": 5,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Term Loan", "value":"TL"}, {"text":"Cash Credit", "value":"CC"}, {"text":"Overdraft", "value":"OD"}, {"text":"Current Account", "value":"CA"}, {"text":"Other", "value":"OT"}]
+		},
+		{
+			"name": "supBankEmail",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"pattern": "PATTERN_EMAIL"
+		}
+	],
+	"fieldGroups": {
+	}
+}

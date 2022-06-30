@@ -1,0 +1,83 @@
+{
+"name" : "billinglocation",
+"tableName" : "Billinglocations",
+"columnPrefix" : "BL",
+"desc" : "Location and their billing location.",
+"fields" : [
+		{
+			"name": "code",
+			"label": "Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType":"PRIMARY",
+			"notNull": true
+		},
+		{
+			"name": "id",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"fieldType":"PRIMARY",
+			"desc":"Internal Company identifier."
+		},
+		{
+			"name": "name",
+			"label": "Location Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "gstn",
+			"label": "Reg. GST No.",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_GST",
+			"nonDatabase": true,
+			"desc":"GST No."
+		},	
+				{
+			"name": "billLocId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"desc":"Internal Company identifier."
+		},
+		{
+			"name": "billLocName",
+			"label": "Billing Location Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "billLocGstn",
+			"label": "Reg. GST No.",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_GST",
+			"nonDatabase": true,
+			"desc":"GST No."
+		},	
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

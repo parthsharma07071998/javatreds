@@ -1,0 +1,35 @@
+{
+"subject":"RXIL-TReDS - Registration - Login ",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+Proceed to complete the registration by logging in to the following link.
+<br> https://www.treds.in/rest/reghome
+<br>
+<br>
+<table>
+<tr><td><b>Login Id</b></td><td>{{loginId}}</td></tr>
+<tr><td><b>Password</b></td><td>{{password}}</td></tr>
+<tr><td><b>Default Answer</b></td><td>{{password}}</td></tr>
+</table>
+<br>
+The login credentials will be valid for {{regPwdValidDays}} days from the date of this email.
+<br>
+NOTE : 
+<br>
+<ul>
+<li>Please fill-in application form and furnish along with Supporting Officially Valid documents such as Passport, PAN Card etc. </li>
+<li>The Names, Addresses etc. of entity and individuals as applicable shall be consistent with such officially valid documents.</li>
+<li>Please also distinctly fill in address of registered office and works location of entities along with District Name, PIN Code etc for easy identification. </li>
+<li>Please fill in Valid Mobile numbers, e-mail addresses at applicable columns.</li>
+</ul>
+
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,21 @@
+{
+	"frequency" : 60
+    ,"srcPath" : "D://jbm//ready//"
+    ,"success" : "D://jbm//success//"
+    ,"destPath" : "/data/JBM/jbmincoming/"
+    ,"inSrcPath" : "/data/JBM/jbmoutgoing/"
+    ,"inSuccess" : "D://jbm//in//success//"
+    ,"inDestPath" : "D://jbm//in//ready//"
+    ,"extensions" : ""
+    ,"type" : "BLACK"
+    ,"user" : "jbm"
+    ,"password" : ""
+    ,"key" : "D://jbm//jbm.ppk"
+    ,"ip":"152.67.6.1"
+    ,"port":22
+    ,"entityCode":"ST0000818"
+    ,"instDetInOblig":"Y"
+    ,"obligList":["id","fuId","inId","txnEntity","txnType","type","status","date","amount","paymentRefNo","respErrorCode","respRemarks","pan","salesCategoryDesc"]
+	,"instList":["instNumber","instDate","purchaser","supplierRef","purLocation"]
+	,"factUnitList":["financier"]
+}

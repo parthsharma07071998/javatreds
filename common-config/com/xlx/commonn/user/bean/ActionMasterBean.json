@@ -1,0 +1,49 @@
+{
+	"name": "action",
+	"tableName" : "actionmaster",
+	"columnPrefix" : "AM",
+	"desc" : "Action Master",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "name",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"notNull": true
+		},
+		{
+			"name": "groupId",
+			"dataType":"INTEGER"
+		},	
+		{
+			"name": "userTypeList",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "userTypes",
+			"dataType": "STRING",
+			"maxLength" : 200,
+			"nonJson": true
+		},
+		{
+			"name": "securityKeyList",
+			"dataType": "STRING",
+			"maxLength" : 30,
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "securityKeys",
+			"dataType": "STRING",
+			"maxLength" : 200,
+			"nonJson": true
+		}
+	]
+}

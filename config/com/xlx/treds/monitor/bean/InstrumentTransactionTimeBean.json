@@ -1,0 +1,78 @@
+{
+	"name": "instrumentTransactionTime",
+	"columnPrefix": "in",
+	"fields": [
+		{
+			"name": "id",
+			"label":"Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "purchaser",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "purName",
+			"label": "Purchaser Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "supName",
+			"label": "Supplier Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "status",
+			"label": "Status",
+			"dataType": "STRING",
+			"maxLength": 10
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2
+		},
+		{
+			"name":"recordCreateTime",
+			"label":"Create Time",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"statusUpdateTime",
+			"label":"Update",
+			"dataType":"DATETIME"
+		},
+		{
+			"name":"time",
+			"label":"Time Diffrence",
+			"dataType":"TIME"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

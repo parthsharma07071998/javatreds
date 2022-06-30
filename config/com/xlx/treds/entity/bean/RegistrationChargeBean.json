@@ -1,0 +1,295 @@
+{
+"name" : "registrationCharge",
+"tableName" : "RegistrationCharges",
+"columnPrefix" : "RC",
+"desc" : "Registration charge",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER",
+			"autoNum": true
+		},
+		{
+			"name": "entityCode",
+			"label": "Entity Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"entityType",
+			"label":"Entity Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.RegEntity",
+			"desc":"Purchaser/Supplier/Financier"
+		},
+		{
+			"name":"chargeType",
+			"label":"Charge Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Registration", "value":"R"},{"text":"Annual", "value":"A"}]
+		},
+		{
+			"name": "effectiveDate",
+			"label": "Effective Date",
+			"dataType": "DATE",
+			"notNull": true,
+			"desc":"Registration approval date in case of chargeType=Registration"
+		},
+		{
+			"name": "chargeAmount",
+			"label": "Charge Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"requestType",
+			"label":"Request Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Waiver", "value":"W"},{"text":"Extenstion", "value":"E"},{"text":"Payment", "value":"P"}]
+		},
+		{
+			"name": "extendedDate",
+			"label": "Extended Date",
+			"dataType": "DATE",	
+			"desc":"Payment extension date"
+		},
+		{
+			"name": "prevExtendedDate",
+			"label": "Previous Extended Date",
+			"dataType": "DATE",
+			"desc":"Payment extension date"
+		},
+		{
+			"name":"extensionCount",
+			"label":"Extenstion Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "paymentDate",
+			"label": "Payment Date",
+			"dataType": "DATE",
+			"desc":"Actual payment date"
+		},
+		{
+			"name": "paymentAmount",
+			"label": "Payment Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"desc": "Actual payment amount. Can be different from feeAmount. In case premium or discount is given. If requestType is waiver then this will be 0"
+		},
+		{
+			"name":"paymentRefrence",
+			"label":"Payment Refrence",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name": "billedEntityCode",
+			"label": "Billed Entity Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/pursup",
+			"desc" : "Applicable only for supplier. Optional and to contain purchaser bearing charge on behalf of supplier"
+		},
+		{
+			"name":"billedEntityClId",
+			"label":"Billing Entity Location",
+			"dataType": "INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"",
+			"desc": "Location of the billedEntityCode against which the bill for payment has to be raised"
+		},
+		{
+			"name":"remarks",
+			"label":"Remarks",
+			"dataType":"STRING",
+			"maxLength": 100
+		},
+		{
+			"name":"supportingDoc",
+			"label":"Supporting Doc",
+			"dataType":"STRING",
+			"maxLength":100,
+			"desc":"Supporting document upload"
+		},
+		{
+			"name":"makerAuId",
+			"label":"Maker User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"makerTimestamp",
+			"label":"Maker Timestamp",
+			"dataType":"DATETIME",
+			"format" : "dd-MM-yyyy HH:mm:ss:SS"
+		},
+		{
+			"name":"makerLoginId",
+			"label":"Maker Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"makerName",
+			"label":"Maker Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerAuId",
+			"label":"Checker User",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"checkerTimestamp",
+			"label":"Checker Timestamp",
+			"dataType":"DATETIME",
+			"format" : "dd-MM-yyyy HH:mm:ss:SS"
+		},
+		{
+			"name":"checkerLoginId",
+			"label":"Checker Login",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"checkerName",
+			"label":"Checker Name",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"nonDatabase": true
+		},
+		{
+			"name":"approvalStatus",
+			"label":"Approval Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType":"STATIC",
+			"dataSetValues": [{"text":"Draft", "value":"D"},{"text":"Pending", "value":"P"},{"text":"Approved", "value":"A"},{"text":"Returned", "value":"R"}]
+		},
+		{
+			"name": "effectiveStartDate",
+			"label": "Effective Start Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "effectiveEndDate",
+			"label": "Effective End Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "extendedStartDate",
+			"label": "Extension Start date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "extendedEndDate",
+			"label": "Extended End Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "paymentStartDate",
+			"label": "Payment Start Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "paymentEndDate",
+			"label": "Payment End Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "fromChargeAmount",
+			"label": "From Charge Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name": "toChargeAmount",
+			"label": "To Charge Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2,
+			"nonDatabase": true
+		},
+		{
+			"name":"billId",
+			"label":"Bill Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"tab",
+			"dataType":"INTEGER",
+			"nonDatabase":true
+		},
+		{
+			"name": "annualFeeYear",
+			"label": "Annual Fee Year",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name": "registrationDate",
+			"label": "Registration Date",
+			"dataType": "DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "renewalDate",
+			"label": "Renewal Date",
+			"dataType": "DATE",
+			"nonDatabase": true,
+			"desc":"Renewal date in case of chargeType=Annual"
+		}
+	],
+	"fieldGroups": {
+		"updateMaker":["requestType", "extendedDate", "prevExtendedDate", "paymentDate","paymentAmount", "paymentRefrence", "billedEntityCode", "billedEntityClId","supportingDoc","approvalStatus", "remarks", "makerAuId", "makerTimestamp", "recordUpdator", "recordUpdateTime"],
+		"updateChecker":["approvalStatus", "extensionCount", "remarks", "checkerAuId", "checkerTimestamp", "recordUpdator", "recordUpdateTime"],
+		"updateBillId":["billId"]
+	}
+}

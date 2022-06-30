@@ -1,0 +1,310 @@
+{
+"name" : "bill",
+"tableName" : "Bills",
+"columnPrefix" : "BIL",
+"desc" : "Bills generated for collection of TReDS charges.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"billNumber",
+			"label":"Bill Number",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name":"billYearMonth",
+			"label":"Bill for Year/Month",
+			"dataType":"DATE",
+			"format":"yyyy-MM",
+			"notNull": true
+		},
+		{
+			"name":"billDate",
+			"label":"Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"entity",
+			"label":"Entity Code",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"entName",
+			"label":"Entity Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"notNull": true
+		},
+		{
+			"name": "entGstn",
+			"label": "Entity Reg. GST No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_GST",
+			"notNull": true,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name": "entPan",
+			"label": "Entity PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name":"ent",
+			"label":"Entity Location",
+			"ref": "com/xlx/treds/config/AddressGST.json"
+		},
+		{
+			"name":"ent",
+			"label":"Admin Name",
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"name":"ent",
+			"label":"Entity Admin Contact",
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"name":"tredsName",
+			"label":"TReDS Name",
+			"dataType":"STRING",
+			"maxLength": 100,
+			"notNull": true
+		},
+		{
+			"name": "tredsGstn",
+			"label": "Reg. TReDS GST No",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_GST",
+			"notNull": true,
+			"conversion" : ["toUpper"]
+		},
+		{
+			"name":"treds",
+			"label":"TReDS Location",
+			"ref": "com/xlx/treds/config/AddressGST.json"
+		},
+		{
+			"name":"treds",
+			"label":"TReDS Contact",
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"name": "tredsPan",
+			"label": "Treds PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name": "tredsCin",
+			"label": "Treds CIN No",
+			"dataType":"STRING",
+			"maxLength": 21,
+			"notNull": true,
+			"pattern":"^(L|U)\\d{5}[A-Z]{2}\\d{4}(PLC|PTC|GOI|FLC)\\d{6}$",
+			"patternMessage":"1 char (L Listed - U UnListed) + 5 digit industry code + 2 char state code + 4 digit year of incorporation + PLC or PTC or GOI for public or private + 6 digit registration no. e.g. L43501MH2008PTC239873"
+		},
+		{
+			"name":"tredsNatureOfTrans",
+			"label":"TReDS Nature of Trans.",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"tredsSACCode",
+			"label":"TReDS SAC Code",
+			"dataType":"STRING",
+			"maxLength": 15,
+			"notNull": true
+		},
+		{
+			"name":"tredsSACDesc",
+			"label":"TReDS SAC Desc",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name":"chargeAmount",
+			"label":"Charge Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"fuAmount",
+			"label":"FU Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"cgst",
+			"label":"CGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sgst",
+			"label":"SGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"igst",
+			"label":"IGST Percent",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"cgstSurcharge",
+			"label":"CGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"sgstSurcharge",
+			"label":"SGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"igstSurcharge",
+			"label":"IGST Surcharge",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"cgstValue",
+			"label":"CGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"sgstValue",
+			"label":"SGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"igstValue",
+			"label":"IGST Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0
+		},
+		{
+			"name":"billingType",
+			"label":"Billing Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Registration Fee", "value":"R"},{"text":"Annual Fee", "value":"A"},{"text":"Transaction Charge", "value":"T"}]
+		},
+		{
+			"name":"billedForentity",
+			"label":"Billed For Entity Code",
+			"dataType":"STRING",
+			"maxLength": 10
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+		,
+		{
+			"name":"tredsAddress",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"entAddress",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"tredsStateDescription",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"entStateDescription",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"entAdminFullName",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"totalGstValue",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		},		
+		{
+			"name":"totalValue",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"nonDatabase": true
+		}		
+	]
+}

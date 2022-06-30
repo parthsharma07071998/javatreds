@@ -1,0 +1,151 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+<title>Issue Details</title>
+<style type="text/css">
+h2{
+	color: #298FCE;
+	font-family:Arial;
+	font-size: 24px;
+}
+h3{
+	color: #298FCE;
+	font-family:Arial;
+	font-size: 20px;
+}
+.mytable {
+    border-collapse: collapse;
+    width : 100%;
+}
+
+.mytable th{
+    border: 1px solid black;
+}
+.mytable td {
+    border: 1px solid black;
+}
+
+.mytable tr td:first-child {
+  background-color: #AABEF6;
+  font-weight:bold;
+  width : 35% !important;
+}
+.mytable td {
+  text-align: left;
+  width : 65%;
+}
+body
+{
+	font-family:Arial;
+	font-size: 12.5px;
+}
+.divTable1 {
+  page-break-after:always;
+  justify-content: center;
+}
+.divTable1:last-child {
+    page-break-after: avoid;
+}
+
+@page { 
+	 /*size: 8.50in 9.50in;*//* width height */
+	 size: A4;   /* auto is the initial value */
+	 margin: 2cm;
+	 padding: 0px;
+	 
+	 border: 0pt solid black;
+	 
+	 @top-right {
+        content: element(header); 
+        vertical-align: bottom;
+        padding-bottom: 10px;
+    }
+	@bottom-left {
+	    content: element(footer);
+	}
+	@bottom-right {
+	    font-style: italic; 
+	    font-size:11px;
+	    color:black;
+	    content: counter(page);
+	 text-align:center;
+	}
+	@top-center {
+	  content: element(current);
+	  text-align:center;
+	}
+}
+@media print
+{
+	.pagebreak { height:0; page-break-before:always; margin:0; border-top:none; }
+}
+@media screen{
+    .pagebreak  { height:10px; border-top:0px dotted #999; margin-bottom:13px; }
+}
+
+div.indent{ padding-left: 1.8em }
+
+</style>
+</head>
+<body>
+<div>
+	<div class="divTable1">
+		<table width="432">
+			<tbody>
+				<tr>
+					<td>Applicant Name</td>
+					<td>{{purEntityName}}</td>
+				</tr>
+				<tr>
+					<td>Bank A/c holder Name</td>
+					<td>{{payDetail3}}</td>
+				</tr>
+				<tr>
+					<td>Bank Name</td>
+					<td>{{bankName}}</td>
+				</tr>
+				<tr>
+					<td>Branch Name</td>
+					<td>{{branchName}}</td>
+				</tr>
+				<tr>
+					<td>
+					Bank Account No
+					</td>
+					<td>{{acountNo}}</td>
+				</tr>
+				<tr>
+					<td>IFSC Code</td>
+					<td>{{ifsc}}</td>
+				</tr>
+				<tr>
+					<td>Account Type</td>
+					<td>{{accountType}}</td>
+				</tr>
+				<tr>
+					<td>Start Date</td>
+					<td>{{startDate}}</td>
+				</tr>
+				<tr>
+					<td>End Date</td>
+					<td>{{endDate}}</td>
+				</tr>
+				<tr>
+					<td>Amount</td>
+					<td>{{amount}}</td>
+				</tr>
+				<tr>
+					<td>Frequency</td>
+					<td>{{frequency}}</td>
+				</tr>
+				<tr>
+					<td>Status</td>
+					<td>{{status}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+
+</html>

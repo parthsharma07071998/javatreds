@@ -1,0 +1,19 @@
+{
+	"name": "LoginRequest",
+	"fields": [
+		{"name":"domain","label": "", "dataType":"STRING","maxLength":30,"notNull":true,"notBlank":true, "conversion":["toUpper"]},
+		{"name":"login","label": "Login Id", "dataType":"STRING","maxLength":50,"notNull":true,"notBlank":true, "conversion":["toUpper"]},
+		{"name":"password","label": "Password", "dataType":"STRING","maxLength":30,"notNull":true,"notBlank":true},
+		{"name":"encPassword","dataType":"STRING"},
+		{"name":"newPassword1","label": "New Password", "dataType":"STRING","maxLength":12},
+		{"name":"newPassword2","label": "Reenter Password", "dataType":"STRING","maxLength":12},
+		{"name":"mode","dataType": "INTEGER"},
+		{"name":"passwordIndex","dataType": "INTEGER"},
+		{"name":"details", "dataType": "STRING", "maxLength" : 100},
+		{"name":"securityQuestions", "dataType": "STRING", "maxLength" : 30, "allowMultiple": true},
+		{"name":"securityAnswers", "label": "Answer to Question", "dataType": "STRING", "maxLength" : 30, "allowMultiple": true},
+		{"name":"captcha","dataType":"STRING"},
+		{"name":"otp","dataType":"STRING"},
+		{"name":"factor","dataType":"INTEGER"}
+	]
+}

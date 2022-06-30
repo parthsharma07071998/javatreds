@@ -1,0 +1,118 @@
+{
+"name" : "companykycdocument",
+"tableName" : "CompanyKYCDocuments",
+"columnPrefix" : "CKD",
+"desc" : "CompanyKYCDocuments : The list of all the mandatory/non-mandatory documents required for the Entities KYC.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true,
+			"desc":"Internal Compnay identifier."
+		},
+		{
+			"name": "docForCCId",
+			"dataType": "INTEGER",
+			"desc":"Company Contact identifier."
+		},
+		{
+			"name": "documentType",
+			"label": "Document Type",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"desc":""
+		},
+		{
+			"name": "documentCat",
+			"label": "Document Category",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"desc":""
+		},
+		{
+			"name": "document",
+			"label": "Document",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"desc":"Unique document identifier"
+		},
+		{
+			"name": "fileName",
+			"label": "Document File",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"notNull": true
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "companyCode",
+			"label":"Company Code",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name":"refId",
+			"label": "Ref Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldgroups": {
+	    "insert": ["id","cdId","companyCode","refId","docForCCId","documentCat","documentType","document","fileName","remarks","recordCreator","recordCreateTime","recordVersion"],
+		"updatedocument": ["id","cdId","companyCode","refId","docForCCId","documentCat","documentType","document","fileName","remarks","recordCreator","recordCreateTime","recordVersion"],
+		"update": ["id","cdId","companyCode","refId","docForCCId","documentCat","documentType","document","fileName","remarks","recordUpdator","recordUpdateTime","recordVersion"]
+		}
+}

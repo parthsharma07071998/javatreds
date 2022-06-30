@@ -1,0 +1,51 @@
+{
+"subject": "Extension Request - Obligation Due {{fuId}}",
+"body":"
+{{{header}}}
+
+Dear <b>Sir/Madam,</b><br>
+
+<p>The extension request was accepted on {{extDate}}.</p>
+
+<table border='1px'>
+	<tr>
+		<th> Txn details </th>
+		<th> FUID </th>
+		<th> Obligation ID </th>
+		<th> Due Date </th>
+		<th> Old Due Date </th>
+		<th> Amount </th>
+	</tr>
+	<tr>
+		<td> Factored Amount </td>
+		<td> {{fuId}} </td>
+		<td> {{newObId}} </td>
+		<td> {{newDate}} </td>
+		<td> {{oldDate}} </td>
+		<td> {{fuAmount}} </td>
+	</tr>
+	<tr>
+		<td> Upfront/Rear-end Interest (If there is any) </td>
+		<td> {{fuId}} </td>
+		<td> {{upfrontObId}} </td>
+		<td> {{chargeDate}} </td>
+		<td> {{oldDate}} </td>
+		<td> {{upfrontAmount}} </td>
+	</tr>
+	<tr>
+		<td> RXIL Charges </td>
+		<td> {{fuId}} </td>
+		<td> {{upfrontObId}} </td>
+		<td> {{chargeDate}} </td>
+		<td> {{oldDate}} </td>
+		<td> {{tredsCharges}} </td>
+	</tr>
+</table>
+<br>
+<br>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

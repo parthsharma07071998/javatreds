@@ -1,0 +1,47 @@
+{
+"name": "apireq",
+"tableName": "APIRequests",
+"columnPrefix": "ARQ",
+"desc": "API Reuest",
+"fields" : [
+		{
+			"name": "hdr",
+			"label": "Header",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "method",
+			"label": "Method",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"params",
+			"dataType":"OBJECT",
+			"objectClass":"com.xlx.commonn.http.bean.KeyValueBean",
+			"allowMultiple":true,
+			"nonDatabase":true
+		},
+		{
+			"name": "body",
+			"label": "Body",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "type",
+			"label": "Media Type",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "url",
+			"label": "URL",
+			"dataType":"STRING",
+			"nonDatabase": true
+		}
+	],
+"fieldGroups": {
+    }
+}

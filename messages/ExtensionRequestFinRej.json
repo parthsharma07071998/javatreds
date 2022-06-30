@@ -1,0 +1,23 @@
+{"subject":"TReDS - Extension returned/ rejected by {{finName}}",
+"body":"
+{{{header}}}
+Dear Sir/Madam,<br>
+<br>The Extension request has been returned/ rejected by financier. You may place a fresh request.
+<br>
+<table>
+<tr>
+<td><b>Factoring Unit ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Instrument ID</b></td><td>{{inId}}</td></tr>
+<tr><td><b>Invoice No.</b></td><td>{{instNumber}}</td></tr>
+<tr><td><b>Factoring Unit Amount</b></td><td>{{amount}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Fu Due Date</b></td><td>{{oldDate}}</td>
+</tr><tr><td><b>New Due Date</b></td><td>{{newDate}}</td></tr>
+</table>
+{{{footer}}}",
+"mimeType":"text/html",
+"attachments":[
+{"path":"{{logoImg}}"
+,"cid":"logoImg"}
+]
+}

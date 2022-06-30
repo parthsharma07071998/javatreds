@@ -1,0 +1,145 @@
+{
+"name" : "kycdocmaster",
+"tableName" : "KYCDocumentMaster",
+"columnPrefix" : "KDM",
+"desc" : "KYCDocumentMaster : The master list of documents which help to show the Entity the mandtory/non-mandatory KYC documents to be uploaded as per the constitution and type of Entity.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "documentType",
+			"label": "Document Type",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DOCUMENTTYPE"
+		},
+		{
+			"name": "documentCat",
+			"label": "Document Category",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DOCUMENTCATEGORY"
+		},
+		{
+			"name": "constitutionList",
+			"label": "Constitution",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"allowMultiple": true,
+			"minItems": 1,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CONSTITUTION"
+		},
+		{
+			"name": "constitutions",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"nonJson": true
+		},
+		{
+			"name": "serialNo",
+			"label": "Serial No",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "documentList",
+			"label": "Documents",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"allowMultiple": true,
+			"minItems": 1,
+			"nonDatabase": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DOCUMENT"
+		},
+		{
+			"name": "documents",
+			"dataType": "STRING",
+			"maxLength": 1000,
+			"nonJson": true
+		},
+		{
+			"name": "repeatType",
+			"label": "Repeat Type",
+			"dataType": "STRING",
+			"maxLength": 2,
+			"dataSetType":"STATIC",
+			"dataSetValues":[{"text":"Promoter", "value":"P"},{"text":"Authorized Person", "value":"AP"},{"text":"Administrator", "value":"A"},{"text":"Ultimate_Benificiery", "value":"UB"},{"text":"Individual", "value":"IN"},{"text":"Entity", "value":"EN"},{"text":"EntityKmp", "value":"KM"},{"text":"Bank", "value":"BN"},{"text":"Location", "value":"LO"}]
+		},
+		{
+			"name": "minSupplier",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "maxSupplier",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "minPurchaser",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "maxPurchaser",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "minFinancier",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "maxFinancier",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name":"softCopy",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"hardCopy",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

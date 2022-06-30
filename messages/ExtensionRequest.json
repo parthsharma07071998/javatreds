@@ -1,0 +1,26 @@
+{
+"subject":"TReDS - Extension request - Factoring Unit ID No.{{id}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Extension request has been made for the following Factoring unit.
+<br>
+<table>
+<tr><td><b>Factoring Unit ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Instrument ID</b></td><td>{{inId}}</td></tr>
+<tr><td><b>Invoice No.</b></td><td>{{instNumber}}</td></tr>
+<tr><td><b>Factoring Unit Amount</b></td><td>{{amount}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Fu Due Date</b></td><td>{{oldDate}}</td></tr>
+<tr><td><b>New Due Date</b></td><td>{{newDate}}</td></tr>
+</table>
+
+Please act on the request received within <no> days. Else the request may get expired.
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

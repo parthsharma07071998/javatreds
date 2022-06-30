@@ -1,0 +1,1 @@
+select * from adapterRequestResponses order by arrid  desc

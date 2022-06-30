@@ -1,0 +1,16 @@
+{
+"subject":"TReDS 2FA settings Reset",
+"body":"
+{{{header}}}
+
+Dear <b>User</b><br>
+<br>
+Please click on the following link to reset your 2FA settings <br>
+<br>
+<a href='{{baseUrl}}/rest/reset2fa?secretKey={{secretKey}}'>{{baseUrl}}/rest/reset2fa?secretKey={{secretKey}}</a><br>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

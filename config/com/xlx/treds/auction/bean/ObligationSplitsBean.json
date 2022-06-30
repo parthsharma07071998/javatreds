@@ -1,0 +1,172 @@
+{
+"name" : "obsplit",
+"tableName" : "ObligationSplits",
+"columnPrefix" : "OBS",
+"desc" : "ObligationSplits : Complete list of splitted obligations ",
+"fields" : [
+		{
+			"name": "obid",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"fieldType": "PRIMARY",
+			"desc":"Internal unique identifier of the record."
+		},
+		{
+			"name": "partNumber",
+			"label":"PartNo",
+			"notNull": true,
+			"fieldType": "PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.auction.ObligationBean.Status",
+			"desc":"Current status of obligation."
+		},
+		{
+			"name":"pfId",
+			"label":"Pay File Id",
+			"dataType":"INTEGER",
+			"desc":"Internal id of the pay file uploaded."
+		},
+		{
+			"name":"fileSeqNo",
+			"label":"Pay File Sequence No",
+			"dataType":"INTEGER",
+			"desc":"Internal sequence no while generating pay-in upload file."
+		},
+		{
+			"name":"settledDate",
+			"label":"Settled Date",
+			"dataType":"DATE"
+		},
+		{
+			"name":"settledAmount",
+			"label":"Settled Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"paymentRefNo",
+			"label":"Payment Ref No",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"Transaction reference number for the pay-out return file."
+		},
+		{
+			"name":"respErrorCode",
+			"label":"Response Code",
+			"dataType": "STRING",
+			"maxLength":50,
+			"desc":"ErrorCode for the error received in the pay-in return file."
+		},
+		{
+			"name":"respRemarks",
+			"label":"Remarks",
+			"dataType": "STRING",
+			"maxLength":200,
+			"desc":"Reason for the error received in the pay-in or pay-out return files."
+		},
+		{
+			"name":"paymentSettlor",
+			"label":"Settlor",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"FACILITATOR"
+		},
+		{
+			"name":"settlorProcessed",
+			"label":"Settlor",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+				{
+			"name":"factUntId",
+			"label":"Factoring Unit",
+			"dataType":"INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"transactionEntity",
+			"label":"Transacting Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name":"transactionType",
+			"label":"Transaction Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase": true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.auction.ObligationBean.TxnType",
+			"desc":"Type of transaction, whether Debit/Credit."
+		},
+		{
+			"name":"legType",
+			"label":"Leg Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase": true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.treds.auction.ObligationBean.Type",
+			"desc":"Type of Leg."
+		},
+		{
+			"name":"financierEntity",
+			"label":"Financier Entity",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "appentity/financiers"
+		}
+	],
+	"fieldGroups": {
+		"generate": ["pfId","fileSeqNo","status","recordUpdator","recordUpdateTime","recordVersion"],
+		"generateDirect": ["pfId","fileSeqNo","status","recordUpdator","recordUpdateTime","recordVersion","settledAmount","settledDate"],
+		"return": ["status","paymentRefNo","settledAmount","settledDate","respErrorCode","respRemarks","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateStatus": ["status","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateSettlor": ["paymentSettlor","recordUpdator","recordUpdateTime","recordVersion"],
+		"updatePreGenerationModification": ["paymentSettlor","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateUtr": ["paymentRefNo","respRemarks","status","recordUpdator","recordUpdateTime","recordVersion"],
+		"updateMarkAsSuccess": ["settledAmount","settledDate","status","paymentSettlor","settlorProcessed","recordUpdator","recordUpdateTime","recordVersion"],
+		"markProcessed": ["settlorProcessed","recordUpdator","recordUpdateTime","recordVersion"],
+		"aggChildObli" : ["partNumber","settledDate","status","amount","settledAmount","paymentRefNo","respErrorCode","respRemarks","paymentSettlor" ],
+		"aggSplitsDetails": ["partNumber","settledDate","amount","status","obid","partNumber" ],
+		"updatePayRefNo": ["paymentRefNo" ]		
+    }
+}

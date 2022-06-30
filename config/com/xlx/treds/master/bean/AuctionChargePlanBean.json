@@ -1,0 +1,66 @@
+{
+"name" : "auctionChargePlans",
+"tableName" : "AuctionChargePlans",
+"columnPrefix" : "ACP",
+"desc" : "Auction Charge Plan : The plan for charges leved by TREDS platform.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name":"name",
+			"label":"Plan Name",
+			"dataType":"STRING",
+			"maxLength":50,
+			"notNull": true,
+			"desc":"Plan Name.",
+			"dataSetType":"RESOURCE",
+			"dataSetValues":"auctionchargeplans/all"
+		},
+		{
+			"name":"type",
+			"label":"Plan Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Invoice", "value":"I"},{"text":"TurnOver", "value":"T"}],
+			"desc":"Plan Type."
+		},
+		{
+			"name":"auctionChargeSlabList",
+			"label":"Auction Charge Slab Windows",
+			"dataType":"OBJECT",
+			"objectClass":"com.xlx.treds.master.bean.AuctionChargeSlabBean",
+			"allowMultiple": true,
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert":["auctionChargeSlabList","name","type","recordCreator","recordCreateTime","recordVersion"],
+		"update":["id","auctionChargeSlabList","name","type","recordUpdator","recordUpdateTime","recordVersion"],
+		"delete":["recordVersion","recordUpdator"]
+	}	
+}

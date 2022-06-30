@@ -1,0 +1,37 @@
+{
+"name" : "contact",
+"desc" : "Contact Details",
+"fields" : [
+		{
+			"name": "email",
+			"label": "Email",
+			"dataType":"STRING",
+			"maxLength": 50,
+			"notNull": true,
+			"pattern": "PATTERN_EMAIL"
+		},
+		{
+			"name": "telephone",
+			"label": "Telephone",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"pattern": "PATTERN_PHONE"
+		},
+		{
+			"name": "mobile",
+			"label": "Mobile",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"pattern": "PATTERN_MOBILE"
+		},
+		{
+			"name": "fax",
+			"label": "FAX",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"pattern": "PATTERN_PHONE"
+		}
+	]
+}

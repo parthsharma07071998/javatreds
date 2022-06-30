@@ -1,0 +1,179 @@
+{
+	"name": "circulars",
+	"tableName": "Circulars",
+	"columnPrefix": "CIR",
+	"desc": "Circular Details : The list of all the circulars created by TReDS.",
+	"fields": [{
+			"name": "id",
+			"fieldType": "PRIMARY",
+			"autoNum": true
+		},
+		{
+			"name": "circularNo",
+			"label": "Circular No",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "title",
+			"label": "Title",
+			"dataType": "STRING",
+			"maxLength": 100,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "description",
+			"label": "Description",
+			"dataType": "STRING",
+			"maxLength": 750,
+			"wildCard": "CONTAINS"
+		},
+		{
+			"name": "date",
+			"label": "Circular Date",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "category",
+			"label": "Circular Category",
+			"dataType": "STRING",
+			"maxLength": 4,
+			"notNull": true,
+			"dataSetType": "REFCODE",
+			"dataSetValues": "CIRCULAR_CATEGORY"
+		},
+		{
+			"name": "purchaser",
+			"label": "Purchaser",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"Y",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"Y",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "financier",
+			"label": "Financier",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"Y",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "admin",
+			"label": "Admin",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"Y",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "user",
+			"label": "User",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"Y",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "department",
+			"label": "Department",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"dataSetType": "REFCODE",
+			"dataSetValues": "CIRCULAR_DEPARTMENT"
+		},
+		{
+			"name": "displayAsNewForDays",
+			"label": "Display As New For Days",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "fileName",
+			"label": "File Name",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "storageFileName",
+			"label": "Stoarge File Name",
+			"dataType": "STRING",
+			"maxLength": 250
+		},
+		{
+			"name": "archive",
+			"label": "Archive",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "ENUM",
+			"defaultValue":"N",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name":"tab",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"age",
+			"label":"ageInDays",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterToDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name":"filterFromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType": "CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType": "CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType": "UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType": "UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType": "RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"archive":["id","archive","recordVersion"],
+	}
+}

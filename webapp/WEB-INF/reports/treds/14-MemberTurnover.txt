@@ -1,0 +1,23 @@
+SELECT MTCODE,MTFINYEARSTARTDATE,MTFINYEARENDDATE, MTTURNOVER 
+,calto.CalculatedTO CalculatedTurnover
+, (MTTURNOVER - calto.CalculatedTO) Diffrence 
+from MemberTurnover
+LEFT OUTER JOIN (SELECT FUPURCHASER,  TO_DATE('01-04-2016','dd-MM-yyyy') as fromdate,  TO_DATE('31-03-2017','dd-MM-yyyy') Todate,sum(FUFACTOREDAMOUNT) CalculatedTO,1,SYSDATE,1 
+FROM FactoringUnits
+where fustatus in ('FACT','L1SET','L2SET') 
+and TO_DATE(FUACCEPTDATETIME) BETWEEN TO_DATE('01-04-2016','dd-MM-yyyy') and TO_DATE('31-03-2017','dd-MM-yyyy')
+group by fupurchaser 
+union all
+select FUPURCHASER,  TO_DATE('01-04-2017','dd-MM-yyyy') as fromdate,  TO_DATE('31-03-2018','dd-MM-yyyy') Todate,sum(FUFACTOREDAMOUNT),1,SYSDATE,1 
+FROM FactoringUnits
+where fustatus in ('FACT','L1SET','L2SET') 
+and TO_DATE(FUACCEPTDATETIME) BETWEEN TO_DATE('01-04-2017','dd-MM-yyyy') and TO_DATE('31-03-2018','dd-MM-yyyy')
+group by fupurchaser
+union all
+select FUPURCHASER,  TO_DATE('01-04-2018','dd-MM-yyyy') as fromdate,  TO_DATE('31-03-2019','dd-MM-yyyy') Todate,sum(FUFACTOREDAMOUNT),1,SYSDATE,1 
+FROM FactoringUnits
+where fustatus in ('FACT','L1SET','L2SET') 
+and TO_DATE(FUACCEPTDATETIME) BETWEEN TO_DATE('01-04-2018','dd-MM-yyyy') and TO_DATE('31-03-2019','dd-MM-yyyy')
+group by fupurchaser) calTo
+on calTo.FUPURCHASER=MTCODE and calTo.fromdate=MTFINYEARSTARTDATE
+AND MTRECORDVERSION > 0

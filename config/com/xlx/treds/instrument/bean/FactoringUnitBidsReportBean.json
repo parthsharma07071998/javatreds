@@ -1,0 +1,261 @@
+{
+	"name": "Factoring Bid Report",
+	"tableName": "FactoringUnitBidReport_ADM_VW",
+	"columnPrefix": "FB",
+	"desc": "Factoring And Bids",
+	"fields": [{
+			"name": "fuId",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "bdId",
+			"dataType": "INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "amount",
+			"label": "Amount",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2,
+			"notNull": true,
+			"minValue": 0.01
+		},
+		{
+			"name": "purchaser",
+			"label": "Buyer",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true,
+			"dataSetType": "RESOURCE",
+			"dataSetValues": "appentity/purchasers"
+		},
+		{
+			"name": "factStatus",
+			"label": " Fact Status",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{
+				"text": "Ready For Auction",
+				"value": "RDY"
+			}, {
+				"text": "Active",
+				"value": "ACT"
+			}, {
+				"text": "Factored",
+				"value": "FACT"
+			}, {
+				"text": "Expired",
+				"value": "EXP"
+			}, {
+				"text": "Leg 3 Generated",
+				"value": "LEG3"
+			}, {
+				"text": "Withdrawn",
+				"value": "WTHDRN"
+			}, {
+				"text": "Suspended",
+				"value": "SUSP"
+			}, {
+				"text": "Leg 1 Settled",
+				"value": "L1SET"
+			}, {
+				"text": "Leg 1 Failed",
+				"value": "L1FAIL"
+			}, {
+				"text": "Leg 2 Settled",
+				"value": "L2SET"
+			}, {
+				"text": "Leg 2 Failed",
+				"value": "L2FAIL"
+			}]
+		},
+		{
+			"name": "factorStartDateTime",
+			"label": "Factoring Start Date",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "factorEndDateTime",
+			"label": "Factoring End Date",
+			"dataType": "DATETIME",
+			"notNull": true
+		},
+		{
+			"name": "interest",
+			"label": "Interest",
+			"dataType": "DECIMAL",
+			"integerLength": 10,
+			"decimalLength": 2
+		},
+		{
+			"name": "financierEntity",
+			"label": "Financier",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"fieldType": "PRIMARY",
+			"notNull": true,
+			"dataSetType": "RESOURCE",
+			"dataSetValues": "appentity/financiers"
+		},
+		{
+			"name": "financierAuId",
+			"label": "Financier User",
+			"dataType": "INTEGER",
+			"desc": "Internal Id of transacting user of Financier"
+		},
+		{
+			"name": "financierName",
+			"label": "Financier Name",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "rate",
+			"label": "Rate",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength": 2,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"name": "haircut",
+			"label": "Retention Margin %",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength": 2,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"name": "validTill",
+			"label": "Valid Till",
+			"dataType": "DATE"
+		},
+		{
+			"name": "bidStatus",
+			"label": "Bid Status",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{
+				"text": "Active",
+				"value": "ACT"
+			}, {
+				"text": "Deleted",
+				"value": "DEL"
+			}, {
+				"text": "Deleted By Owner",
+				"value": "DLO"
+			}, {
+				"text": "Accepted",
+				"value": "APT"
+			}, {
+				"text": "Expired",
+				"value": "EXP"
+			}, {
+				"text": "NotAccepted",
+				"value": "NAT"
+			}]
+		},
+		{
+			"name": "timestamp",
+			"label": "Timestamp",
+			"dataType": "DATETIME"
+		},
+		{
+			"name": "lastAuId",
+			"label": "Last User",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "lastLoginId",
+			"label": "Financier User",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "bidType",
+			"label": "Bid Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{
+				"text": "Reserved",
+				"value": "RES"
+			}, {
+				"text": "Open",
+				"value": "OPN"
+			}]
+		},
+		{
+			"name": "provRate",
+			"label": "Prov Rate",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength": 2,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"name": "provHaircut",
+			"label": "Prov Haircut",
+			"dataType": "DECIMAL",
+			"integerLength": 3,
+			"decimalLength": 2,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"name": "provValidTill",
+			"label": "Prov Valid Till",
+			"dataType": "DATE"
+		},
+		{
+			"name": "provBidType",
+			"label": "Prov Bid Type",
+			"dataType": "STRING",
+			"maxLength": 3,
+			"dataSetType": "ENUM",
+			"dataSetValues": "BidType"
+		},
+		{
+			"name": "appStatus",
+			"label": "Approval Status",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{
+				"text": "Pending",
+				"value": "P"
+			}, {
+				"text": "Approved",
+				"value": "A"
+			}, {
+				"text": "Rejected",
+				"value": "R"
+			}, {
+				"text": "Withdrawn",
+				"value": "W"
+			}]
+		},
+		{
+			"name": "checkerAuId",
+			"label": "Checker User",
+			"dataType": "INTEGER",
+			"desc": "Internal Id of checker user of Financier"
+		},
+		{
+			"name": "checkerName",
+			"label": "Checker User",
+			"dataType": "STRING",
+			"maxLength": 30
+		}
+	]
+}

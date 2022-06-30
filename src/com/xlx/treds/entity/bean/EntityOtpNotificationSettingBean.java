@@ -1,0 +1,143 @@
+package com.xlx.treds.entity.bean;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.xlx.treds.AppConstants.MessageType;
+
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
+
+public class EntityOtpNotificationSettingBean {
+
+    private String code;
+    private String notificationType;
+    private List<String> mobileList;
+    private MessageType smsMessageType;
+    private List<String> emailList;
+    private MessageType emailMessageType;
+    private Long recordCreator;
+    private Timestamp recordCreateTime;
+    private Long recordUpdator;
+    private Timestamp recordUpdateTime;
+    private Long recordVersion;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String pCode) {
+        code = pCode;
+    }
+
+    public String getNotificationType() {
+        return notificationType;
+    }
+
+    public void setNotificationType(String pNotificationType) {
+        notificationType = pNotificationType;
+    }
+
+    public String getMobile() {
+ 	   if (mobileList == null)
+           return null;
+       else 
+           return new JsonBuilder(mobileList).toString();
+    }
+
+    public void setMobile(String pMobile) {
+    	if (StringUtils.isNotBlank(pMobile))
+    		mobileList = (List<String>)new JsonSlurper().parseText(pMobile);
+        else
+        	mobileList = null;
+    }
+
+    public List<String> getMobileList() {
+        return mobileList;
+    }
+
+    public void setMobileList(List<String> pMobileList) {
+        mobileList = pMobileList;
+    }
+
+    public MessageType getSmsMessageType() {
+        return smsMessageType;
+    }
+
+    public void setSmsMessageType(MessageType pSmsMessageType) {
+        smsMessageType = pSmsMessageType;
+    }
+
+    public String getEmail() {
+  	   if (emailList == null)
+           return null;
+       else 
+           return new JsonBuilder(emailList).toString();
+    }
+
+    public void setEmail(String pEmail) {
+    	if (StringUtils.isNotBlank(pEmail))
+    		emailList = (List<String>)new JsonSlurper().parseText(pEmail);
+        else
+        	emailList = null;
+    }
+
+    public List<String> getEmailList() {
+        return emailList;
+    }
+
+    public void setEmailList(List<String> pEmailList) {
+        emailList = pEmailList;
+    }
+
+    public MessageType getEmailMessageType() {
+        return emailMessageType;
+    }
+
+    public void setEmailMessageType(MessageType pEmailMessageType) {
+        emailMessageType = pEmailMessageType;
+    }
+
+    public Long getRecordCreator() {
+        return recordCreator;
+    }
+
+    public void setRecordCreator(Long pRecordCreator) {
+        recordCreator = pRecordCreator;
+    }
+
+    public Timestamp getRecordCreateTime() {
+        return recordCreateTime;
+    }
+
+    public void setRecordCreateTime(Timestamp pRecordCreateTime) {
+        recordCreateTime = pRecordCreateTime;
+    }
+
+    public Long getRecordUpdator() {
+        return recordUpdator;
+    }
+
+    public void setRecordUpdator(Long pRecordUpdator) {
+        recordUpdator = pRecordUpdator;
+    }
+
+    public Timestamp getRecordUpdateTime() {
+        return recordUpdateTime;
+    }
+
+    public void setRecordUpdateTime(Timestamp pRecordUpdateTime) {
+        recordUpdateTime = pRecordUpdateTime;
+    }
+
+    public Long getRecordVersion() {
+        return recordVersion;
+    }
+
+    public void setRecordVersion(Long pRecordVersion) {
+        recordVersion = pRecordVersion;
+    }
+
+}

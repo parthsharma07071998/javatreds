@@ -1,0 +1,15 @@
+select substr(BBDIFSC, 0,4) BankCode, count(*) BankIFSCCount
+, NVL(MyRefCodes.BankCode,0) BankRefCode, NVL(MyRefCodes.BankName,0) BankRefName
+from BANKBRANCHDETAIL
+LEFT OUTER JOIN
+(
+select RCVVAlue BankCode, RCVDesc BankName
+from RefCodeValues
+where RCVRecordversion > 0
+and RCVRECId = 11
+--order by RCVValue
+) MyRefCodes
+on (MYRefCodes.BankCode = substr(BBDIFSC, 0,4))
+group by substr(BBDIFSC, 0,4), MyRefCodes.BankCode , MyRefCodes.BankName
+order by substr(BBDIFSC, 0,4)  asc
+

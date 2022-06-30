@@ -1,0 +1,178 @@
+{
+	"name" : "customfields",
+	"tableName" : "CustomFields",
+	"columnPrefix" : "CF",
+	"fields":[
+		{
+			"name":"id",
+			"label":"Id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "code",
+			"label":"Code",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name":"fields",
+			"label":"No of Fields Required",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType": "STATIC",
+			"dataSetValues": [
+								{"text":"ONE", "value":"1"}
+								,{"text":"TWO", "value":"2"}
+								,{"text":"THREE", "value":"3"}
+								,{"text":"FOUR", "value":"4"}
+							]
+		},
+		{
+			"name": "field1label",
+			"label":"Lable",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "field1Name",
+			"label":"Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHANUMERIC",
+			"nonDatabase": true
+		},
+		{
+			"name":"field1Type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.FieldType",
+			"nonDatabase": true
+		},
+		{
+			"name":"field1Mandatory",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name": "field2label",
+			"label":"Lable",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "field2Name",
+			"label":"Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHANUMERIC",
+			"nonDatabase": true
+		},
+		{
+			"name":"field2Type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.FieldType",
+			"nonDatabase": true
+		},
+		{
+			"name":"field2Mandatory",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name": "field3label",
+			"label":"Lable",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "field3Name",
+			"label":"Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHANUMERIC",
+			"nonDatabase": true
+		},
+		{
+			"name":"field3Type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.FieldType",
+			"nonDatabase": true
+		},
+		{
+			"name":"field3Mandatory",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name": "field4label",
+			"label":"Lable",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"nonDatabase": true
+		},
+		{
+			"name": "field4Name",
+			"label":"Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"pattern":"PATTERN_ALPHANUMERIC",
+			"nonDatabase": true
+		},
+		{
+			"name":"field4Type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"dataSetType": "ENUM",
+			"dataSetValues":"com.xlx.treds.AppConstants.FieldType",
+			"nonDatabase": true
+		},
+		{
+			"name":"field4Mandatory",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes",
+			"nonDatabase": true
+		},
+		{
+			"name":"settings",
+			"lable":"Settings",
+			"dataType":"STRING",
+			"maxLength":4000
+		}
+	],
+	"fieldGroups" : {
+		"insert": ["id","code","settings"]
+		,"validate": ["id","code","fields","field1label","field1Name","field1Type","field1Mandatory","field2label","field2Name","field2Type","field2Mandatory","field3label","field3Name","field3Type","field3Mandatory","field4label","field4Name","field4Type","field4Mandatory"]
+		,"lFlds1" : ["field1label","field1Name","field1Type","field1Mandatory"]
+		,"lFlds2" : ["field1label","field1Name","field1Type","field1Mandatory","field2label","field2Name","field2Type","field2Mandatory"]
+		,"lFlds3" : ["field1label","field1Name","field1Type","field1Mandatory","field2label","field2Name","field2Type","field2Mandatory","field3label","field3Name","field3Type","field3Mandatory"]
+		,"lFlds4" : ["field1label","field1Name","field1Type","field1Mandatory","field2label","field2Name","field2Type","field2Mandatory","field3label","field3Name","field3Type","field3Mandatory","field4label","field4Name","field4Type","field4Mandatory"]
+		,"lFlds1Mandatory" : ["field1label","field1Name","field1Type"]
+		,"lFlds2Mandatory" : ["field1label","field1Name","field1Type","field2label","field2Name","field2Type"]
+		,"lFlds3Mandatory" : ["field1label","field1Name","field1Type","field2label","field2Name","field2Type","field3label","field3Name","field3Type"]
+		,"lFlds4Mandatory" : ["field1label","field1Name","field1Type","field2label","field2Name","field2Type","field3label","field3Name","field3Type","field4label","field4Name","field4Type"]
+	}
+}

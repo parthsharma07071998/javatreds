@@ -1,0 +1,81 @@
+{
+	"name": "sameIpTransaction",
+	"columnPrefix": "in",
+	"fields": [
+		{
+			"name": "id",
+			"label":"Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "entity",
+			"label": "Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "makerEntity",
+			"label": "Maker Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "counterEntity",
+			"label": "Maker Entity",
+			"dataType": "STRING",
+			"maxLength": 30
+		},
+		{
+			"name": "makerName",
+			"label": "Maker Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "counterName",
+			"label": "Counter Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "details",
+			"label": "Details",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "duplicateIp",
+			"label": "Ip",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "instNumber",
+			"label": "Maker Company Name",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name":"amount",
+			"label":"Amount",
+			"dataType":"DECIMAL",
+			"integerLength":15,
+			"decimalLength":2
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

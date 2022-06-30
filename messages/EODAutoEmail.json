@@ -1,0 +1,23 @@
+{
+"subject":"RXIL-TReDS - EOD {{status}}.",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+{{action}}
+<br>
+<table border : 1>
+<tr><th>Counter</th><th>Action</th><th>Remarks</th></tr>
+{{#message}}
+<tr><td>{{count}}</td><td><b>{{act}}</b></td><td>{{rem}}</td></tr>
+{{/message}}
+</table>
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,43 @@
+{
+	"name": "monetagoRegistrations",
+	"columnPrefix": "mr",
+	"fields": [
+		{
+			"name": "ledgerId",
+			"label":"Ledger Id",
+			"dataType": "STRING",
+			"maxLength": 400
+		},
+		{
+			"name": "date",
+			"label": "Date",
+			"dataType":"DATE",
+			"format": "dd-MM-yyyy"
+		},
+		{
+			"name": "count",
+			"label":"Count",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"createTime",
+			"label":"Create Time",
+			"dataType":"TIME"
+		},
+		{
+			"name":"toDate",
+			"label":"To Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		},
+		{
+			"name":"fromDate",
+			"label":"From Date",
+			"dataType":"DATE",
+			"nonDatabase":true
+		}
+	],
+	"fieldGroups": {
+
+	}
+}

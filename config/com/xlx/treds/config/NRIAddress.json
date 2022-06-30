@@ -1,0 +1,56 @@
+{
+"name" : "nriAddress",
+"desc" : "Addresses",
+"fields" : [
+		{
+			"name": "line1",
+			"label": "Line 1",
+			"dataType": "STRING",
+			"maxLength": 100,
+		},
+		{
+			"name": "line2",
+			"label": "Line 2",
+			"dataType": "STRING",
+			"maxLength": 100,
+		},
+		{
+			"name": "line3",
+			"label": "Line 3",
+			"dataType": "STRING",
+			"maxLength": 100,
+		},
+		{
+			"name": "country",
+			"label": "Country",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"dataSetType":"REFLIST",
+			"dataSetValues":"OTHER_COUNTRIES"
+		},
+		{
+			"name": "state",
+			"label": "State",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "district",
+			"label": "District",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "city",
+			"label": "City",
+			"dataType": "STRING",
+			"maxLength": 50
+		},
+		{
+			"name": "zipCode",
+			"label": "Zip Code",
+			"dataType": "STRING",
+			"maxLength": 10
+		}
+	]
+}

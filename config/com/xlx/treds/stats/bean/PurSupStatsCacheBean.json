@@ -1,0 +1,25 @@
+
+{
+"name" : "PurSupStatsCacheBean",
+"tableName" : "PurSupStats",
+"columnPrefix" : "PLW",
+"fields" : [
+		{
+			"name":"purchaser",
+			"label":"Purchaser",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"averageTime",
+			"label":"Average time",
+			"dataType":"DECIMAL",
+			"integerLength":12,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		}
+	]
+}

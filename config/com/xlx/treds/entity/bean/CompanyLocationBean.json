@@ -1,0 +1,170 @@
+{
+"name" : "companylocation",
+"tableName" : "CompanyLocations",
+"columnPrefix" : "CL",
+"desc" : "Locations/Branches : The list of Branches and thier contact person details for the Entities.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true,
+			"desc":"Internal Company identifier."
+		},
+		{
+			"name": "name",
+			"label": "Location Name",
+			"dataType": "STRING",
+			"maxLength": 50,
+			"notNull": true
+		},
+		{
+			"name": "vat",
+			"label": "VAT",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"desc":"VAT of the Branch"
+		},	
+		{
+			"name": "gstn",
+			"label": "Reg. GST No.",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_GST",
+			"notNull": true,
+			"desc":"GST No."
+		},	
+		{
+			"name": "gstScannedFileName",
+			"label": "GST Scanned File Name",
+			"dataType": "STRING",
+			"maxLength": 100
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"dataType": "STRING",
+			"maxLength": 200
+		},
+		{
+			"name": "enableSettlement",
+			"label": "Enable Settlement",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.Yes"
+		},
+		{
+			"name": "cbdId",
+			"label":"Company Bank",
+			"dataType": "INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues": ""
+		},
+		{
+			"name": "settlementCLId",
+			"label":"Settlement Location",
+			"dataType": "INTEGER",
+			"dataSetType":"RESOURCE",
+			"dataSetValues":""		
+		},
+		{
+			"name": "settlementName",
+			"label":"Settlement Location Name",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "bankBranchName",
+			"label":"Settlement Bank Branch Name",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "bankNACHStatus",
+			"label":"Bank NACH Status",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "locationType",
+			"label":"Location Type",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType":"STATIC",
+			"dataSetValues":["R","N"]
+		},
+		{
+			"ref": "com/xlx/treds/config/AddressGST.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"name": "companyCode",
+			"label":"Company Code",
+			"dataType": "STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name":"refId",
+			"label": "Ref Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups" : {
+		"updateCompanyLocation": ["id","cdId","companyCode","refId","name","gstn","locationType","line1","line2","line3","zipCode","city","district","state","country","salutation","firstName","middleName","lastName","email","telephone","mobile","fax","remarks","recordCreator","recordCreateTime","recordVersion"],
+		"update": ["id","cdId","companyCode","refId","name","gstn","locationType","line1","line2","line3","zipCode","city","district","state","country","salutation","firstName","middleName","lastName","email","telephone","mobile","fax","remarks","recordUpdator","recordUpdateTime","recordVersion","settlementCLId","enableSettlement","cbdId"]
+		}
+}

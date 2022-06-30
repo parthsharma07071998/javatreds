@@ -1,0 +1,19 @@
+{
+"subject":"RXIL TREDS: Obligation due on {{settlementDate}}",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+Please find your obligations due on {{settlementDate}} with respect to your transaction on RXIL TREDS platform.
+<br>
+The total amount due on {{settlementDate}}  is Rs {{obligationAmt}}. Details of the same is given in attachment.
+<br>
+Please ensure sufficient funds in the designated bank account.
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

@@ -1,0 +1,329 @@
+@CHARSET "ISO-8859-1";
+@media print {
+    .pagebreak { height:0; page-break-before:always; margin:0; border-top:none; }
+}
+@page { 
+ /*size: 8.50in 9.50in;*//* width height */
+ size: A4;   /* auto is the initial value */
+ margin-top: 5%;
+ margin-left:5%;
+ margin-right:5%;
+ padding: 0px;
+ 
+ border: 0.5pt solid black;
+    @bottom-left {
+        content: element(footer);
+    }
+    @bottom-center {
+        font-style: italic; 
+        font-size:11pt;
+        font-family:Arial,Trebuchet MS,Verdana;
+        color:#ccc;
+        content: counter(page);
+	    text-align:center;
+    }
+    @top-center {
+    content: element(current);
+    text-align:center;
+  }
+}
+
+table,thead,td,th,tr 
+{
+	margin:0px;
+	padding:0px;
+	-fs-table-paginate: paginate;
+	-fs-keep-with-inline: keep;
+	page-break-inside: avoid;
+}
+html
+{
+	font-size:12px;
+	font: Arial;
+}
+
+.myTblPageHead
+{
+    -fs-table-paginate: paginate;
+    border-spacing: 20pt;
+    border: 0px ;
+    box-shadow: none;
+    border-collapse: collapse;
+}
+
+.myTheadPageHead
+{
+    border: 0 solid black;
+    text-align: center;
+    text-transform: uppercase;
+    padding : 10px;
+}
+
+.myTblGeneral
+{
+    -fs-table-paginate: paginate;
+    border-spacing: 0pt;
+    border: 0.2px solid lightgrey;
+    box-shadow: none;
+    border-collapse: collapse;
+}
+
+.myTheadGeneral
+{
+    border: 0.2px solid black;
+    background-color : lightgrey;
+    text-transform: uppercase;
+    text-align: left;
+    padding : 0px;
+    line-height: 150%;
+}
+
+.myTdSrNo
+{
+    border: 0.2px solid black;
+    padding : 0px;
+    color: black;
+	text-align: center;
+    background-color : lightgrey;
+}
+
+.myTdLabel
+{
+    border: 0.2px solid black;
+    background-color : lightgrey;
+    padding : 0px;
+}
+
+.myTdValue
+{
+    border: 0.2px solid black;
+    padding : 0px;
+}
+
+
+.myTdStaticText
+{
+    border: 0.2px solid black;
+    padding : 0px;
+}
+
+.myOlTag
+{
+    padding: 20px;	
+}
+
+.myLlTag
+{
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+    border-bottom-width: 2px;
+}
+
+
+.myTblAppX
+{
+    -fs-table-paginate: paginate;
+    border-spacing: 0pt;
+    border: 0.2px solid green;
+    box-shadow: none;
+    border-collapse: collapse;
+    border-color: lightgreen;
+}
+
+.myTheadAppX
+{
+    border: 0.2px solid black;
+    background-color : lightblue;
+    text-transform: uppercase;
+    text-align: left;
+    padding : 0px;
+    background-color: lightbrown;
+    color: yellow;
+    line-height: 150%;
+}
+
+.myTdSrNoAppX
+{
+    border: 0.2px solid black;
+    text-align: center;
+    padding : 0px;
+    background-color : lightgrey;
+}
+
+.myTdLabelAppX
+{
+    border: 0.2px solid black;
+    background-color : lightgrey;
+    padding : 0px;
+    text-align: left;
+}
+
+.myTdLabel1AppX
+{
+    border: 0.2px solid black;
+    padding : 0px;
+    text-align: center;
+}
+
+.myTdValueAppX
+{
+    border: 0.2px solid black;
+    padding : 0px;
+}
+
+.myTblKyc
+{
+    -fs-table-paginate: paginate;
+    border-spacing: 0pt;
+    border: 0.2px solid green;
+    box-shadow: none;
+    border-collapse: collapse;
+}
+
+.myTheadKyc
+{
+    border: 0.2px solid black;
+    background-color : lightblue;
+    text-transform: uppercase;
+    text-align: left;
+    padding : 0px;
+    background-color: lightbrown;
+    color: yellow;
+    line-height: 150%;
+}
+
+.myTdLabelKyc
+{
+    border: 0.2px solid black;
+    background-color : lightgrey;
+    padding : 0px;
+    text-align: left;
+}
+
+
+.myTblSign
+{
+    border-spacing: 0pt;
+    border: 0px ;
+    box-shadow: none;
+    border-collapse: collapse;
+}
+
+.myTdLabelSign
+{
+    border: 0px ;
+    background-color : none;
+    padding : 0px;
+    text-align: left;
+}
+
+.myTblOthersDoc
+{
+    border: 0.2px solid black;
+    background-color : lightblue;
+    text-align : left;
+    padding : 0.5px;
+    color: black;
+    border-collapse: collapse;
+    line-height: 150%;
+}
+
+.myTblOthersDocReq
+{
+    -fs-table-paginate: paginate;
+    border-spacing: 0pt;
+    border: 0.2px solid black;
+    box-shadow: none;
+    border-collapse: collapse;
+}
+
+.myTableOthersDocHeaders
+{
+	border: 0.2px solid black;
+    background-color : lightgrey;
+    text-align : left;
+    padding : 1px;
+    color: black;
+    border-collapse: collapse;
+}
+
+.myTableOthersDocdata
+{
+	border: 0.2px solid black;
+    background-color : lightgrey;
+    color: black;
+    border-collapse: collapse;
+}
+
+.myTblSignCard
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+    color: black;
+    border-spacing: 0pt;
+}
+
+.myTblSignCardData
+{
+    border-spacing: 0pt;
+    border: 0.2px solid black;
+    box-shadow: none;
+    border-collapse: collapse;
+    height: 150px;
+}
+
+.myTblDeclaration
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+    color: black;
+    border-collapse: collapse;
+}
+
+.myTblDecl
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+	background-color : lightgrey;
+    color: black;
+    border-collapse: collapse;
+}
+
+.myTblDec2
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+    color: black;
+}
+
+.myTblGuideLines
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+    color: black;
+    border-collapse: collapse;
+}
+
+.myTblGuideLinesHeaders
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+    background-color : lightblue;
+    text-align : center;
+    color: yellow;
+    border-collapse: collapse;
+}
+
+.myTblGuideLinesData
+{
+	border-spacing: 0pt;
+	border: 0.2px solid black;
+	background-color : lightgrey;
+    color: black;
+    border-collapse: collapse;
+	height : 250px;
+}
+
+
+

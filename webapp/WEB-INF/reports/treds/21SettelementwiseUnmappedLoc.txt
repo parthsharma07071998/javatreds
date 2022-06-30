@@ -1,0 +1,25 @@
+select cdid, cdcode, cdcompanyname
+, CLName
+, CLGSTN
+, CLLocationType
+, CLLine1
+, CLLine2
+, CLLine3
+, CLCOUNTRY	
+, CLSTATE	
+, CLDISTRICT	
+,CLCITY	,CLZIPCODE
+ from CompanyLocations
+RIGHT OUTER JOIN 
+(
+select cdid, cdcode, cdcompanyname
+, cdsupplierflag
+, cdpurchaserflag
+from companyDetails 
+where cdRecordVersion > 0 
+and cdenablelocationwisesettlement='Y'
+) Company
+ON (cdid=clcdid)
+WHERE CLRecordVersion > 0
+AND CLCBDID IS NULL AND CLSETTLEMENTCLID IS NULL
+

@@ -1,0 +1,20 @@
+{
+"subject":"RXIL -TReDS - Instruments Pending for creation of Factoring Unit {{fuId}} ({{sysdate}})",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+<br>
+The following Factoring Unit(s) created on TReDS is/are pending send to auction. 
+<br>
+<br>
+Factoring Unit ID, Factoring Unit Amount ,  Invoice No.,  Invoice Count,  Invoice Date, Seller  ,  Buyer , Counter Party Acceptance Date
+<br>
+{{fuId}}, {{fuAmount}} ,  {{invoiceNo}},  {{instCount}},{{invoiceDate}}, {{supName}}  ,  {{purName}} , {{counterAcceptDate}}
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

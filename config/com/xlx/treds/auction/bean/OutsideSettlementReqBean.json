@@ -1,0 +1,116 @@
+{
+"name" : "outSetReq",
+"tableName" : "OutsideSettlementReq",
+"columnPrefix" : "OSR",
+"desc" : "Outside Settlement Request",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "buyerCode",
+			"label": "Buyer Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name": "financierCode",
+			"label": "Financier Code",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"notNull": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Created", "value":"CRT"},{"text":"Sent", "value":"SNT"},{"text":"Rejected", "value":"REJ"},{"text":"Approved", "value":"APP"}],
+			"desc":"Current status of obligation."
+		},
+		{
+			"name": "outSettleDetailList",
+			"label": "Outside Settlement Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.auction.bean.OutsideSettlementDetBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name": "splitList",
+			"label": "Splits",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"createDate",
+			"label":"Create Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name": "createrAuId",
+			"label":"Creator Id",
+			"notNull": true,
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"createrName",
+			"label":"Creater Name",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "createrLogin",
+			"label": "Creater Login",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name":"approveRejectDate",
+			"label":"Approval/Rejection Date",
+			"dataType":"DATE"
+		},
+		{
+			"name": "approveRejectAuId",
+			"label":"Approver/Rejector Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"approveRejectName",
+			"label":"Approver/Rejector Name",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "approveRejectLogin",
+			"label": "Approver/Rejector Login",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		},
+		{
+			"name":"tab",
+			"dataType": "INTEGER",
+			"nonDatabase": true
+		}
+	],
+	"fieldGroups": {
+    }
+}

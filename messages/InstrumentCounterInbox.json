@@ -1,0 +1,27 @@
+{
+"subject":"TReDS - Instrument ID No.{{id}} received for acceptance",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+The following instrument on TReDS has been submitted for your acceptance.<br>
+<br>
+<table>
+<tr><td><b>Instrument ID</b></td><td>{{id}}</td></tr>
+<tr><td><b>Instrument Amount</b></td><td>&#8377; {{netAmount}}</td></tr>
+<tr><td><b>Invoice No.</b></td><td>{{instNumber}}</td></tr>
+{{#instCount}}<tr><td><b>Instrument Count</b></td><td>{{instCount}}</td></tr>{{/instCount}}
+<tr><td><b>Seller</b></td><td>{{supName}}</td></tr>
+<tr><td><b>Buyer</b></td><td>{{purName}}</td></tr>
+<tr><td><b>Uploading Entity Maker</b></td><td>{{makerLoginId}}</td></tr>
+{{#checkerLoginId}}<tr><td><b>Uploading Entity Checker</b></td><td>{{checkerLoginId}}</td></tr>{{/checkerLoginId}}
+<tr><td><b>Approval Date & Time</b></td><td>{{statusDateTime}}</td></tr>
+{{#statusRemarks}}<tr><td><b>Remarks</b></td><td>{{statusRemarks}}</td></tr>{{/statusRemarks}}
+</table>
+
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

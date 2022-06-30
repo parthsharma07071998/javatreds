@@ -1,0 +1,4 @@
+SELECT *
+FROM FactoringUnits, Bids, INSTRUMENTS  WHERE INRECORDVERSION > 0  AND FUID = INFUID  AND FUBDID = BDID  AND  FURecordVersion > 0  AND FUStatus != 'ACT' AND FUAcceptDateTime IS NOT NULL  
+and FUAMOUNT != fufactoredamount
+ORDER BY FUId

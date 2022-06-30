@@ -1,0 +1,86 @@
+{
+"name" : "assignmentNoticeDetails",
+"tableName" : "AssignmentNoticeDetails",
+"columnPrefix" : "AND",
+"desc" : "AssignmentNoticeDetails : The factoring unit details of the Notice of Assignements which are sent to the purchaser/supplier/financier. This is generated after the Leg1 successfully settlement. ",
+"fields" : [
+		{
+			"name": "anId",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal id of the notice of assignment of a particular business date for the combination of purchaser/supplier/financier."
+		},
+		{
+			"name":"fuId",
+			"fieldType":"PRIMARY",
+			"label":"Factoring Unit Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"inId",
+			"fieldType":"PRIMARY",
+			"label":"Instrument Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name":"fuDate",
+			"label":"Factoring Unit Date (Acceptance)",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"fuDueDate",
+			"label":"Factoring Unit Due Date (Maturity/Extended)",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"fuFactoredAmount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"instNumber",
+			"label":"Invoice Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"instDate",
+			"label":"Invoice Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"instAmount",
+			"label":"Invoice Amount",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true,
+			"minValue": 0.01,
+			"format":"#,##,##,##,##,###.00"
+		},
+		{
+			"name":"currency",
+			"label":"Currency",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"CURRENCY"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		}
+	],
+	"fieldGroups": {
+	}
+}

@@ -1,0 +1,103 @@
+{
+"name" : "auctionChargeSlabs",
+"tableName" : "AuctionChargeSlabs",
+"columnPrefix" : "ACS",
+"desc" : "Auction Charge Slabs : The charges leved by TREDS platform which can be absolute/percentage.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "acpId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"desc":"Plan Identifier."
+		},
+		{
+			"name":"minAmount",
+			"label":"Min Amount (inclusive)",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"maxAmount",
+			"label":"Max Amount (exclusive)",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"notNull": true
+		},
+		{
+			"name":"chargeType",
+			"label":"Charge Type",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Absolute", "value":"A"},{"text":"Percentage", "value":"P"},{"text":"Threshold", "value":"T"}]
+		},
+		{
+			"name":"chargePercentValue",
+			"label":"Charge Percent Value ",
+			"dataType":"DECIMAL",
+			"integerLength":3,
+			"decimalLength":2,
+			"minValue": 0,
+			"maxValue": 100
+		},
+		{
+			"name":"chargeAbsoluteValue",
+			"label":"Charge Absolute Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 1
+		},
+		{
+			"name":"chargeMaxValue",
+			"label":"Max Value",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"minValue": 0
+		},
+		{
+			"name":"extendedChargeRate",
+			"label":"Extended Charge Rate",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2,
+			"maxValue": 100,
+			"notNull": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert":["minAmount","maxAmount","chargeType","chargePercentValue","chargeMaxValue","chargeAbsoluteValue","extendedChargeRate","recordCreator","recordCreateTime","recordVersion"],
+		"update":["id","minAmount","maxAmount","chargeType","chargePercentValue","chargeMaxValue","chargeAbsoluteValue","extendedChargeRate","recordUpdator","recordUpdateTime","recordVersion"],
+		"delete":["recordVersion","recordUpdator"]
+	}
+}

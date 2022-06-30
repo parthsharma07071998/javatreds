@@ -1,0 +1,4 @@
+{
+"message":"Dear customer, your OTP is {{otp}}." 
+, "messageOG":"Dear {{name}}, Your OTP for {{action}} is {{otp}}."
+}

@@ -1,0 +1,26 @@
+{
+  "name": "instFactUnitBidFilter",
+  "desc": "Instrument Report: It is List Field Which are from instrument,FactUnit and Bid. ",
+  "fields": [
+    {
+      	"name":"inst_",
+		"label":"Intrument bean",
+		"ref": "com/xlx/treds/instrument/bean/InstrumentBean.json"
+    },
+    {
+      	"name":"fact_",
+		"label":"FactoringUnit bean",
+		"ref": "com/xlx/treds/instrument/bean/FactoringUnitBean.json"
+    },
+    {
+      	"name":"bid_",
+		"label":"Bid bean",
+		"ref": "com/xlx/treds/auction/bean/BidBean.json"
+    },
+    {
+      	"name":"gst_",
+		"label":"Gst bean",
+		"ref": "com/xlx/treds/instrument/bean/GstSummaryBean.json"
+    }
+  ]
+}

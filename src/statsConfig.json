@@ -1,0 +1,24 @@
+{
+	"statsList" : [
+	    {
+	    	"class" : "com.xlx.treds.stats.InstInvoiceStatCache"
+			,"stat" : "INSTINV"
+			,"config": { 
+				"instrumentCount":10
+				,"expiry":86400000
+				,"maxAmtOccurrence":8
+				,"beanMetaFile":"com\\xlx\\treds\\stats\\bean\\InstStatsCacheBean.json"
+				,"beanClass":"com.xlx.commonn.GenericBean"
+			}
+        },
+        {
+	    	"class" : "com.xlx.treds.stats.PurchaserSupplierLinkCache"
+			,"stat" : "PSLNK"
+			,"config": { 
+				"beanMetaFile":"com\\xlx\\treds\\stats\\bean\\PurSupStatsCacheBean.json"
+				,"beanClass":"com.xlx.commonn.GenericBean"
+				,"expiry":86400000
+			}
+        }
+    ]
+}

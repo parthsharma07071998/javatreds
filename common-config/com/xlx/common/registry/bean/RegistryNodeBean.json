@@ -1,0 +1,51 @@
+{
+	"name": "registrynodes",
+	"tableName" : "RegistryNodes",
+	"columnPrefix" : "RN",
+	"desc" : "Registry Nodes",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "name",
+			"label": "Name",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 62
+		},
+		{
+			"name": "ParentId",
+			"label": "Parent Id",
+			"dataType":"INTEGER"
+		},
+		{
+			"name": "description",
+			"label": "Description",
+			"dataType":"STRING",
+			"maxLength": 254
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	]
+}

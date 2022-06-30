@@ -1,0 +1,60 @@
+{
+	"name": "ewaybilldetails",
+	"tableName": "EwayBillDetails",
+	"columnPrefix": "EB",
+	"desc": "",
+	"fields": [{
+			"name": "id",
+			"fieldType": "PRIMARY",
+			"dataType": "INTEGER",
+			"autoNum": true
+		},
+		{
+			"name": "supplier",
+			"label": "Supplier",
+			"dataType": "STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+		{
+			"name":"instNumber",
+			"label":"Invoice Number",
+			"dataType":"STRING",
+			"maxLength": 30,
+			"notNull": true
+		},
+				{
+			"name":"ewayBillNo",
+			"label":"E-Way Bill No",
+			"maxLength":30,
+			"dataType":"STRING",
+			"notNull": true
+		},
+		{
+			"name": "gstrPayload",
+			"label": "gstr Payload",
+			"dataType": "STRING",
+			"maxLength": 4000
+		},
+		{
+			"name": "ewayPayload",
+			"label": "eway Payload",
+			"dataType": "STRING",
+			"maxLength": 4000
+		},
+		{
+			"name": "tredsPayload",
+			"label": "treds Payload",
+			"dataType": "STRING",
+			"maxLength": 1000
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordCreator",
+			"fieldType": "CREATOR"
+		}
+	]
+}

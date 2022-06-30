@@ -1,0 +1,27 @@
+{
+"subject":"Notice of Assignment.",
+"body":"
+{{{header}}}
+
+Dear Sir/Madam,<br>
+<br>
+The receivables of your various sellers have been financed through the RXIL TREDS platform. The details are:<br>
+<br>
+<table>
+<tr><td><b>SellerName</b></td><td>{{sName}}</td></tr>
+<tr><td><b>No. of Factoring units</b></td><td>{{fuCount}}</td></tr>
+<tr><td><b>Amount successfully factored</b></td><td>&#8377; {{totalFactAmt}}</td></tr>
+</table>
+<br>
+<br>
+The factoring unit details along with assignment for all the above Sellers are attached herewith.
+<br>
+<br>
+The Notice of assignment can also be seen by clicking the Notice of Assignment button in the Settlements->Show Breakup TAB.
+<br>
+<br>
+{{{footer}}}
+",
+"mimeType":"text/html",
+"attachments":[{"path":"{{logoImg}}","cid":"logoImg"}]
+}

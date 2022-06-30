@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+          version="3.0">
+<display-name></display-name>
+<!-- 
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>com.xlx.common.base.ControllerServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/ControllerServlet</url-pattern>
+    </servlet-mapping>
+    -->
+    <servlet>  
+    <servlet-name>Jersey REST Service</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>  
+     
+    
+   <init-param>
+
+	
+   <param-name>javax.ws.rs.Application</param-name>
+   <param-value>com.xlx.treds.AppInitializer</param-value>
+<!-- Original values - put the 2 lines on 2017-01-10
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>de.vogella.jersey.first</param-value>
+ -->   
+ </init-param>
+   
+    <load-on-startup>1</load-on-startup>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>Jersey REST Service</servlet-name>  
+    <url-pattern>/rest/*</url-pattern>  
+  </servlet-mapping>  
+
+  <!-- 
+<context-param>
+  <param-name>com.example.DEBUG_API_ENABLED</param-name>
+  <param-value>true</param-value>
+</context-param>     
+     
+     
+    <filter>
+        <filter-name>XSSFilter</filter-name>
+        <filter-class>com.xlx.common.http.filter.XSSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>XSSFilter</filter-name>
+        <servlet-name>ControllerServlet</servlet-name>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>JSPFilter</filter-name>
+        <filter-class>com.xlx.common.http.filter.JSPFilter</filter-class>
+        <init-param>
+            <param-name>headers</param-name>
+            <param-value>Cache-control|no-store~Cache-control|no-cache</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>JSPFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+ 
+    <filter>
+        <filter-name>RestFilter</filter-name>
+        <filter-class>com.xlx.common.http.filter.RestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    -->
+    <!-- OAuth New -->
+    <servlet>
+        <servlet-name>OAuthServlet</servlet-name>
+        <servlet-class>com.xlx.common.oauth.servlet.OAuthServlet</servlet-class>
+        <init-param>
+            <param-name>SuccessPath</param-name>
+            <param-value>auth/loginSuccess.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ErrorPath</param-name>
+            <param-value>auth/loginError.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>OAuthHandler</param-name>
+            <param-value>com.xlx.tailor.oauth.TailorOAuthHandler</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OAuthServlet</servlet-name>
+        <url-pattern>/OAuth</url-pattern>
+    </servlet-mapping>
+    <!-- OAuth New Ends -->
+    
+    <!-- OAuth 
+    <servlet>
+        <servlet-name>GoogleLoginServlet</servlet-name>
+        <servlet-class>com.xlx.common.oauth.servlet.GoogleLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoogleLoginServlet</servlet-name>
+        <url-pattern>/GoogleLogin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GoogleResponseHandler</servlet-name>
+        <servlet-class>com.xlx.common.oauth.servlet.GoogleResponseHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoogleResponseHandler</servlet-name>
+        <url-pattern>/GoogleResp</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FacebookLoginServlet</servlet-name>
+        <servlet-class>com.xlx.common.oauth.servlet.FacebookLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacebookLoginServlet</servlet-name>
+        <url-pattern>/FBLogin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FacebookResponseHandler</servlet-name>
+        <servlet-class>com.xlx.common.oauth.servlet.FacebookResponseHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacebookResponseHandler</servlet-name>
+        <url-pattern>/FBResp</url-pattern>
+    </servlet-mapping>
+    -->
+    <!-- OAuth Ends -->
+           <servlet>
+                <servlet-name>Manager</servlet-name>
+                <servlet-class>com.xlx.common.other.command.Manager</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>Manager</servlet-name>
+                <url-pattern>/jsp1/Manager</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>Manager</servlet-name>
+                <url-pattern>/jsp2/Manager</url-pattern>
+        </servlet-mapping>
+        <servlet>
+                <servlet-name>ManagerD</servlet-name>
+                <servlet-class>com.xlx.common.other.command.ManagerD</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>ManagerD</servlet-name>
+                <url-pattern>/jsp1/ManagerD</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>ManagerD</servlet-name>
+                <url-pattern>/jsp2/ManagerD</url-pattern>
+        </servlet-mapping>
+        <security-constraint>
+                <web-resource-collection>
+                        <web-resource-name>Protected Area</web-resource-name>
+                        <url-pattern>/jsp1/*</url-pattern>
+                        <http-method>DELETE</http-method>
+                        <http-method>GET</http-method>
+                        <http-method>POST</http-method>
+                        <http-method>PUT</http-method>
+                </web-resource-collection>
+                <auth-constraint>
+                        <role-name>appmanager</role-name>
+                </auth-constraint>
+        </security-constraint>
+        <security-constraint>
+                <web-resource-collection>
+                        <web-resource-name>Protected Area</web-resource-name>
+                        <url-pattern>/jsp2/*</url-pattern>
+                        <http-method>DELETE</http-method>
+                        <http-method>GET</http-method>
+                        <http-method>POST</http-method>
+                        <http-method>PUT</http-method>
+                </web-resource-collection>
+                <auth-constraint>
+                        <role-name>appmanager</role-name>
+                </auth-constraint>
+        </security-constraint>
+        <login-config>
+                <auth-method>BASIC</auth-method>
+                <realm-name>Example Basic Authentication Area</realm-name>
+        </login-config>
+        <security-role>
+                <role-name>appmanager</role-name>
+        </security-role>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <location>/rest/errorpage</location>
+    </error-page>
+
+</web-app>

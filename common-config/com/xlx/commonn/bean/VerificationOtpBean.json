@@ -1,0 +1,100 @@
+{
+	"name": "VerificationOtp",
+	"tableName" : "verificationotps",
+	"columnPrefix" : "VO",
+	"desc" : "Verification OTP",
+	"fields": [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"autoNum":true
+		},
+		{
+			"name": "auId",
+			"label": "User Id",
+			"dataType":"INTEGER",
+			"notNull":false
+		},
+		{
+			"name": "method",
+			"label": "Method",
+			"dataType":"STRING",
+			"notNull":false,
+			"maxLength": 10
+		},
+		{
+			"name": "key",
+			"label": "Key",
+			"dataType":"STRING",
+			"notNull":false,
+			"maxLength": 50
+		},
+		{
+			"name": "otp",
+			"label": "otp",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 10
+		},
+		{
+			"name": "url",
+			"label": "URL",
+			"dataType":"STRING",
+			"notNull":true,
+			"maxLength": 2000
+		},
+		{
+			"name": "hash",
+			"label": "Hash",
+			"dataType":"STRING",
+			"notNull":false,
+			"maxLength": 50
+		},
+		{
+			"name": "expiry",
+			"label": "Expiry",
+			"dataType":"DATETIME",
+			"notNull":true,
+		},
+		{
+			"name":"active",
+			"label": "Active",
+			"dataType": "STRING",
+			"maxLength": 1,
+			"notNull":true,
+			"dataSetType": "ENUM",
+			"dataSetValues": "com.xlx.commonn.CommonAppConstants.YesNo"
+		},
+		{
+			"name": "sendCount",
+			"label": "Send Count",
+			"dataType":"INTEGER",
+			"notNull":false
+		},
+		{
+			"name": "retryCount",
+			"label": "Retry Count",
+			"dataType":"INTEGER",
+			"notNull":false
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+	    "status": ["active","recordVersion"],
+	    "expiry": ["expiry","recordVersion"],
+	    "retry": ["retryCount","recordVersion"],
+	    "cpResend": ["id","active","sendCount","recordCreator","recordCreateTime","recordVersion"]
+    }
+  }
+}

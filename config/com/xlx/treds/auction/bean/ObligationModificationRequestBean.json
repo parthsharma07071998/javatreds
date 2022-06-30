@@ -1,0 +1,138 @@
+{
+"name" : "obliModReq",
+"tableName" : "ObligationsModiRequests",
+"columnPrefix" : "OMR",
+"desc" : "Obligation Modification Request",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType":"INTEGER",
+			"notNull":true,
+			"desc":"Internal unique identifier of the record."
+		},
+		{
+			"name":"fuId",
+			"label":"Factoring Unit",
+			"dataType":"INTEGER",
+			"notNull": true
+		},
+		{
+			"name": "partNumber",
+			"label":"PartNo",
+			"notNull": true,
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"type",
+			"label":"Type",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.treds.auction.bean.ObligationSplitsBean.Type",
+			"desc":"The Leg of the obligation transaction."
+		},
+		{
+			"name":"date",
+			"label":"Request Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 3,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues": [{"text":"Created", "value":"CRT"},{"text":"Sent", "value":"SNT"},{"text":"Rejected", "value":"REJ"},{"text":"Approved", "value":"APP"},{"text":"Applied", "value":"APL"}],
+			"desc":"Current status of obligation."
+		},
+		{
+			"name": "obliModDetailsList",
+			"label": "Modification Details",
+			"dataType": "OBJECT",
+			"objectClass": "com.xlx.treds.auction.bean.ObligationModificationDetailBean",
+			"nonDatabase":true,
+			"allowMultiple": true
+		},
+		{
+			"name":"createDate",
+			"label":"Create Date",
+			"dataType":"DATE",
+			"notNull": true
+		},
+		{
+			"name": "createrAuId",
+			"label":"Creator Id",
+			"notNull": true,
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"createrName",
+			"label":"Creater Name",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "createrLogin",
+			"label": "Creater Login",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name":"approveRejectDate",
+			"label":"Approval/Rejection Date",
+			"dataType":"DATE"
+		},
+		{
+			"name": "approveRejectAuId",
+			"label":"Approver/Rejector Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name":"approveRejectName",
+			"label":"Approver/Rejector Name",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name": "approveRejectLogin",
+			"label": "Approver/Rejector Login",
+			"dataType":"STRING",
+			"nonDatabase":true
+		},
+		{
+			"name":"remarks",
+			"label":"Remarks",
+			"dataType": "STRING",
+			"maxLength":200
+		},
+		{
+			"name": "isPreModification",
+			"label": "Pre Modification Flag",
+			"dataType": "STRING",
+			"dataSetType":"ENUM",
+			"dataSetValues":"com.xlx.commonn.CommonAppConstants.YesNo",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+	"fieldGroups": {
+		"insert": ["id","fuId","partNumber","type","date","status","createDate","createrAuId"],
+		"approveReject": ["status","approveRejectAuId","approveRejectDate","recordUpdator","recordUpdateTime","recordVersion","remarks"],
+		"updateStatus" : ["status","recordUpdator","recordUpdateTime","recordVersion"]
+    }
+}

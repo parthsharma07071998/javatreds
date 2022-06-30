@@ -1,0 +1,95 @@
+{
+"name" : "purcsupplmtutil",
+"tableName" : "PurcSuppLimitUtilizations",
+"columnPrefix" : "PSLU",
+"desc" : "Buyer Seller Limit Utilization : The table stores utilization limits set by the Buyer for the Seller. The limits are checked while adding the factoring unit for auction.",
+"fields" : [
+		{
+			"name":"id",
+			"fieldType": "PRIMARY",
+			"autoNum": true,
+			"desc":"Internal primary identifier of the record."
+		},
+		{
+			"name":"supplier",
+			"label":"Seller",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "pursuplnk/supplier"
+		},
+		{
+			"name":"purchaser",
+			"label":"Buyer",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"notNull": true,
+			"dataSetType":"RESOURCE",
+			"dataSetValues": "pursuplnk/purchaser"
+		},
+		{
+			"name":"limit",
+			"label":"Limit",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"limitUtilized",
+			"label":"Limit Utilized",
+			"dataType":"DECIMAL",
+			"integerLength":10,
+			"decimalLength":2
+		},
+		{
+			"name":"status",
+			"label":"Status",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"notNull": true,
+			"dataSetType": "STATIC",
+			"dataSetValues":[{"text":"Active", "value":"A"},{"text":"Disabled", "value":"D"}]
+		},
+		{
+			"name":"supName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name":"purName",
+			"dataType":"STRING",
+			"nonDatabase": true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR",
+			"desc":"Internal id of the logged-in-user entering the details."
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME",
+			"desc":"Internal time at which the record was created."
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR",
+			"desc":"Internal id of the logged-in-user updating the details."
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME",
+			"desc":"Internal time at which the record was updated."
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION",
+			"desc":"Internal record versioning counter."
+		}
+	],
+	"fieldGroups": {
+		"insert":["supplier","status","limit"],
+        "update": ["id","status","limit","recordVersion"],
+        "updateStatus": ["id","limitUtilized","recordVersion"],
+    }
+}

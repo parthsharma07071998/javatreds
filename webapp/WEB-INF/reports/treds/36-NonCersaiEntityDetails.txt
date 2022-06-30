@@ -1,0 +1,9 @@
+select CDCODE,CDCOMPANYNAME,CDSUPPLIERFLAG,CDPURCHASERFLAG,CDFINANCIERFLAG,cdApprovalstatus,'' cccersaifirstname,'' ccpan 
+from companydetails_p
+where cdid not in ( select cccdid from companycontacts where CCCERSAIFLAG = 'Y'  group by cccdid ) ;
+union
+select CDCODE,CDCOMPANYNAME,CDSUPPLIERFLAG,CDPURCHASERFLAG,CDFINANCIERFLAG,cdApprovalstatus,cccersaifirstname,ccpan
+from companydetails_p
+join companycontacts on cccdid = cdid
+where CCCERSAIFLAG = 'Y'
+and ccpan is null

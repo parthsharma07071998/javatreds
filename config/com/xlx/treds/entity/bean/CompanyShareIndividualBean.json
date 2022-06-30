@@ -1,0 +1,112 @@
+{
+"name" : "companyshareindividual",
+"tableName" : "CompanyShareIndividual",
+"columnPrefix" : "CSI",
+"desc" : "ShareHolder Individual : List of contact details related to the different individual shareholder of the Company.",
+"fields" : [
+		{
+			"name": "id",
+			"fieldType":"PRIMARY",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "cdId",
+			"dataType": "INTEGER",
+			"notNull": true,
+			"nonJson": true
+		},
+		{
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/Contact.json"
+		},
+		{
+			"ref": "com/xlx/treds/config/AddressShareHolder.json"
+		},
+		{
+			"name": "DOB",
+			"label": "Date of Birth",
+			"dataType": "DATE",
+			"notNull": true
+		},
+		{
+			"name": "designation",
+			"label": "Designation",
+			"dataType": "STRING",
+			"maxLength": 5,
+			"dataSetType":"REFCODE",
+			"dataSetValues":"DESIGNATION_CONTACT"
+		},
+		{
+			"name":"family",
+			"label":"Father / Spouse",
+			"ref": "com/xlx/treds/config/Name.json"
+		},
+		{
+			"name": "pan",
+			"label": "PAN",
+			"dataType": "STRING",
+			"maxLength": 10,
+			"conversion" : ["toUpper"],
+			"pattern": "PATTERN_PAN"
+		},
+		{
+			"name":"companyCode",
+			"label":"Company Code",
+			"dataType":"STRING",
+			"maxLength": 10,
+			"nonDatabase":true
+		},
+		{
+			"name": "creatorIdentity",
+			"label": "Creator Identification",
+			"dataType":"STRING",
+			"maxLength": 1,
+			"nonDatabase":true
+		},
+		{
+			"name": "modifiedData",
+			"label": "Modified Data",
+			"dataType":"STRING",
+			"maxLength": 4000,
+			"nonDatabase":true
+		},
+		{
+			"name": "refId",
+			"label": "Ref Id",
+			"dataType": "INTEGER"
+		},
+		{
+			"name": "isProvisional",
+			"label": "Is Provisional",
+			"dataType":"BOOLEAN",
+			"nonDatabase":true
+		},
+		{
+			"name": "recordCreator",
+			"fieldType":"CREATOR"
+		},
+		{
+			"name": "recordCreateTime",
+			"fieldType":"CREATETIME"
+		},
+		{
+			"name": "recordUpdator",
+			"fieldType":"UPDATOR"
+		},
+		{
+			"name": "recordUpdateTime",
+			"fieldType":"UPDATETIME"
+		},
+		{
+			"name": "recordVersion",
+			"fieldType":"RECORDVERSION"
+		}
+	],
+"fieldGroups" : {
+	"insertshareindividual": ["id","cdId","salutation","firstName","middleName","lastName","email","pan","telephone","mobile","fax","DOB","designation","familySalutation","familyFirstName","familyMiddleName","familyLastName","line1","line2","line3","country","state","district","city","zipCode","recordCreator","recordCreateTime","recordVersion"],
+		"updateshareindividual": ["id","cdId","salutation","firstName","middleName","lastName","email","pan","telephone","mobile","fax","DOB","designation","familySalutation","familyFirstName","familyMiddleName","familyLastName","line1","line2","line3","country","state","district","city","zipCode","recordCreator","recordCreateTime","recordVersion"],
+		"update": ["id","cdId","salutation","firstName","middleName","lastName","email","pan","telephone","mobile","fax","DOB","designation","familySalutation","familyFirstName","familyMiddleName","familyLastName","line1","line2","line3","country","state","district","city","zipCode","recordUpdator","recordUpdateTime","recordVersion"]
+	}
+}
